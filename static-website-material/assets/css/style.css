@@ -22,7 +22,6 @@
 .rounded-page {
     border-radius: 30px;
     position: relative;
-    z-index: 1;
     background-color: white;
     box-shadow: -2px 0px 10px -5px #5e6061;
     padding-bottom: 10px;
@@ -129,6 +128,7 @@ tbody > tr:nth-child(odd) {
     align-items: center;
     border: 1px solid #34974d;
     background-color: #3aa856;
+    margin: 0 0 -30px 36px;
 }
 
 .add-button, .add-button__icon, .add-button__text {
@@ -277,6 +277,9 @@ tbody > tr:nth-child(odd) {
 }
 .modal-form-container form {
     width: 100%;
+}
+.modal-content {
+    width: 124%;
 }
 /* Message page */
 .media:hover {
@@ -433,4 +436,81 @@ td {
     height: 25px;
     text-align: center;
     border-radius: 15px;
+}
+/* Side Menu */
+.sidebar {
+    height: 100vh;
+    overflow-y: auto;
+    transition: 0.5s;
+}
+/* Responsive */
+
+@media (min-width: 992px) {
+    /* Side Menu */
+    .sidebar {
+        margin-left: 0;
+    }
+
+    .sidebar.open {
+        margin-left: -290px;
+    }
+    .rounded-page {
+        margin-left: 290px;
+    }
+    .sidebar-toggler {
+        display: none;
+    }
+    /* Search Bar */
+    .search-form {
+        width: 30vw;
+    }
+}
+
+@media (max-width: 991.98px) {
+    /* Side Menu */
+    .sidebar {
+        margin-left: -290px;
+    }
+
+    .sidebar.open {
+        margin-left: 0;
+    }
+    .rounded-page {
+        margin-left: 0;
+    }
+    .sidebar-toggler {
+        display: flex;
+        position: fixed;
+        top: 50%;
+        z-index: 999;
+        background-color: rgb(246,135,19, .5);
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 25px 25px 0;
+        transition: 0.5s;
+    }
+    .toggler-open {
+        margin-left: 280px;
+    }
+    .toggler-open i {
+        transform: rotate(180deg);
+    }
+    /* Search Bar */
+    .search-form {
+        width: 30vw;
+    }
+    /* Pages */
+    .rounded-page {
+        height: fit-content;
+    }
+    .rounded-page nav {
+        flex-wrap: wrap;
+    }
+    .modal-form-container {
+        flex-direction: column;
+    }
+    .modal-content {
+        width: 100%;
+    }
 }

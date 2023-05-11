@@ -115,7 +115,7 @@
     <body>
         <div class="d-flex main-vp">
             <!-- Side menu start-->
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top" style="width: 280px; height: 47vw;">
+            <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top" style="width: 280px;">
                 <div class="d-flex justify-content-between align-items-center">
                     <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
                     <img src="https://github.com/mdo.png" alt="" width="45" height="45" class="rounded-circle me-2">
@@ -170,6 +170,9 @@
                     <span>Copyright<i class="fas fa-copyright px-2" style="font-weight: 100;"></i>Aladin</span>
                 </div>
             </div>
+            <div class="sidebar-toggler">
+                <i class="bi bi-caret-right-fill"></i>
+            </div>
             <!-- Side menu end-->
 
             <!-- Home Page start-->
@@ -179,7 +182,7 @@
                         <br>
                         <p class="text-secondary">Everything here</p>
                     </a>
-                    <form class="search-form mt-1" style="width: 400px">
+                    <form class="search-form mt-1">
                         <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
                         <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
                     </form>
@@ -247,7 +250,7 @@
                 </div>
                 <div class="container-fluid pt-4 px-4">
                     <div class="row g-4">
-                        <div class="col-sm-12 col-md-6 col-xl-12 ">
+                        <div class="col-sm-12 col-md-12 col-xl-12 ">
                             <div class="h-100 bg-secondary-subtle rounded p-4">
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <h6 class="mb-0">To Do List</h6>
@@ -304,10 +307,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div>  
                 </div>
-
             </div>
             <!-- Home Page end-->
 
@@ -318,7 +319,7 @@
                         <br>
                         <p class="text-secondary">Manage your products here</p>
                     </a>
-                    <form class="search-form mt-1" style="width: 400px">
+                    <form class="search-form mt-1">
                         <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
                         <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
                     </form>
@@ -333,71 +334,77 @@
                     <span class="add-button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                 </button></a>
                 <br>
-                <table class="table table-bordered border-black table-hover">
-                    <thead>
-                        <tr>
-                          <th scope="col" class="fs-5"><strong>#</strong></th>
-                          <th scope="col" class="fs-5"><strong>Name</strong></th>
-                          <th scope="col" class="fs-5"><strong>Image</strong></th>
-                          <th scope="col" class="fs-5"><strong>Price</strong></th>
-                          <th scope="col" class="fs-5"><strong>Description</strong></th>
-                          <th scope="col" class="fs-5"><strong>Category</strong></th>
-                          <th scope="col" class="fs-5"><strong>Added Date</strong></th>
-                          <th scope="col" class="fs-5"><strong>Amount</strong></th>
-                          <th scope="col" class="fs-5"><strong>Action</strong></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row" class="align-middle">1</th>
-                          <td>Clothe</td>
-                          <td><img src="/aladin-group/static-website-material/assets/images/clothe.png" alt="" width="200px" height="200px"></td>
-                          <td>$99.99</td>
-                          <td>Description </td>
-                          <td>Clothe</td>
-                          <td>DD/MM/YYYY</td>
-                          <td>999</td>
-                          <td>
-                            <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" type="button">
-                                <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#f68713" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
-                                <span class="lable">Edit</span>
-                            </button>
-                        </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="align-middle">2</th>
-                            <td>Clothe</td>
-                            <td><img src="/aladin-group/static-website-material/assets/images/clothe.png" alt="" width="200px" height="200px"></td>
-                            <td>$99.99</td>
-                            <td> Description</td>
-                            <td>Clothe</td>
-                            <td>DD/MM/YYYY</td>
-                            <td>999</td>
-                            <td>
-                                <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" type="button">
-                                    <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#f68713" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
-                                    <span class="lable">Edit</span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="align-middle">3</th>
-                            <td>Clothe</td>
-                            <td><img src="/aladin-group/static-website-material/assets/images/clothe.png" alt="" width="200px" height="200px"></td>
-                            <td>$99.99</td>
-                            <td> Description</td>
-                            <td>Clothe</td>
-                            <td>DD/MM/YYYY</td>
-                            <td>999</td>
-                            <td>
-                                <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" type="button">
-                                    <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#f68713" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
-                                    <span class="lable">Edit</span>
-                                </button>
-                            </td>
-                        </tr>
-                      </tbody>
-                </table>
+                <div class="container-fluid">
+                    <div class="rounded h-100 p-4">
+                        <div class="table-responsive">
+                            <table class="table table-bordered border-black table-hover">
+                                <thead>
+                                    <tr>
+                                    <th scope="col" class="fs-5"><strong>#</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Name</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Image</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Price</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Description</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Category</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Added Date</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Amount</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Action</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row" class="align-middle">1</th>
+                                    <td>Clothe</td>
+                                    <td><img src="/aladin-group/static-website-material/assets/images/clothe.png" alt="" width="200px" height="200px"></td>
+                                    <td>$99.99</td>
+                                    <td>Description </td>
+                                    <td>Clothe</td>
+                                    <td>DD/MM/YYYY</td>
+                                    <td>999</td>
+                                    <td>
+                                        <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" type="button">
+                                            <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#f68713" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
+                                            <span class="lable">Edit</span>
+                                        </button>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="align-middle">2</th>
+                                        <td>Clothe</td>
+                                        <td><img src="/aladin-group/static-website-material/assets/images/clothe.png" alt="" width="200px" height="200px"></td>
+                                        <td>$99.99</td>
+                                        <td> Description</td>
+                                        <td>Clothe</td>
+                                        <td>DD/MM/YYYY</td>
+                                        <td>999</td>
+                                        <td>
+                                            <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" type="button">
+                                                <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#f68713" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
+                                                <span class="lable">Edit</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="align-middle">3</th>
+                                        <td>Clothe</td>
+                                        <td><img src="/aladin-group/static-website-material/assets/images/clothe.png" alt="" width="200px" height="200px"></td>
+                                        <td>$99.99</td>
+                                        <td> Description</td>
+                                        <td>Clothe</td>
+                                        <td>DD/MM/YYYY</td>
+                                        <td>999</td>
+                                        <td>
+                                            <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" type="button">
+                                                <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#f68713" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
+                                                <span class="lable">Edit</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Product Page end-->
 
@@ -408,7 +415,7 @@
                         <br>
                         <p class="text-secondary">Add your products here</p>
                     </a>
-                    <form class="search-form mt-1" style="width: 400px">
+                    <form class="search-form mt-1">
                         <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
                         <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
                     </form>
@@ -517,7 +524,7 @@
                         <br>
                         <p class="text-secondary">View your orders here</p>
                     </a>
-                    <form class="search-form mt-1" style="width: 400px">
+                    <form class="search-form mt-1">
                         <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
                         <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
                     </form>
@@ -529,75 +536,77 @@
                 <br>
                 <div class="container-fluid">
                     <div class="rounded h-100 p-4">
-                        <table class="table table-hover text-start order-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="text-secondary"><strong>ID</strong></th>
-                                    <th scope="col" class="text-secondary"><strong>Date</strong></th>
-                                    <th scope="col" class="text-secondary"><strong>Products</strong></th>
-                                    <th scope="col" class="text-secondary"><strong>Payment</strong></th>
-                                    <th scope="col" class="text-secondary"><strong>Fulfilment</strong></th>
-                                    <th scope="col" class="text-secondary"><strong>Total</strong></th>
-                                    <th scope="col" class="text-secondary"><strong></strong></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th class="order-id"scope="row">#A580</th>
-                                    <td>DD/MM/YYYY</td>
-                                    <td>Clothe</td>
-                                    <td><span class="paid">Paid</span></td>
-                                    <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
-                                    <td><strong>$99.99</strong></td>
-                                    <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                </tr>
-                                <tr>
-                                    <th class="order-id"scope="row">#B260</th>
-                                    <td>DD/MM/YYYY</td>
-                                    <td>Clothe</td>
-                                    <td><span class="paid">Paid</span></td>
-                                    <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
-                                    <td><strong>$99.99</strong></td>
-                                    <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                </tr>
-                                <tr>
-                                    <th class="order-id"scope="row">#A583</th>
-                                    <td>DD/MM/YYYY</td>
-                                    <td>Clothe</td>
-                                    <td><span class="unpaid">Unpaid</span></td>
-                                    <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>In Progress</td>
-                                    <td><strong>$99.99</strong></td>
-                                    <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                </tr>
-                                <tr>
-                                    <th class="order-id"scope="row">#A584</th>
-                                    <td>DD/MM/YYYY</td>
-                                    <td>Clothe</td>
-                                    <td><span class="paid">Paid</span></td>
-                                    <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
-                                    <td><strong>$99.99</strong></td>
-                                    <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                </tr>
-                                <tr>
-                                    <th class="order-id"scope="row">#A076</th>
-                                    <td>DD/MM/YYYY</td>
-                                    <td>Clothe</td>
-                                    <td><span class="unpaid">Unpaid</span></td>
-                                    <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-danger"></i>Cancel</td>
-                                    <td><strong>$99.99</strong></td>
-                                    <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                </tr>
-                                <tr>
-                                    <th class="order-id"scope="row">#A581</th>
-                                    <td>DD/MM/YYYY</td>
-                                    <td>Clothe</td>
-                                    <td><span class="paid">Paid</span></td>
-                                    <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
-                                    <td><strong>$99.99</strong></td>
-                                    <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-hover text-start order-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-secondary "><strong>ID</strong></th>
+                                        <th scope="col" class="text-secondary "><strong>Date</strong></th>
+                                        <th scope="col" class="text-secondary "><strong>Products</strong></th>
+                                        <th scope="col" class="text-secondary "><strong>Payment</strong></th>
+                                        <th scope="col" class="text-secondary "><strong>Fulfilment</strong></th>
+                                        <th scope="col" class="text-secondary "><strong>Total</strong></th>
+                                        <th scope="col" class="text-secondary "><strong></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="order-id "scope="row">#A580</th>
+                                        <td>DD/MM/YYYY</td>
+                                        <td>Clothe</td>
+                                        <td><span class="paid">Paid</span></td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
+                                        <td><strong>$99.99</strong></td>
+                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="order-id"scope="row">#B260</th>
+                                        <td>DD/MM/YYYY</td>
+                                        <td>Clothe</td>
+                                        <td><span class="paid">Paid</span></td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
+                                        <td><strong>$99.99</strong></td>
+                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="order-id"scope="row">#A583</th>
+                                        <td>DD/MM/YYYY</td>
+                                        <td>Clothe</td>
+                                        <td><span class="unpaid">Unpaid</span></td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>In Progress</td>
+                                        <td><strong>$99.99</strong></td>
+                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="order-id"scope="row">#A584</th>
+                                        <td>DD/MM/YYYY</td>
+                                        <td>Clothe</td>
+                                        <td><span class="paid">Paid</span></td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
+                                        <td><strong>$99.99</strong></td>
+                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="order-id"scope="row">#A076</th>
+                                        <td>DD/MM/YYYY</td>
+                                        <td>Clothe</td>
+                                        <td><span class="unpaid">Unpaid</span></td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-danger"></i>Cancel</td>
+                                        <td><strong>$99.99</strong></td>
+                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="order-id"scope="row">#A581</th>
+                                        <td>DD/MM/YYYY</td>
+                                        <td>Clothe</td>
+                                        <td><span class="paid">Paid</span></td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
+                                        <td><strong>$99.99</strong></td>
+                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -610,7 +619,7 @@
                         <br>
                         <p class="text-secondary">View customers messages here</p>
                     </a>
-                    <form class="search-form mt-1" style="width: 400px">
+                    <form class="search-form mt-1">
                         <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
                         <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
                     </form>
@@ -628,7 +637,7 @@
                             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                             <strong class="d-block text-black fs-5">Cuong123</strong>
                             Hi, Is there size XXL for this tee?
-                            <span class="text-black position-absolute top-1 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
+                            <span class="text-black position-absolute bottom-0 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
                             </p>
                         </div>
                         <div class="media text-muted pt-3 position-relative">
@@ -636,7 +645,7 @@
                             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                             <span class="d-block text-black fs-5">Loc456</span>
                             I want to buy a blue big bear for my girlfriend. Do you have it?
-                            <span class="text-black position-absolute top-1 end-0">Today, 3:47 PM</span>
+                            <span class="text-black position-absolute bottom-0 end-0">Today, 3:47 PM</span>
                             </p>
                         </div>
                         <div class="media text-muted pt-3 position-relative">
@@ -645,7 +654,7 @@
                             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                             <strong class="d-block text-black fs-5">Hao789</strong>
                             I see your store sells this bag. Is there black ones?
-                            <span class="text-black position-absolute top-1 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
+                            <span class="text-black position-absolute bottom-0 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
                             </p>
                         </div>
                         <div class="media text-muted pt-3 position-relative">
@@ -654,7 +663,7 @@
                             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                             <strong class="d-block text-black fs-5">Minhjqk</strong>
                             Hello shop, Can I ask something?
-                            <span class="text-black position-absolute top-1 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
+                            <span class="text-black position-absolute bottom-0 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
                             </p>
                         </div>
                         <small class="d-block text-right mt-3">

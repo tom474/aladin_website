@@ -23,8 +23,7 @@ tabHome.addEventListener('click', () => {
     homePage.classList.remove('d-none');
 });
 
-
-// Using jQurey for making charts
+// Using jQurey for making charts and reponsive side menu
 (function ($) {
     "use strict";
     // Chart Global Color
@@ -73,6 +72,41 @@ tabHome.addEventListener('click', () => {
         options: {
             responsive: true
         }
+    });
+
+    // Sidebar Toggler
+    $('.sidebar-toggler').click(function () {
+        $('.sidebar').toggleClass("open");
+        return false;
+    });
+
+    $('.sidebar-toggler').click(function () {
+        $('.sidebar-toggler').toggleClass("toggler-open");
+        return false;
+    });
+
+    $(document).ready(function(){
+
+        // Check window size on page load
+        checkWindowSize();
+
+        // Check window size on resize
+        $(window).resize(function(){
+            checkWindowSize();
+        });
+
+        function checkWindowSize(){
+            var windowWidth = $(window).width();
+
+            if(windowWidth < 991.99){
+                $('.nav-link').click(function () {
+                    $('.sidebar').toggleClass("open");
+                    $('.sidebar-toggler').toggleClass("toggler-open");
+                });
+            }
+            return false;
+        }
+
     });
 })(jQuery);
 
