@@ -16,6 +16,15 @@ app.get('/register-customer', (req, res) => {
     res.render('register-customer')
 });
 
+app.get('/register-vendor', (req, res) => {
+    res.render('register-vendor')
+});
+
+app.get('/register-shipper', (req, res) => {
+    res.render('register-shipper')
+});
+
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });

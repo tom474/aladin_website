@@ -21,7 +21,7 @@ label {
 }
 
 #main_index {
-    background-image: url("/static-website-material/assets/images/customer_background.svg");
+    background-image: url("/images/register/customer_background.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -29,7 +29,7 @@ label {
 }
 
 #vendor_index {
-    background-image: url("/static-website-material/assets/images/vendors_background.svg");
+    background-image: url("/images/register/vendors_background.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -37,7 +37,7 @@ label {
 }
 
 #shipper_index {
-    background-image: url("/static-website-material/assets/images/shipper_background.svg");
+    background-image: url("/images/register/shipper_background.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -268,7 +268,7 @@ a:hover {
 }
 /* pfp */
 
-.caregory {
+.category {
     font-size: 25px;
     margin: 0px;
     margin-left: 30px;
@@ -328,7 +328,7 @@ a:hover {
         left: 55px;
     }
 
-    .caregory {
+    .category {
         font-size: 20px;
     }
 
@@ -432,7 +432,7 @@ a:hover {
     .logo img {
         height: 60px;
     }
-    .caregory {
+    .category {
         font-size: 18px;
         margin-left: 15px;
     }

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ('partials/head-register') %>
+    <body id="shipper_index">
+        <div class="container">
+            <div class="contents">
+                <div class="images">
+                    <div class="logo">
+                        <a href="#"
+                            ><img src="/images/register/aladin_logo.PNG"
+                        /></a>
+                        <h3 class="category">
+                            <a href="/register-customer" id="customer" href="#"
+                                >Customer</a
+                            >
+                            |
+                            <a href="/register-vendor" id="vendor" href="#"
+                                >Vendor</a
+                            >
+                            |
+                            <a href="/register-shipper" id="shipper" href="#"
+                                ><span>Shipper</span></a
+                            >
+                        </h3>
+                    </div>
+                    <div>
+                        <img
+                            id="corp_img"
+                            src="/images/register/shipper_image.svg"
+                        />
+                    </div>
+                </div>
+
+                <form action="#" method="post">
+                    <div class="form_title form_title_main">
+                        <h2>Become our deliver</h2>
+                    </div>
+                    <div class="form_title form_title_hidden">
+                        <h2>Become our delivery partner</h2>
+                    </div>
+                    <div class="contact_form">
+                        <div class="profile_pic">
+                            <img
+                                src="/images/register/Default_pfp.svg"
+                                title="choose a profile picture"
+                                id="photo"
+                            />
+                            <input
+                                type="file"
+                                id="file"
+                                name="pfp"
+                                accept="image/*"
+                                title="choose a profile picture"
+                            />
+                            <label
+                                for="file"
+                                id="upload_button"
+                                title="choose a profile picture"
+                                >Choose Photo</label
+                            >
+                        </div>
+
+                        <div class="input_box input username">
+                            <label>Username </label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder=""
+                                pattern="^[a-zA-Z0-9]{8,15}$"
+                                autofocus
+                                title="contains only letters (lower and upper case) and digits, has a length from 8 to 15 characters"
+                                required
+                            />
+                        </div>
+
+                        <div class="input_box input name">
+                            <label>Full name </label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                pattern=".{5,}"
+                                placeholder=""
+                                title="Please enter your name, minimum 5 charaters long"
+                                required
+                            />
+                        </div>
+
+                        <div class="input_box input email">
+                            <label>Email address </label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                pattern=".{5,}"
+                                title="enter your email address"
+                                placeholder=""
+                                required
+                            />
+                        </div>
+
+                        <div class="input_box input hub">
+                            <label>Distribution hub </label>
+                            <select
+                                class="hub"
+                                name="hub"
+                                id="hub"
+                                title="select a distribution hub"
+                                required
+                            >
+                                <option value=""></option>
+                                <option value="1">a</option>
+                                <option value="2">b</option>
+                                <option value="3">c</option>
+                            </select>
+                        </div>
+
+                        <div class="input_box input password">
+                            <label>Set password </label>
+                            <div>
+                                <input
+                                    id="password"
+                                    type="password"
+                                    name="pwd"
+                                    placeholder=""
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,20}"
+                                    title="Must contain at least one number, uppercase, lowercase letter, one special charater (!@#$%^&*), and length from 8 to 20 charaters"
+                                    required
+                                /><i
+                                    class="fa fa-eye-slash"
+                                    id="togglePassword"
+                                    style="margin-left: -30px; cursor: pointer"
+                                ></i>
+                            </div>
+                        </div>
+
+                        <div class="input_box terms">
+                            <div class="checkbox_option">
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        class="checkbox"
+                                        name="Terms"
+                                        id="terms"
+                                        title="Check this box if you agree to out terms and conditions"
+                                        required
+                                    />I have read and agree to the
+                                    <a href="#">terms and conditions</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input_box submit">
+                            <input
+                                type="submit"
+                                id="submit"
+                                value="Register"
+                                title="register account"
+                            />
+                        </div>
+
+                        <div class="input_box">
+                            <p id="login">
+                                Already have an account? <a href="/">Login</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <%- include ('partials/script-register') %>
+    </body>
+</html>
