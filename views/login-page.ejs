@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login Now!</title>
-        <%- include ('partials/head') %>
-    </head>
+    <%- include ('partials/head-login') %>
     <body>
-        <img class="wave" src="/images/wave.jpeg" />
-        <div class="container1">
-            <div class="img">
-                <img src="/images/bg.svg" />
-            </div>
-            <div class="login-content">
-                <form action="index.html">
-                    <img src="/images/Aladin logo official.png" />
-                    <h2 class="title">Login</h2>
-                    <div class="input-div one">
-                        <div class="i">
-                            <i class="fas fa-user"></i>
+        <div class="index">
+            <img class="wave" src="/images/login/wave.jpeg" />
+            <div class="container1">
+                <div class="img">
+                    <img src="/images/login/bg.svg" />
+                </div>
+                <div class="login-content">
+                    <form action="index.html" class="formindex">
+                        <img src="/images/login/aladin-logo-official.png" />
+                        <h2 class="title">Login</h2>
+                        <div class="input-div one">
+                            <div class="i">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="div">
+                                <h5>Username</h5>
+                                <input type="text" class="input" />
+                            </div>
                         </div>
-                        <div class="div">
-                            <h5>Username</h5>
-                            <input type="text" class="input" />
+                        <div class="input-div pass">
+                            <div class="i">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="div">
+                                <h5>Password</h5>
+                                <input type="password" class="input" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-div pass">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
+                        <input type="submit" class="btn1" value="Login" />
+                        <div class="signup_link">
+                            <a href="/register-customer">Register now!</a>
                         </div>
-                        <div class="div">
-                            <h5>Password</h5>
-                            <input type="password" class="input" />
-                        </div>
-                    </div>
-                    <input type="submit" class="btn1" value="Login" />
-                    <div class="signup_link">
-                        <a href="#">Register now!</a>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-        <%- include ('partials/scripts') %>
+        <%- include ('partials/script-login') %>
     </body>
 </html>

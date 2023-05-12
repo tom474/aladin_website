@@ -9,8 +9,12 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.render('login')
+    res.render('login-page')
 })
+
+app.get('/register-customer', (req, res) => {
+    res.render('register-customer')
+});
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

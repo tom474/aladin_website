@@ -1,89 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Account Details</title>
-    <%- include ('partials/head') %>
-</head>
-<body>
-    <section class="account-page">
-        <div class="py-5 my-5">
-            <div class="container">
-                <div class="text-center">
-                    <img src="assets/images/Aladinaccountdetail.png " alt="logo" class="w-25">
-                </div>
-                <div class="bg-white shadow rounded-lg d-block d-sm-flex">
-                    <div class="profile-tab-nav border-right">
-                        <div class="p-4">
-                            <div class="img-circle text-center mb-3">
-                                <label for="filetag"><img src="assets/images/avataraccount.png" alt="Image" id="preview" class="shadow"></label>
-                                <input type="file" id="filetag" class="d-none" />
-                            </div>
-                            <h4 style="text-align: center; font-weight: 50; font-size: medium   ;">Avatar</h4>
-                            <div class="username">
-                                <form>
-                                    <input style="text-align: center; border-radius: 10px;" type="text" name="" value="Hao Cheung">
-                                </form>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your Account Details</title>
+        <%- include ('partials/head') %>
+    </head>
+    <body>
+        <div class="account-page">
+            <section class="py-5 my-5">
+                <div class="container">
+                    <div class="text-center">
+                        <img
+                            src="assets/images/Aladinaccountdetail.png "
+                            alt="logo"
+                            class="w-25"
+                        />
+                    </div>
+                    <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+                        <div class="profile-tab-nav border-right">
+                            <div class="p-4">
+                                <div class="img-circle text-center mb-3">
+                                    <label for="filetag"
+                                        ><img
+                                            src="assets/images/avataraccount.png"
+                                            alt="Image"
+                                            id="preview"
+                                            class="shadow"
+                                    /></label>
+                                    <input
+                                        type="file"
+                                        id="filetag"
+                                        class="d-none"
+                                    />
+                                </div>
+                                <h4
+                                    style="
+                                        text-align: center;
+                                        font-weight: 50;
+                                        font-size: medium;
+                                    "
+                                >
+                                    Avatar
+                                </h4>
                             </div>
                         </div>
                     </div>
+                    <div class="username">
+                        <form1 id="accountform">
+                            <input
+                                style="text-align: center; border-radius: 10px"
+                                type="text"
+                                name=""
+                                value="Hao Cheung"
+                            />
+                        </form1>
+                    </div>
                     <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-                        <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+                        <div
+                            class="tab-pane fade show active"
+                            id="account"
+                            role="tabpanel"
+                            aria-labelledby="account-tab"
+                        >
                             <h3 class="mb-4">ACCOUNT DETAIL</h3>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                          <label>First Name</label>
-                                          <input type="text" class="form-control" value="Hao">
+                                        <label>First Name</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            value="Hao"
+                                        />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                          <label>Last Name</label>
-                                          <input type="text" class="form-control" value="Truong">
+                                        <label>Last Name</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            value="Truong"
+                                        />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                          <label>Email</label>
-                                          <input type="text" class="form-control" value="tuonghao2004@gmail.com">
+                                        <label>Email</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            value="tuonghao2004@gmail.com"
+                                        />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                          <label>Phone number</label>
-                                          <input type="text" class="form-control" value="+84 966877848">
+                                        <label>Phone number</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            value="+84 966877848"
+                                        />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                          <label>Company</label>
-                                          <input type="text" class="form-control" value="Aladdin">
+                                        <label>Company</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            value="Aladdin"
+                                        />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                          <label>Payment Method</label>
-                                          <input type="text" class="form-control" value="Online Banking">
+                                        <label>Payment Method</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            value="Online Banking"
+                                        />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                          <label>Bio</label>
-                                        <textarea class="form-control" rows="4">[Your name] is a [professional title] at [current employer] with [length of experience] helping [target audience] with [audience's problems].</textarea>
+                                        <label>Bio</label>
+                                        <textarea class="form-control" rows="4">
+[Your name] is a [professional title] at [current employer] with [length of experience] helping [target audience] with [audience's problems].</textarea
+                                        >
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <button class="btn btn-primary">Update</button>
-                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="btn btn-light" onclick="location.href='index.html'">Logout</button>							
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button
+                                    class="btn btn-light"
+                                    onclick="location.href='index.html'"
+                                >
+                                    Logout
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-        </section>
-    </section>
-</body>
+            </section>
+        </div>
+    </body>
 </html>
