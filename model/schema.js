@@ -1,148 +1,99 @@
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://cuongtran:emsignouc@cluster0.mmq8m4z.mongodb.net/?retryWrites=true&w=majority')
-.then(() => console.log('Connected to MongoDB Atlas'))
-.catch((error) => console.log(error.message));
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+mongoose
+    .connect(
+        "mongodb+srv://cuongtran:emsignouc@cluster0.mmq8m4z.mongodb.net/Aladin?retryWrites=true&w=majority"
+    )
+    .then(() => console.log("Connected to MongoDB Atlas"))
+    .catch((error) => console.log(error.message));
 
-// Product Schema
-const productSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    product_image: {
-        type: Buffer,
-        contentType: String
-    },
-    category: {
-        type: String,
-        required: true,
-        enum: ["Electronics", "Fashion and Apparel", "Home and Kitchen", "Beauty and Personal Care", "Sports and Outdoors", "Toys and Games"]
-    },
-    price: {
-        type: Number,
-        required: true,
-        min: 0
-    },
-    description: {
-        type: String,
-        required: true
-    }
-});
-
-// Vendor Schema
-const vendorSchema = new mongoose.Schema({
+// Define user schema
+const userSchema = new Schema({
     username: {
         type: String,
+        required: true,
         unique: true,
-        required: true
+        minLength: 8,
+        maxLength: 15,
+        match: /^[a-zA-Z0-9]+$/
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minLength: 8,
+        match: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).*$/,
     },
-    profile_picture: {
-        type: Buffer,
-        contentType: String
+    profilePicture: {
+        type: Buffer
     },
-    business_name: {
+    email: {
         type: String,
         required: true,
-        unique: true
+        minLength: 5,
     },
-    business_address: {
+    terms: {
         type: String,
-        required: true
+        required: true,
     },
-});
+}, { timestamps: true });
 
-// Customer Schema
-const customerSchema = new mongoose.Schema({
-    username: {
+// Define vendor schema
+const vendorSchema = new Schema({
+    businessName: {
         type: String,
+        required: true,
         unique: true,
-        required: true
     },
-    password: {
+    businessAddress: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
-    profile_picture: {
-        type: Buffer,
-        contentType: String
-    },
+}, { timestamps: true });
+
+// Define customer schema
+const customerSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        minLength: 5,
     },
     address: {
         type: String,
-        required: true
-    }
-});
+        required: true,
+        minLength: 5,
+    },
+}, { timestamps: true });
 
-// Shipper Schema
-const shipperSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        unique: true,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    profile_picture: {
-        type: Buffer,
-        contentType: String
-    },
+// Define shipper schema
+const shipperSchema = new Schema({
     name: {
-        type: String,
-        required: true
-    },
-    distribution_hub: {
         type: String,
         required: true,
-        unique: true,
-        enum: ["Tan Son Nhat Cargo Terminal", "Cat Lai Terminal", "Saigon Newport Corporation", "Long Binh Logistics Center"]
-    }
-});
-
-// Distribution Hub Schema
-const distributionHubSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        unique: true,
-        required: true
+        minLength: 5,
     },
-    address: {
+    distributionHub: {
         type: String,
-        required: true
-    }
-});
-
-// Order Schema
-const orderSchema = new mongoose({
-    invoice_id: {
-        type: String,
-        unique: true,
-        required: true
+        required: true,
+        enum: [
+            "Tan Son Nhat Cargo Terminal",
+            "Cat Lai Terminal",
+            "Saigon Newport Corporation",
+            "Long Binh Logistics Center",
+        ],
     },
-    distribution_hub: {
-        type: String,
-        required: true
-    }
-})
+}, { timestamps: true });
 
-// Define a model based on the schema
-const Product = mongoose.model('Product', productSchema);
-const Vendor = mongoose.model('Vendor', vendorSchema);
-const Customer = mongoose.model('Customer', customerSchema);
-const Shipper = mongoose.model('Shipper', shipperSchema);
-const DistributionHub = mongoose.model('DistributionHub', distributionHubSchema);
+// Create user model with sub-models
+const User = mongoose.model('User', userSchema);
+const Vendor = User.discriminator('Vendor', vendorSchema);
+const Customer = User.discriminator('Customer', customerSchema);
+const Shipper = User.discriminator('Shipper', shipperSchema);
 
 // The module exports the "Product" model so that it can be used by other parts of the application.
-module.exports = Product;
-module.exports = Vendor;
-module.exports = Customer;
-module.exports = Shipper;
-module.exports = DistributionHub;
+module.exports = {
+    User,
+    Vendor,
+    Customer,
+    Shipper
+};
