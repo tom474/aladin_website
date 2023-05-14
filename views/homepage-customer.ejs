@@ -157,7 +157,7 @@
                     >
                         <img
                             class="img-fluid"
-                            src="/images/customer/customer/homepage/header/banner.png"
+                            src="/images/customer/banner3.png"
                             alt=""
                         />
                     </div>
@@ -323,45 +323,23 @@
         <section id="recommendation">
             <div class="container-lg">
                 <div class="row">
-                        <div
-                            class="category-banner d-flex justify-content-center"
-                        >
-                            <img
-                                class="img-fluid"
-                                style="
-                                    background-color: rgba(
-                                        180,
-                                        179,
-                                        179,
-                                        0.502
-                                    );
-                                "
-                                src="/images/customer/customer/homepage/product/clothes.png"
-                                alt=""
-                            />
-                        </div>
-                        <div
-                            class="absolute d-flex flex-column justify-content-center align-items-center"
-                        >
-                            <h5
-                                style="
-                                    letter-spacing: 8px;
-                                    color: #e38b18;
-                                    font-size: 35px;
-                                "
-                            >
-                                FASHION
-                            </h5>
-                            <a
-                                href="./views/category.html"
-                                style="
-                                    color: white;
-                                    text-decoration: none;
-                                    font-weight: 500;
-                                "
-                                >DISCOVER MORE</a
-                            >
-                        </div>
+                    <div
+                        class="category-banner d-flex justify-content-center"
+                    >
+                        <img
+                            class="img-fluid"
+                            style="
+                                background-color: rgba(
+                                    180,
+                                    179,
+                                    179,
+                                    0.502
+                                );
+                            "
+                            src="/images/customer/customer/homepage/product/clothes.png"
+                            alt=""
+                        />
+                    </div>
                     </div>
                     <div
                         class="row"
@@ -425,48 +403,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- category #2 -->
-                <div id="recommendation2" class="row mt-5">
-                    <div
-                        class="col-lg-9 col-md-9 col-sm-8"
-                        style="position: relative"
-                    >
-                        <div
-                            class="title d-flex justify-content-center"
-                            style="padding: 20px"
-                        >
-                            <h1>Product</h1>
-                        </div>
-                        <div class="product-container">
-                            <div
-                                class="product-card ms-2"
-                                style="position: relative"
-                            >
-                                <div class="product-image border shadow">
-                                    <img
-                                        class="img-fluid"
-                                        src="/images/customer/customer/homepage/product/product1.jpg"
-                                        class="project-thumb"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="overlay" style="position: absolute">
-                                    <div
-                                        class="p-3 d-flex justify-content-center w-100"
-                                    >
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div
-                                    class="product-info d-flex pt-3 align-items-center flex-column"
-                                >
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
         </section>
         <!-- HOT -->
         <section id="hot">
@@ -498,6 +434,8 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <%products.forEach((product) => {%>
                     <div
                         class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
                     >
@@ -511,9 +449,11 @@
                             >
                                 <div class="product-image border shadow">
                                     <img
-                                        src="/images/customer/customer/homepage/product/product6.jpg"
+                                        src="/images/customer/<%=product.image%>"
                                         class="project-thumb"
-                                        alt=""
+                                        width="300px"
+                                        height="302px"
+                                        alt="<%=product.name%>"
                                     />
                                 </div>
                                 <div
@@ -529,364 +469,15 @@
                                 <div
                                     class="product-info d-flex pt-3 align-items-center flex-column"
                                 >
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
+                                    <h3><%=product.name%></h3>
+                                    <p class="mb-0"><%=product.price%>$</p>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <div
-                            class="product-card ms-2"
-                            style="position: relative"
-                        >
-                            <div class="product-image border shadow">
-                                <img
-                                    src="/images/customer/customer/homepage/product/product6.jpg"
-                                    class="project-thumb"
-                                    alt=""
-                                />
-                            </div>
-                            <div
-                                class="overlay product-effect"
-                                style="position: absolute"
-                            >
-                                <div
-                                    class="p-3 d-flex justify-content-center w-100"
-                                >
-                                    ADD TO CART
-                                </div>
-                            </div>
-                            <div
-                                class="product-info d-flex pt-3 align-items-center flex-column"
-                            >
-                                <h3>Product Name</h3>
-                                <p class="mb-0">300.000VND</p>
-                            </div>
-                        </div>
-                    </div>
+                    <%})%>
+
+
                 </div>
             </div>
         </section>
@@ -899,7 +490,7 @@
                     >
                         <img
                             style="width: 45px; height: 45px"
-                            src="/images/customer/customer/homepage/service/icon-1.png"
+                            src="/images/customer/icon-1.png"
                             alt=""
                         />
                         <div class="d-flex flex-column ms-3">
@@ -912,7 +503,7 @@
                     >
                         <img
                             style="width: 45px; height: 45px"
-                            src="/images/customer/customer/homepage/service/icon-2.png"
+                            src="/images/customer/icon-2.png"
                             alt=""
                         />
                         <div class="d-flex flex-column ms-3">
@@ -925,7 +516,7 @@
                     >
                         <img
                             style="width: 45px; height: 45px"
-                            src="/images/customer/customer/homepage/service/icon-1.png"
+                            src="/images/customer/icon-1.png"
                             alt=""
                         />
                         <div class="d-flex flex-column ms-3">
@@ -1149,20 +740,17 @@
                             <li class="ms-3">
                                 <a class="link-dark" href="#"
                                     ><svg class="bi" width="24" height="24">
-                                        <use xlink:href="#twitter" /></svg
-                                ></a>
+                                        <use xlink:href="#twitter" /></svg></a>
                             </li>
                             <li class="ms-3">
                                 <a class="link-dark" href="#"
                                     ><svg class="bi" width="24" height="24">
-                                        <use xlink:href="#instagram" /></svg
-                                ></a>
+                                        <use xlink:href="#instagram" /></svg></a>
                             </li>
                             <li class="ms-3">
                                 <a class="link-dark" href="#"
                                     ><svg class="bi" width="24" height="24">
-                                        <use xlink:href="#facebook" /></svg
-                                ></a>
+                                        <use xlink:href="#facebook" /></svg></a>
                             </li>
                         </ul>
                     </div>
