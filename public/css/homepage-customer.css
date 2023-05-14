@@ -190,12 +190,15 @@ nav .icon {
     scroll-behavior: smooth;
 }
 
+.product-container::-webkit-scrollbar {
+    display: none;
+}
+
 .product-card {
     flex: 0 0 auto;
     margin-right: 40px;
 }
 .product-image {
-    
     position: relative;
     overflow: hidden;
 }
@@ -233,7 +236,7 @@ nav .icon {
     top: 0;
     left: 0;
     width: 100% !important;
-    height: 302px !important;
+    height: 303px !important;
     display: flex;
     align-items: flex-end;
     cursor: pointer;

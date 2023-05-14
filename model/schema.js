@@ -137,6 +137,7 @@ const productSchema = new mongoose.Schema({
     }
 });
 
+
 // Create user model with sub-models
 const User = mongoose.model("User", userSchema);
 const Vendor = User.discriminator("Vendor", vendorSchema);

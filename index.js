@@ -42,11 +42,20 @@ app.get("/vendor/homepage", (req, res) => {
 
 // Route for Customer homepage
 app.get("/customer/homepage", (req, res) => {
-    Product.find()
-        .then((products) => {
-            res.render("homepage-customer", { products: products });
-        })
-        .catch((error) => console.log(error.message));
+    const products = Product.find();
+
+    // Retrieve all categories from the database
+    const categories = Product.distinct('category');
+  
+    // Wait for both promises to resolve before rendering the homepage
+    Promise.all([products, categories])
+      .then(([products, categories]) => {
+        res.render('homepage-customer', { products, categories });
+      })
+      .catch((error) => {
+        console.log(error.message);
+        res.status(500).send('Internal Server Error');
+      });  
 });
 
 // Route for Shipper homepage

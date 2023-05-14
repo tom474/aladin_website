@@ -31,34 +31,15 @@
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#hot">Hot</a>
+                            <a class="nav-link" href="#hot">Hot Deal</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
-                                class="nav-link dropdown-toggle"
+                                class="nav-link"
                                 href="#categories"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
                             >
                                 Category
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="#recommendation"
-                                        >Clothes</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="#recommendation2"
-                                        >Furniture</a
-                                    >
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#footer">Footer</a>
@@ -111,7 +92,6 @@
                                 class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0"
                             >
                                 <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Settings</a>
                                 <hr class="dropdown-divider" />
                                 <a href="#" class="dropdown-item">Log Out</a>
                             </div>
@@ -149,7 +129,7 @@
                             reiciendis nihil!
                         </p>
                         <div class="my-2">
-                            <button class="btn">Buy Now</button>
+                            <a href="#hot"><button class="btn">Buy Now</button></a>
                         </div>
                     </div>
                     <div
@@ -166,156 +146,39 @@
         </section>
         <!-- main -->
         <section id="categories">
-            <div class="container-lg categories my-4">
+            <div class="container-lg categories my-4" style="padding-top:77px;">
                 <h1>Category</h1>
                 <div class="content-box mt-5">
                     <div class="row w-100">
-                        <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div
-                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-                                style="width: 15rem"
-                            >
-                                <a
-                                    href="../static-website-material/views/category.html"
-                                    style="text-decoration: none"
-                                >
-                                    <div class="cate-img">
-                                        <div class="img-border">
-                                            <img
-                                                class="img-fluid"
-                                                src="/images/customer/customer/homepage/category/clothe.png"
-                                                alt=""
-                                            />
-                                        </div>
+                        <% categories.forEach((category) => { %>
+                            <div class="col-lg-4 col-md-4 col-sm-4 card-display">
+                              <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem">
+                                <a href="../static-website-material/views/category.html" style="text-decoration: none">
+                                  <div class="cate-img">
+                                    <div class="img-border">
+                                        <% if (category === "Beauty Cosmetic") {%>
+                                            <img class="img-fluid" src="/images/customer/category2.png" alt="<%= category%>">
+                                        <% } else if (category === "Fashion") { %>
+                                            <img class="img-fluid" src="/images/customer/category1.png" alt="<%= category%>">
+                                        <% }  else if (category === "Electronics") { %>
+                                            <img class="img-fluid" src="/images/customer/category3.png" alt="<%= category%>">
+                                        <% }  else if (category === "Sports & Outdoors") { %>
+                                            <img class="img-fluid" src="/images/customer/category4.png" alt="<%= category%>">
+                                        <% }   else if (category === "Home & Kitchen") { %>
+                                            <img class="img-fluid" src="/images/customer/category5.png" alt="<%= category%>">
+                                        <% }   else { %>
+                                            <img class="img-fluid" src="/images/customer/category6.png" alt="<%= category%>">
+                                        <% } %>      
+                                        
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Clothes</h5>
-                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <h5 class="card-title" style="font-family: 'Poppins', sans-serif; !important"><%=category%></h5>
+                                  </div>
                                 </a>
+                              </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div
-                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-                                style="width: 15rem"
-                            >
-                                <a
-                                    href="../static-website-material/views/category.html"
-                                    style="text-decoration: none"
-                                >
-                                    <div class="cate-img">
-                                        <div class="img-border">
-                                            <img
-                                                class="img-fluid"
-                                                src="/images/customer/customer/homepage/category/clothe.png"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Clothes</h5>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div
-                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-                                style="width: 15rem"
-                            >
-                                <a
-                                    href="../static-website-material/views/category.html"
-                                    style="text-decoration: none"
-                                >
-                                    <div class="cate-img">
-                                        <div class="img-border">
-                                            <img
-                                                class="img-fluid"
-                                                src="/images/customer/customer/homepage/category/clothe.png"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Clothes</h5>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div
-                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-                                style="width: 15rem"
-                            >
-                                <a
-                                    href="../static-website-material/views/category.html"
-                                    style="text-decoration: none"
-                                >
-                                    <div class="cate-img">
-                                        <div class="img-border">
-                                            <img
-                                                class="img-fluid"
-                                                src="/images/customer/customer/homepage/category/clothe.png"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Clothes</h5>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div
-                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-                                style="width: 15rem"
-                            >
-                                <a
-                                    href="../static-website-material/views/category.html"
-                                    style="text-decoration: none"
-                                >
-                                    <div class="cate-img">
-                                        <div class="img-border">
-                                            <img
-                                                class="img-fluid"
-                                                src="/images/customer/customer/homepage/category/clothe.png"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Clothes</h5>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div
-                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-                                style="width: 15rem"
-                            >
-                                <a
-                                    href="../static-website-material/views/category.html"
-                                    style="text-decoration: none"
-                                >
-                                    <div class="cate-img">
-                                        <div class="img-border">
-                                            <img
-                                                class="img-fluid"
-                                                src="/images/customer/customer/homepage/category/clothe.png"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Clothes</h5>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                          <% }); %>
                 </div>
             </div>
         </section>
@@ -353,34 +216,46 @@
                         </div>
                         <div class="product-container">
                             <% const fashionProducts = products.filter(product => (product.category === "Fashion" )) %> 
-                            <% for (var i = 0; i < fashionProducts.length ; i++) { %>
+                            <% for (var i = 0; i < 3; i++) { %>
                                 <% var product = fashionProducts[i] %>
-                            <div
-                                class="product-card ms-2"
-                                style="position: relative"
-                            >
-                                <div class="product-image border shadow">
-                                    <img
-                                        src="/images/customer/<%= product.image %>"
-                                        class="project-thumb"
-                                        width="300px"
-                                        height="300px"
-                                        alt="<%=product.name%>"
-                                    />
-                                </div>
-                                <div class="overlay" style="position: absolute">
-                                    <div
-                                        class="p-3 d-flex justify-content-center w-100"
-                                    >
-                                        ADD TO CART
-                                    </div>
-                                </div>
                                 <div
-                                    class="product-info d-flex pt-3 align-items-center flex-column"
+                                class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                            >
+                                <a
+                                    href="./views/product-detail.html"
+                                    style="text-decoration: none; color: black"
                                 >
-                                    <h3><%=product.name%></h3>
-                                    <p class="mb-0"><%=product.price %>$</p>
-                                </div>
+                                    <div
+                                        class="product-card ms-2"
+                                        style="position: relative"
+                                    >
+                                        <div class="product-image border shadow">
+                                            <img
+                                                src="/images/customer/<%=product.image%>"
+                                                class="project-thumb"
+                                                width="300px"
+                                                height="302px"
+                                                alt="<%=product.name%>"
+                                            />
+                                        </div>
+                                        <div
+                                            class="overlay product-effect"
+                                            style="position: absolute"
+                                        >
+                                            <div
+                                                class="p-3 d-flex justify-content-center w-100"
+                                            >
+                                                ADD TO CART
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="product-info d-flex pt-3 align-items-center flex-column"
+                                        >
+                                            <h3><%=product.name%></h3>
+                                            <p class="mb-0"><%=product.price%>$</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                             <% }; %>
                         </div>
@@ -406,8 +281,8 @@
         </section>
         <!-- HOT -->
         <section id="hot">
-            <div class="container-lg rec-box py-1 my-4">
-                <h1>POPULAR</h1>
+            <div class="container-lg rec-box py-1 my-4" style="padding-top: 77px !important;"> 
+                <h1>Hot Deal</h1>
                 <div class="row product my-5">
                     <div class="group-by">
                         <span>Filter: </span>
@@ -530,230 +405,19 @@
             </div>
         </section>
         <!-- footer -->
-        <section id="footer mt-5" style="background-color: #e38b18">
-            <div class="container mt-5">
-                <footer class="py-5">
-                    <div class="row">
-                        <div class="col-6 col-md-2 mb-3">
-                            <h5 style="color: wheat">About</h5>
-                            <ul class="nav flex-column">
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Home</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Features</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Pricing</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >FAQs</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >About</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-6 col-md-2 mb-3">
-                            <h5 style="color: wheat">Customer Care</h5>
-                            <ul class="nav flex-column">
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Shipping & Returns</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Size Guide</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Retailers</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Wholesale</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >AfterPay</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-6 col-md-2 mb-3">
-                            <h5 style="color: wheat">Privacy</h5>
-                            <ul class="nav flex-column">
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Terms & Conditions</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Privacy Policy</a
-                                    >
-                                </li>
-                                <li class="mb-2">
-                                    <a
-                                        href="#"
-                                        style="
-                                            text-decoration: none;
-                                            color: white !important;
-                                        "
-                                        class="p-0 text-muted"
-                                        >Terms of Use</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-5 offset-md-1 mb-3">
-                            <form>
-                                <h5 style="color: white !important">
-                                    Subscribe to our newsletter
-                                </h5>
-                                <p style="color: white !important">
-                                    Monthly digest of what's new and exciting
-                                    from us.
-                                </p>
-                                <div
-                                    class="d-flex flex-column flex-sm-row w-100 gap-2"
-                                >
-                                    <label
-                                        for="newsletter1"
-                                        class="visually-hidden"
-                                        >Email address</label
-                                    >
-                                    <input
-                                        id="newsletter1"
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="Email address"
-                                    />
-                                    <button
-                                        style="color: white !important"
-                                        class="btn btn-primary"
-                                        type="button"
-                                    >
-                                        Subscribe
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div
-                        class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"
-                    >
-                        <p style="color: white !important">
-                            &copy; 2023 Aladin . All rights reserved.
-                        </p>
-                        <ul class="list-unstyled d-flex">
-                            <li class="ms-3">
-                                <a class="link-dark" href="#"
-                                    ><svg class="bi" width="24" height="24">
-                                        <use xlink:href="#twitter" /></svg></a>
-                            </li>
-                            <li class="ms-3">
-                                <a class="link-dark" href="#"
-                                    ><svg class="bi" width="24" height="24">
-                                        <use xlink:href="#instagram" /></svg></a>
-                            </li>
-                            <li class="ms-3">
-                                <a class="link-dark" href="#"
-                                    ><svg class="bi" width="24" height="24">
-                                        <use xlink:href="#facebook" /></svg></a>
-                            </li>
-                        </ul>
-                    </div>
+        <section id="footer" style="background-color: #e38b18">
+            <div class="container">
+                <footer class="py-3 mt-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+                <p class="text-center text-muted">© 2022 Company, Inc</p>
+                </footer>
+            </div>
                 </footer>
             </div>
         </section>
