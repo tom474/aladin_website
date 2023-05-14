@@ -3,45 +3,92 @@
     <%- include ('partials/head-customer') %>
     <body>
         <!-- navbar-->
-        <nav class="navbar fixed-top navbar-expand-md bg-body-tertiary" >
-            <div class="container-lg" style="position: relative;">
+        <nav class="navbar fixed-top navbar-expand-md bg-body-tertiary">
+            <div class="container-lg" style="position: relative">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img class="pe-2" src="/images/customer/logo-1.png" width="60" height="50" alt="">
-                    <div class="ps-2" style="font-family: 'Dancing Script', cursive;">
-                        <h4>Aladin</h4>
-                        
+                    <img
+                        class="pe-2"
+                        src="/images/customer/logo-1.png"
+                        width="60"
+                        height="50"
+                        alt=""
+                    />
+                    <div
+                        class="ps-2"
+                        style="font-family: 'Dancing Script', cursive"
+                    >
+                        <h2>Aladin</h2>
                     </div>
                 </a>
                 <div class="hamburger">
                     <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hot">Hot</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#categories" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Category
-                        </a>
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#recommendation">Clothes</a></li>
-                        <li><a class="dropdown-item" href="#recommendation2">Furniture</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#footer">Footer</a>
-                    </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="#"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#hot">Hot</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#categories"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Category
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="#recommendation"
+                                        >Clothes</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="#recommendation2"
+                                        >Furniture</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer">Footer</a>
+                        </li>
                     </ul>
                 </div>
-                <div class="nav-item d-flex justify-content-center align-items-center">
+                <div
+                    class="nav-item d-flex justify-content-center align-items-center"
+                >
                     <div class="option ms-3">
                         <div class="group">
-                            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
-                            <input placeholder="Search" type="search" class="input">
-                          </div>
+                            <svg
+                                class="icon"
+                                aria-hidden="true"
+                                viewBox="0 0 24 24"
+                            >
+                                <g>
+                                    <path
+                                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                                    ></path>
+                                </g>
+                            </svg>
+                            <input
+                                placeholder="Search"
+                                type="search"
+                                class="input"
+                            />
+                        </div>
                     </div>
-                    <div class="option ms-3 me-2" >
+                    <div class="option ms-3 me-2">
                         <a href="../static-website-material/views/cart.html">
                             <i class="fa-solid fa-bag-shopping"></i>
                         </a>
@@ -69,32 +116,50 @@
                                 <a href="#" class="dropdown-item">Log Out</a>
                             </div>
                         </div>
-
                     </div>
-                    <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
             </div>
         </nav>
 
-
-
-
         <!-- banner -->
         <section id="banner">
             <div class="banner container-lg">
                 <div class="row">
-                    <div class="col-lg-7 col-md-5 col-sm-4 d-flex flex-column justify-content-center">
-                        <h1>Neon Orange Lace Up <br> Clear Strap Boots
+                    <div
+                        class="col-lg-7 col-md-5 col-sm-4 d-flex flex-column justify-content-center"
+                    >
+                        <h1>
+                            Neon Orange Lace Up <br />
+                            Clear Strap Boots
                         </h1>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, illo tempora temporibus dicta reiciendis nihil!</p>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Veniam, illo tempora temporibus dicta
+                            reiciendis nihil!
+                        </p>
                         <div class="my-2">
-                            <button class="btn"> Buy Now </button>
+                            <button class="btn">Buy Now</button>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-7 col-sm-8 d-flex justify-content-end">
-                        <img class="img-fluid"  src="/images/customer/customer/homepage/header/banner.png" alt="">
+                    <div
+                        class="col-lg-5 col-md-7 col-sm-8 d-flex justify-content-end"
+                    >
+                        <img
+                            class="img-fluid"
+                            src="/images/customer/customer/homepage/header/banner.png"
+                            alt=""
+                        />
                     </div>
                 </div>
             </div>
@@ -102,93 +167,150 @@
         <!-- main -->
         <section id="categories">
             <div class="container-lg categories my-4">
-                <h1>
-                    Category
-                </h1>
+                <h1>Category</h1>
                 <div class="content-box mt-5">
-                    <div class="row w-100 ">
+                    <div class="row w-100">
                         <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem;">
-                                <a href="../static-website-material/views/category.html" style="text-decoration: none;">
+                            <div
+                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                                style="width: 15rem"
+                            >
+                                <a
+                                    href="../static-website-material/views/category.html"
+                                    style="text-decoration: none"
+                                >
                                     <div class="cate-img">
                                         <div class="img-border">
-                                            <img class="img-fluid" src="/images/customer/customer/homepage/category/clothe.png" alt="">
+                                            <img
+                                                class="img-fluid"
+                                                src="/images/customer/customer/homepage/category/clothe.png"
+                                                alt=""
+                                            />
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Clothes</h5>
+                                        <h5 class="card-title">Clothes</h5>
                                     </div>
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem;">
-                                <a href="../static-website-material/views/category.html" style="text-decoration: none;">
+                            <div
+                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                                style="width: 15rem"
+                            >
+                                <a
+                                    href="../static-website-material/views/category.html"
+                                    style="text-decoration: none"
+                                >
                                     <div class="cate-img">
                                         <div class="img-border">
-                                            <img class="img-fluid" src="/images/customer/customer/homepage/category/clothe.png" alt="">
+                                            <img
+                                                class="img-fluid"
+                                                src="/images/customer/customer/homepage/category/clothe.png"
+                                                alt=""
+                                            />
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Clothes</h5>
+                                        <h5 class="card-title">Clothes</h5>
                                     </div>
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem;">
-                                <a href="../static-website-material/views/category.html" style="text-decoration: none;">
+                            <div
+                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                                style="width: 15rem"
+                            >
+                                <a
+                                    href="../static-website-material/views/category.html"
+                                    style="text-decoration: none"
+                                >
                                     <div class="cate-img">
                                         <div class="img-border">
-                                            <img class="img-fluid" src="/images/customer/customer/homepage/category/clothe.png" alt="">
+                                            <img
+                                                class="img-fluid"
+                                                src="/images/customer/customer/homepage/category/clothe.png"
+                                                alt=""
+                                            />
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Clothes</h5>
+                                        <h5 class="card-title">Clothes</h5>
                                     </div>
                                 </a>
                             </div>
                         </div>
 
-
                         <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem;">
-                                <a href="../static-website-material/views/category.html" style="text-decoration: none;">
+                            <div
+                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                                style="width: 15rem"
+                            >
+                                <a
+                                    href="../static-website-material/views/category.html"
+                                    style="text-decoration: none"
+                                >
                                     <div class="cate-img">
                                         <div class="img-border">
-                                            <img class="img-fluid" src="/images/customer/customer/homepage/category/clothe.png" alt="">
+                                            <img
+                                                class="img-fluid"
+                                                src="/images/customer/customer/homepage/category/clothe.png"
+                                                alt=""
+                                            />
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Clothes</h5>
+                                        <h5 class="card-title">Clothes</h5>
                                     </div>
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem;">
-                                <a href="../static-website-material/views/category.html" style="text-decoration: none;">
+                            <div
+                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                                style="width: 15rem"
+                            >
+                                <a
+                                    href="../static-website-material/views/category.html"
+                                    style="text-decoration: none"
+                                >
                                     <div class="cate-img">
                                         <div class="img-border">
-                                            <img class="img-fluid" src="/images/customer/customer/homepage/category/clothe.png" alt="">
+                                            <img
+                                                class="img-fluid"
+                                                src="/images/customer/customer/homepage/category/clothe.png"
+                                                alt=""
+                                            />
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Clothes</h5>
+                                        <h5 class="card-title">Clothes</h5>
                                     </div>
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem;">
-                                <a href="../static-website-material/views/category.html" style="text-decoration: none;">
+                            <div
+                                class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                                style="width: 15rem"
+                            >
+                                <a
+                                    href="../static-website-material/views/category.html"
+                                    style="text-decoration: none"
+                                >
                                     <div class="cate-img">
                                         <div class="img-border">
-                                            <img class="img-fluid" src="/images/customer/customer/homepage/category/clothe.png" alt="">
+                                            <img
+                                                class="img-fluid"
+                                                src="/images/customer/customer/homepage/category/clothe.png"
+                                                alt=""
+                                            />
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Clothes</h5>
+                                        <h5 class="card-title">Clothes</h5>
                                     </div>
                                 </a>
                             </div>
@@ -200,292 +322,148 @@
         <!-- recommendation -->
         <section id="recommendation">
             <div class="container-lg">
-                <div class="row">   
-                    <div class="col-lg-3 col-md-3 col-sm-4  relative d-flex align-items-center">
-                        <div class="category-banner d-flex justify-content-center">
-                            <img class="img-fluid" style="background-color: rgba(180, 179, 179, 0.502);" src="/images/customer/customer/homepage/product/clothes.png" alt="">
+                <div class="row">
+                        <div
+                            class="category-banner d-flex justify-content-center"
+                        >
+                            <img
+                                class="img-fluid"
+                                style="
+                                    background-color: rgba(
+                                        180,
+                                        179,
+                                        179,
+                                        0.502
+                                    );
+                                "
+                                src="/images/customer/customer/homepage/product/clothes.png"
+                                alt=""
+                            />
                         </div>
-                        <div class=" absolute d-flex flex-column justify-content-center align-items-center">
-                            <h5 style="letter-spacing: 8px; color: #E38B18; font-size: 35px;" >FASHION</h5>
-                            <a href="./views/category.html" style="color: white ;text-decoration: none; font-weight:500;">DISCOVER MORE</a>
+                        <div
+                            class="absolute d-flex flex-column justify-content-center align-items-center"
+                        >
+                            <h5
+                                style="
+                                    letter-spacing: 8px;
+                                    color: #e38b18;
+                                    font-size: 35px;
+                                "
+                            >
+                                FASHION
+                            </h5>
+                            <a
+                                href="./views/category.html"
+                                style="
+                                    color: white;
+                                    text-decoration: none;
+                                    font-weight: 500;
+                                "
+                                >DISCOVER MORE</a
+                            >
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-9 col-sm-8 " style="position: relative;">
-                        <div class="title d-flex justify-content-center" style="padding: 20px;">
-                            <h1>FASHION</h1>
+                    <div
+                        class="row"
+                        style="position: relative"
+                    >
+                        <div
+                            class="title"
+                            style="padding: 20px"
+                        >
+                            <h1 style="color:#e38b18">FASHION <a href="/homepage-customer/fashion"> <i class="fa-solid fa-arrow-right" style="color:#e38b18"></i></a> </h1>
                         </div>
                         <div class="product-container">
-                            <div class="product-card ms-2  " style="position: relative;">
+                            <% const fashionProducts = products.filter(product => (product.category === "Fashion" )) %> 
+                            <% for (var i = 0; i < fashionProducts.length ; i++) { %>
+                                <% var product = fashionProducts[i] %>
+                            <div
+                                class="product-card ms-2"
+                                style="position: relative"
+                            >
                                 <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product1.jpg" class="project-thumb" alt="">
+                                    <img
+                                        src="/images/customer/<%= product.image %>"
+                                        class="project-thumb"
+                                        width="300px"
+                                        height="300px"
+                                        alt="<%=product.name%>"
+                                    />
                                 </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
+                                <div class="overlay" style="position: absolute">
+                                    <div
+                                        class="p-3 d-flex justify-content-center w-100"
+                                    >
                                         ADD TO CART
                                     </div>
                                 </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                                <div
+                                    class="product-info d-flex pt-3 align-items-center flex-column"
+                                >
+                                    <h3><%=product.name%></h3>
+                                    <p class="mb-0"><%=product.price %>$</p>
                                 </div>
                             </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product2.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info  d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product3.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product4.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product5.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product7.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product8.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
+                            <% }; %>
                         </div>
                     </div>
                 </div>
                 <!-- banner #2 -->
-                <div class="banner container my-4" style="position: relative;">
-                    <div class="row">  
+                <div class="banner container my-4" style="position: relative">
+                    <div class="row">
                         <div class="ps-0 pe-0">
-                            <img class="img-fluid"  src="/images/customer/customer/homepage/header/banner2.png" alt="">
+                            <img
+                                class="img-fluid"
+                                src="/images/customer/banner2.png"
+                                alt=""
+                            />
                         </div>
                     </div>
-                    <div class="button-banner" style="position: absolute;">
+                    <div class="button-banner" style="position: absolute">
                         <a href="#recommendation2">
                             <button class="btn">EXPLORE NOW</button>
                         </a>
                     </div>
                 </div>
                 <!-- category #2 -->
-                <div id="recommendation2" class="row mt-5">   
-                    <div class="col-lg-9 col-md-9 col-sm-8 " style="position: relative;">
-                        <div class="title d-flex justify-content-center" style="padding: 20px;">
+                <div id="recommendation2" class="row mt-5">
+                    <div
+                        class="col-lg-9 col-md-9 col-sm-8"
+                        style="position: relative"
+                    >
+                        <div
+                            class="title d-flex justify-content-center"
+                            style="padding: 20px"
+                        >
                             <h1>Product</h1>
                         </div>
                         <div class="product-container">
-                            <div class="product-card ms-2  " style="position: relative;">
+                            <div
+                                class="product-card ms-2"
+                                style="position: relative"
+                            >
                                 <div class="product-image border shadow">
-                                    <img class="img-fluid" src="/images/customer/customer/homepage/product/product1.jpg" class="project-thumb" alt="">
+                                    <img
+                                        class="img-fluid"
+                                        src="/images/customer/customer/homepage/product/product1.jpg"
+                                        class="project-thumb"
+                                        alt=""
+                                    />
                                 </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
+                                <div class="overlay" style="position: absolute">
+                                    <div
+                                        class="p-3 d-flex justify-content-center w-100"
+                                    >
                                         ADD TO CART
                                     </div>
                                 </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product2.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info  d-flex pt-3 align-items-center flex-column">
+                                <div
+                                    class="product-info d-flex pt-3 align-items-center flex-column"
+                                >
                                     <h3>Product Name</h3>
                                     <p class="mb-0">300.000VND</p>
                                 </div>
                             </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product3.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product4.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product5.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product7.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product8.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4  relative d-flex align-items-center">
-                        <div class="category-banner d-flex justify-content-center" style="background-color: #E38B18;">
-                            <img class="img-fluid" style="background-color: rgba(229, 141, 26, 0.502);" src="/images/customer/customer/homepage/product/furniture.png" alt="">
-                        </div>
-                        <div class="absolute d-flex flex-column justify-content-center align-items-center">
-                            <h5 style="letter-spacing: 8px; color: white; font-size: 20px;" >FURNITURE</h5>
-                            <a href="./views/category.html" style="text-decoration: none; font-weight:500;">DISCOVER MORE</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -493,227 +471,421 @@
         <!-- HOT -->
         <section id="hot">
             <div class="container-lg rec-box py-1 my-4">
-                <h1>
-                    POPULAR
-                </h1>
+                <h1>POPULAR</h1>
                 <div class="row product my-5">
                     <div class="group-by">
-                        <span>Filter: </span> 
+                        <span>Filter: </span>
                         <div class="dropdown ms-2">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Price
+                            <button
+                                class="btn btn-secondary dropdown-toggle"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Price
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">High to Low</a></li>
-                              <li><a class="dropdown-item" href="#">Low to High</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >High to Low</a
+                                    >
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Low to High</a
+                                    >
+                                </li>
                             </ul>
-                          </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">                            
-                        <a href="./views/product-detail.html" style="text-decoration: none; color:black">
-                            <div class="product-card ms-2  " style="position: relative;">
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <a
+                            href="./views/product-detail.html"
+                            style="text-decoration: none; color: black"
+                        >
+                            <div
+                                class="product-card ms-2"
+                                style="position: relative"
+                            >
                                 <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
+                                    <img
+                                        src="/images/customer/customer/homepage/product/product6.jpg"
+                                        class="project-thumb"
+                                        alt=""
+                                    />
                                 </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
+                                <div
+                                    class="overlay product-effect"
+                                    style="position: absolute"
+                                >
+                                    <div
+                                        class="p-3 d-flex justify-content-center w-100"
+                                    >
                                         ADD TO CART
                                     </div>
                                 </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
+                                <div
+                                    class="product-info d-flex pt-3 align-items-center flex-column"
+                                >
                                     <h3>Product Name</h3>
                                     <p class="mb-0">300.000VND</p>
-    
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <div class="product-card ms-2  " style="position: relative;">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/customer/homepage/product/product6.jpg" class="project-thumb" alt="">
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute;">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3>Product Name</h3>
-                                    <p class="mb-0">300.000VND</p>
-
+                    <div
+                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="/images/customer/customer/homepage/product/product6.jpg"
+                                    class="project-thumb"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                    ADD TO CART
                                 </div>
                             </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3>Product Name</h3>
+                                <p class="mb-0">300.000VND</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -722,96 +894,286 @@
         <section id="service">
             <div class="container-lg mt-5">
                 <div class="row">
-                    <div class="col-lg-4 border d-flex flex-row p-4  align-items-center">
-                        <img style="width: 45px; height: 45px;" src="/images/customer/customer/homepage/service/icon-1.png" alt="">
+                    <div
+                        class="col-lg-4 border d-flex flex-row p-4 align-items-center"
+                    >
+                        <img
+                            style="width: 45px; height: 45px"
+                            src="/images/customer/customer/homepage/service/icon-1.png"
+                            alt=""
+                        />
                         <div class="d-flex flex-column ms-3">
                             <h5>FREESHIP</h5>
                             <p class="mb-0">For all order over 99.000VND</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 border d-flex flex-row p-4  align-items-center">
-                        <img style="width: 45px; height: 45px;" src="/images/customer/customer/homepage/service/icon-2.png" alt="">
+                    <div
+                        class="col-lg-4 border d-flex flex-row p-4 align-items-center"
+                    >
+                        <img
+                            style="width: 45px; height: 45px"
+                            src="/images/customer/customer/homepage/service/icon-2.png"
+                            alt=""
+                        />
                         <div class="d-flex flex-column ms-3">
                             <h5>ON TIME</h5>
-                            <p class="mb-0">You will get your order on time </p>
+                            <p class="mb-0">You will get your order on time</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 border d-flex flex-row p-4  align-items-center">
-                        <img style="width: 45px; height: 45px;"    src="/images/customer/customer/homepage/service/icon-1.png" alt="">
+                    <div
+                        class="col-lg-4 border d-flex flex-row p-4 align-items-center"
+                    >
+                        <img
+                            style="width: 45px; height: 45px"
+                            src="/images/customer/customer/homepage/service/icon-1.png"
+                            alt=""
+                        />
                         <div class="d-flex flex-column ms-3">
                             <h5>PROTECTIVE</h5>
-                            <p class="mb-0">Your product will be given a good packaging</p>
+                            <p class="mb-0">
+                                Your product will be given a good packaging
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- footer -->
-        <section id="footer mt-5" style="background-color: #E38B18;">
+        <section id="footer mt-5" style="background-color: #e38b18">
             <div class="container mt-5">
                 <footer class="py-5">
-                  <div class="row">
-                    <div class="col-6 col-md-2 mb-3">
-                      <h5 style="color: wheat; ">About</h5>
-                      <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Home</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Features</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Pricing</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">FAQs</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">About</a></li>
-                      </ul>
-                    </div>
-              
-                    <div class="col-6 col-md-2 mb-3">
-                      <h5 style="color: wheat; ">Customer Care</h5>
-                      <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Shipping & Returns</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Size Guide</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Retailers</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Wholesale</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">AfterPay</a></li>
-                      </ul>
-                    </div>
-              
-                    <div class="col-6 col-md-2 mb-3">
-                      <h5 style="color: wheat; ">Privacy</h5>
-                      <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Terms & Conditions</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Privacy Policy</a></li>
-                        <li class=" mb-2"><a href="#" style="text-decoration: none; color: white !important;" class=" p-0 text-muted">Terms of Use</a></li>
-                      </ul>
-                    </div>
-              
-                    <div class="col-md-5 offset-md-1 mb-3">
-                      <form>
-                        <h5 style=" color: white !important;" >Subscribe to our newsletter</h5>
-                        <p style=" color: white !important;" >Monthly digest of what's new and exciting from us.</p>
-                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                          <label for="newsletter1" class="visually-hidden">Email address</label>
-                          <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                          <button style=" color: white !important;" class="btn btn-primary" type="button">Subscribe</button>
+                    <div class="row">
+                        <div class="col-6 col-md-2 mb-3">
+                            <h5 style="color: wheat">About</h5>
+                            <ul class="nav flex-column">
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Home</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Features</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Pricing</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >FAQs</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >About</a
+                                    >
+                                </li>
+                            </ul>
                         </div>
-                      </form>
+
+                        <div class="col-6 col-md-2 mb-3">
+                            <h5 style="color: wheat">Customer Care</h5>
+                            <ul class="nav flex-column">
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Shipping & Returns</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Size Guide</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Retailers</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Wholesale</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >AfterPay</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-6 col-md-2 mb-3">
+                            <h5 style="color: wheat">Privacy</h5>
+                            <ul class="nav flex-column">
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Terms & Conditions</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Privacy Policy</a
+                                    >
+                                </li>
+                                <li class="mb-2">
+                                    <a
+                                        href="#"
+                                        style="
+                                            text-decoration: none;
+                                            color: white !important;
+                                        "
+                                        class="p-0 text-muted"
+                                        >Terms of Use</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-5 offset-md-1 mb-3">
+                            <form>
+                                <h5 style="color: white !important">
+                                    Subscribe to our newsletter
+                                </h5>
+                                <p style="color: white !important">
+                                    Monthly digest of what's new and exciting
+                                    from us.
+                                </p>
+                                <div
+                                    class="d-flex flex-column flex-sm-row w-100 gap-2"
+                                >
+                                    <label
+                                        for="newsletter1"
+                                        class="visually-hidden"
+                                        >Email address</label
+                                    >
+                                    <input
+                                        id="newsletter1"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Email address"
+                                    />
+                                    <button
+                                        style="color: white !important"
+                                        class="btn btn-primary"
+                                        type="button"
+                                    >
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                  </div>
-              
-                  <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                    <p style=" color: white !important;">&copy; 2023 Aladin . All rights reserved.</p>
-                    <ul class="list-unstyled d-flex">
-                      <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-                      <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-                      <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-                    </ul>
-                  </div>
+
+                    <div
+                        class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"
+                    >
+                        <p style="color: white !important">
+                            &copy; 2023 Aladin . All rights reserved.
+                        </p>
+                        <ul class="list-unstyled d-flex">
+                            <li class="ms-3">
+                                <a class="link-dark" href="#"
+                                    ><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#twitter" /></svg
+                                ></a>
+                            </li>
+                            <li class="ms-3">
+                                <a class="link-dark" href="#"
+                                    ><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#instagram" /></svg
+                                ></a>
+                            </li>
+                            <li class="ms-3">
+                                <a class="link-dark" href="#"
+                                    ><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#facebook" /></svg
+                                ></a>
+                            </li>
+                        </ul>
+                    </div>
                 </footer>
-              </div>
-              
+            </div>
         </section>
 
         <!-- scroll to top -->
-        <a href="#">    
+        <a href="#">
             <div class="to-top">
-                    <i class="fa fa-angle-up"></i>
+                <i class="fa fa-angle-up"></i>
             </div>
         </a>
         <%- include ('partials/script-homepage-customer') %>

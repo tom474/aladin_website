@@ -7,6 +7,7 @@ const User = schema.User;
 const Customer = schema.Customer;
 const Vendor = schema.Vendor;
 const Shipper = schema.Shipper;
+const Product = schema.Product;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -41,7 +42,11 @@ app.get("/vendor/homepage", (req, res) => {
 
 // Route for Customer homepage
 app.get("/customer/homepage", (req, res) => {
-    res.render("homepage-customer");
+    Product.find()
+        .then((products) => {
+            res.render("homepage-customer", { products: products });
+        })
+        .catch((error) => console.log(error.message));
 });
 
 // Route for Shipper homepage
@@ -108,7 +113,7 @@ app.post("/vendor/register", async (req, res) => {
         await newVendor.save();
 
         // Redirect to Vendor homepage
-        res.redirect("/homepage-vendor");
+        res.redirect("/vendor/homepage");
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
@@ -154,7 +159,7 @@ app.post("/customer/register", async (req, res) => {
         await newCustomer.save();
 
         // Redirect to Customer homepage
-        res.redirect("/homepage-customer");
+        res.redirect("/customer/homepage");
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
@@ -200,7 +205,7 @@ app.post("/shipper/register", async (req, res) => {
         await newShipper.save();
 
         // Redirect to Shipper homepage
-        res.redirect("/homepage-shipper"); // replace with your Shipper homepage URL
+        res.redirect("/shipper/homepage"); // replace with your Shipper homepage URL
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });

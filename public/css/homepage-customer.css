@@ -195,6 +195,7 @@ nav .icon {
     margin-right: 40px;
 }
 .product-image {
+    
     position: relative;
     overflow: hidden;
 }
@@ -232,7 +233,7 @@ nav .icon {
     top: 0;
     left: 0;
     width: 100% !important;
-    height: 322px !important;
+    height: 302px !important;
     display: flex;
     align-items: flex-end;
     cursor: pointer;
