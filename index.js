@@ -287,6 +287,28 @@ app.post("/", async (req, res) => {
     }
 });
 
+// route to categorypage
+app.get("/customer/category/:category", async (req, res) => {
+    const category = req.params.category;
+    try {
+        const products = await Product.find({ category: category });
+        res.render('category-page', { category: category, products: products });
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
+  });
+// route to detail product page
+app.get("/customer/products/:id", async (req, res) => { 
+    Product.findById(req.params.id)
+    .then((product) => {
+        if(!product) {
+            return res.send("Can't find that ID")
+        } 
+        res.render('product-detail-page',{product:product})
+     })            
+});
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
