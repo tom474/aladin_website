@@ -83,7 +83,7 @@
                             >
                                 <img
                                     class="rounded-circle me-lg-2"
-                                    src="./assets/images/customer/customer/homepage/product/product1.jpg"
+                                    src="/images/customer/cuong.jpg"
                                     alt=""
                                     style="width: 40px; height: 40px"
                                 />
@@ -152,31 +152,30 @@
                     <div class="row w-100">
                         <% categories.forEach((category) => { %>
                             <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                              <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem">
-                                <a href="../static-website-material/views/category.html" style="text-decoration: none">
-                                  <div class="cate-img">
-                                    <div class="img-border">
-                                        <% if (category === "Beauty Cosmetic") {%>
-                                            <img class="img-fluid" src="/images/customer/category2.png" alt="<%= category%>">
-                                        <% } else if (category === "Fashion") { %>
-                                            <img class="img-fluid" src="/images/customer/category1.png" alt="<%= category%>">
-                                        <% }  else if (category === "Electronics") { %>
-                                            <img class="img-fluid" src="/images/customer/category3.png" alt="<%= category%>">
-                                        <% }  else if (category === "Sports & Outdoors") { %>
-                                            <img class="img-fluid" src="/images/customer/category4.png" alt="<%= category%>">
-                                        <% }   else if (category === "Home & Kitchen") { %>
-                                            <img class="img-fluid" src="/images/customer/category5.png" alt="<%= category%>">
-                                        <% }   else { %>
-                                            <img class="img-fluid" src="/images/customer/category6.png" alt="<%= category%>">
-                                        <% } %>      
-                                        
-                                    </div>
-                                  </div>
-                                  <div class="card-body">
-                                    <h5 class="card-title" style="font-family: 'Poppins', sans-serif; !important"><%=category%></h5>
-                                  </div>
-                                </a>
-                              </div>
+                                <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 15rem">
+                                    <a href="/customer/category/<%=category%>" style="text-decoration: none">
+                                        <div class="cate-img">
+                                            <div class="img-border">
+                                                <% if (category === "Beauty Cosmetic") {%>
+                                                    <img class="img-fluid" src="/images/customer/category2.png" alt="<%= category%>">
+                                                <% } else if (category === "Fashion") { %>
+                                                    <img class="img-fluid" src="/images/customer/category1.png" alt="<%= category%>">
+                                                <% }  else if (category === "Electronics") { %>
+                                                    <img class="img-fluid" src="/images/customer/category3.png" alt="<%= category%>">
+                                                <% }  else if (category === "Sports & Outdoors") { %>
+                                                    <img class="img-fluid" src="/images/customer/category4.png" alt="<%= category%>">
+                                                <% }   else if (category === "Home & Kitchen") { %>
+                                                    <img class="img-fluid" src="/images/customer/category5.png" alt="<%= category%>">
+                                                <% }   else { %>
+                                                    <img class="img-fluid" src="/images/customer/category6.png" alt="<%= category%>">
+                                                <% } %>      
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="font-family: 'Poppins', sans-serif !important;"><%=category%></h5>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                           <% }); %>
                 </div>
@@ -185,82 +184,38 @@
         <!-- recommendation -->
         <section id="recommendation">
             <div class="container-lg">
-                <div class="row">
-                    <div
-                        class="category-banner d-flex justify-content-center"
-                    >
-                        <img
-                            class="img-fluid"
-                            style="
-                                background-color: rgba(
-                                    180,
-                                    179,
-                                    179,
-                                    0.502
-                                );
-                            "
-                            src="/images/customer/customer/homepage/product/clothes.png"
-                            alt=""
-                        />
+                <div style="position: relative">
+                    <div class="title" style="padding: 20px">
+                        <% const word = "fashion"%>
+                        <% const capitalize = word.charAt(0).toUpperCase() + word.slice(1); %>
+                        <h1 style="color:#e38b18">FASHION <a href="/customer/category/<%=capitalize%>"> <i class="fa-solid fa-arrow-right" style="color:#e38b18"></i></a> </h1>
                     </div>
-                    </div>
-                    <div
-                        class="row"
-                        style="position: relative"
-                    >
-                        <div
-                            class="title"
-                            style="padding: 20px"
-                        >
-                            <h1 style="color:#e38b18">FASHION <a href="/homepage-customer/fashion"> <i class="fa-solid fa-arrow-right" style="color:#e38b18"></i></a> </h1>
-                        </div>
-                        <div class="product-container">
-                            <% const fashionProducts = products.filter(product => (product.category === "Fashion" )) %> 
-                            <% for (var i = 0; i < 3; i++) { %>
-                                <% var product = fashionProducts[i] %>
-                                <div
-                                class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                            >
-                                <a
-                                    href="./views/product-detail.html"
-                                    style="text-decoration: none; color: black"
-                                >
-                                    <div
-                                        class="product-card ms-2"
-                                        style="position: relative"
-                                    >
+                    <div class="product-container row">
+                        <% const fashionProducts = products.filter(product => (product.category === "Fashion" )) %> 
+                        <% for (var i = 0; i < 3; i++) { %>
+                            <% var product = fashionProducts[i] %>
+                            <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
+                                <a href="/customer/products/<%=product.id%>" style="text-decoration: none; color: black">
+                                    <div    class="product-card ms-2" style="position: relative">
                                         <div class="product-image border shadow">
-                                            <img
-                                                src="/images/customer/<%=product.image%>"
-                                                class="project-thumb"
-                                                width="300px"
-                                                height="302px"
-                                                alt="<%=product.name%>"
-                                            />
+                                            <img src="/images/customer/<%=product.image%>" class="project-thumb" width="300px" height="302px" alt="<%=product.name%>"/>
                                         </div>
-                                        <div
-                                            class="overlay product-effect"
-                                            style="position: absolute"
-                                        >
-                                            <div
-                                                class="p-3 d-flex justify-content-center w-100"
-                                            >
+                                        <div class="overlay product-effect" style="position: absolute">
+                                            <div class="p-3 d-flex justify-content-center w-100">
                                                 ADD TO CART
                                             </div>
                                         </div>
-                                        <div
-                                            class="product-info d-flex pt-3 align-items-center flex-column"
-                                        >
+                                        <div class="product-info d-flex pt-3 align-items-center flex-column">
                                             <h3><%=product.name%></h3>
                                             <p class="mb-0"><%=product.price%>$</p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                            <% }; %>
-                        </div>
+                        <% }; %>
                     </div>
                 </div>
+            </div>
                 <!-- banner #2 -->
                 <div class="banner container my-4" style="position: relative">
                     <div class="row">
@@ -311,45 +266,24 @@
                     </div>
                     
                     <%products.forEach((product) => {%>
-                    <div
-                        class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
-                    >
-                        <a
-                            href="./views/product-detail.html"
-                            style="text-decoration: none; color: black"
-                        >
-                            <div
-                                class="product-card ms-2"
-                                style="position: relative"
-                            >
-                                <div class="product-image border shadow">
-                                    <img
-                                        src="/images/customer/<%=product.image%>"
-                                        class="project-thumb"
-                                        width="300px"
-                                        height="302px"
-                                        alt="<%=product.name%>"
-                                    />
-                                </div>
-                                <div
-                                    class="overlay product-effect"
-                                    style="position: absolute"
-                                >
-                                    <div
-                                        class="p-3 d-flex justify-content-center w-100"
-                                    >
-                                        ADD TO CART
+                        <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
+                            <a href="/customer/products/<%=product.id%>" style="text-decoration: none; color: black">
+                                <div    class="product-card ms-2" style="position: relative">
+                                    <div class="product-image border shadow">
+                                        <img src="/images/customer/<%=product.image%>" class="project-thumb" width="300px" height="302px" alt="<%=product.name%>"/>
+                                    </div>
+                                    <div class="overlay product-effect" style="position: absolute">
+                                        <div class="p-3 d-flex justify-content-center w-100">
+                                            ADD TO CART
+                                        </div>
+                                    </div>
+                                    <div class="product-info d-flex pt-3 align-items-center flex-column">
+                                        <h3><%=product.name%></h3>
+                                        <p class="mb-0"><%=product.price%>$</p>
                                     </div>
                                 </div>
-                                <div
-                                    class="product-info d-flex pt-3 align-items-center flex-column"
-                                >
-                                    <h3><%=product.name%></h3>
-                                    <p class="mb-0"><%=product.price%>$</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                     <%})%>
 
 
@@ -358,7 +292,7 @@
         </section>
         <!-- our service -->
         <section id="service">
-            <div class="container-lg mt-5">
+            <div class="container-lg mt-5 pb-3">
                 <div class="row">
                     <div
                         class="col-lg-4 border d-flex flex-row p-4 align-items-center"
@@ -404,30 +338,7 @@
                 </div>
             </div>
         </section>
-        <!-- footer -->
-        <section id="footer" style="background-color: #e38b18">
-            <div class="container">
-                <footer class="py-3 mt-4">
-                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-                </ul>
-                <p class="text-center text-muted">© 2022 Company, Inc</p>
-                </footer>
-            </div>
-                </footer>
-            </div>
-        </section>
-
-        <!-- scroll to top -->
-        <a href="#">
-            <div class="to-top">
-                <i class="fa fa-angle-up"></i>
-            </div>
-        </a>
+        <%- include ('partials/footer-customer')%>
         <%- include ('partials/script-homepage-customer') %>
     </body>
 </html>

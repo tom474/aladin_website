@@ -196,8 +196,8 @@ nav .icon {
 .overlay {
     top: 0;
     left: 0;
-    width: 322px !important;
-    height: 322px !important;
+    width: 301px !important;
+    height: 303px !important;
     display: flex;
     align-items: flex-end;
     cursor: pointer;
