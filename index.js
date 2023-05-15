@@ -8,7 +8,7 @@ const Customer = schema.Customer;
 const Vendor = schema.Vendor;
 const Shipper = schema.Shipper;
 const Product = schema.Product;
-const Order =schema.Order;
+const Order = schema.Order;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -36,7 +36,6 @@ app.get("/shipper/register", (req, res) => {
     res.render("register-shipper");
 });
 
-
 // Route for Vendor homepage 
 app.get("/vendor/homepage/:id", (req, res) => {
     const products = Product.find();
@@ -50,13 +49,13 @@ app.get("/vendor/homepage/:id", (req, res) => {
 // khai start
 //Route for Product form
 // Route for adding new products
+
 app.post("/vendor/products/add", (req, res) => {
     const product = new Product(req.body);
     product.save()
         .then(() => console.log('adding successfully'))
         .catch((error) => res.send(error));
 })
-
 // khai end
 
 // Route for Customer homepage
@@ -64,17 +63,17 @@ app.get("/customer/homepage", (req, res) => {
     const products = Product.find();
 
     // Retrieve all categories from the database
-    const categories = Product.distinct('category');
-  
+    const categories = Product.distinct("category");
+
     // Wait for both promises to resolve before rendering the homepage
     Promise.all([products, categories])
-      .then(([products, categories]) => {
-        res.render('homepage-customer', { products, categories });
-      })
-      .catch((error) => {
-        console.log(error.message);
-        res.status(500).send('Internal Server Error');
-      });  
+        .then(([products, categories]) => {
+            res.render("homepage-customer", { products, categories });
+        })
+        .catch((error) => {
+            console.log(error.message);
+            res.status(500).send("Internal Server Error");
+        });
 });
 
 // Route for category page
@@ -94,7 +93,11 @@ app.get("/customer/shopping-cart-page", (req, res) => {
 
 // Route for Shipper homepage
 app.get("/shipper/homepage/:id", (req, res) => {
-    res.render("homepage-shipper");
+    Order.find()
+    .then((orders) => {
+        res.render('homepage-shipper', {orders: orders});
+    })
+    .catch((error) => console.log(error.message));
 });
 
 // Route for handling Vendor registration form submission
@@ -299,6 +302,28 @@ app.post("/", async (req, res) => {
         console.error(error);
         res.status(500).json({ error: "Server error" });
     }
+});
+
+// route to categorypage
+app.get("/customer/category/:category", async (req, res) => {
+    const category = req.params.category;
+    try {
+        const products = await Product.find({ category: category });
+        res.render('category-page', { category: category, products: products });
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
+  });
+// route to detail product page
+app.get("/customer/products/:id", async (req, res) => { 
+    Product.findById(req.params.id)
+    .then((product) => {
+        if(!product) {
+            return res.send("Can't find that ID")
+        } 
+        res.render('product-detail-page',{product:product})
+     })            
 });
 
 app.listen(port, () => {

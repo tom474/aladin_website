@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 mongoose
     .connect(
-        "mongodb+srv://s3978467:k1234567@aladin-store.alud3ew.mongodb.net/"
+        "mongodb+srv://cuongtran:emsignouc@cluster0.mmq8m4z.mongodb.net/Aladin?retryWrites=true&w=majority" // Put your database link here
     )
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((error) => console.log(error.message));
@@ -154,7 +154,7 @@ const orderSchema = new mongoose.Schema({
     },
     payment: {
         type: String,
-        enum: ['Paid', 'Unpaid'],
+        enum: ['Cash on Delivery (COD)', 'Internet Banking'],
         required: true
     },
     status: {

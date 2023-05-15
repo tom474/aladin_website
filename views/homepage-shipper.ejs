@@ -156,8 +156,8 @@
                                 <thead class="bg-secondary-subtle">
                                     <tr class="text-black">
                                         <th scope="col">Invoice</th>
-                                        <th scope="col">Shipper</th>
                                         <th scope="col">Receiver</th>
+                                        <th scope="col">Payment Method</th>
                                         <th scope="col">Amount</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Status</th>
@@ -165,376 +165,167 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="order-row">
-                                        <td>INV-0001</td>
-                                        <td>Cuong Tran</td>
-                                        <td>Cuong Tran</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <!-- Button trigger modal -->
-                                            <button
-                                                type="button"
-                                                class="btn btn-primary btn-sm"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#order-detail"
-                                            >
-                                                Details
-                                            </button>
-
-                                            <!-- Modal -->
-                                            <div
-                                                class="modal fade"
-                                                id="order-detail"
-                                                tabindex="-1"
-                                                role="dialog"
-                                                aria-labelledby="exampleModalCenterTitle"
-                                                aria-hidden="true"
-                                            >
-                                                <div
-                                                    class="modal-dialog modal-dialog-centered"
-                                                    role="document"
+                                    <% orders.forEach(function(order){ %>
+                                        <tr class="order-row">
+                                            <td><%= order.id %></td>
+                                            <td><%= order.receiver %></td>
+                                            <td><%= order.payment %></td>
+                                            <td><%= order.total %></td>
+                                            <td><%= order.date %></td>
+                                            <td><%= order.status %></td>
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-primary btn-sm"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#order-detail"
                                                 >
-                                                    <div class="modal-content">
-                                                        <div
-                                                            class="modal-header"
-                                                        >
-                                                            <h5
-                                                                class="modal-title"
-                                                                id="exampleModalLongTitle"
+                                                    Details
+                                                </button>
+    
+                                                <!-- Modal -->
+                                                <div
+                                                    class="modal fade"
+                                                    id="order-detail"
+                                                    tabindex="-1"
+                                                    role="dialog"
+                                                    aria-labelledby="exampleModalCenterTitle"
+                                                    aria-hidden="true"
+                                                >
+                                                    <div
+                                                        class="modal-dialog modal-dialog-centered"
+                                                        role="document"
+                                                    >
+                                                        <div class="modal-content">
+                                                            <div
+                                                                class="modal-header"
                                                             >
-                                                                Invoice Details
-                                                            </h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col mb-1">
-                                                                    <p class="small mb-1">Order No.</p>
-                                                                    <p>INV-0001</p>
+                                                                <h5
+                                                                    class="modal-title"
+                                                                    id="exampleModalLongTitle"
+                                                                >
+                                                                    Invoice Details
+                                                                </h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col mb-1">
+                                                                        <p class="small mb-1">Order No.</p>
+                                                                        <p>INV-0001</p>
+                                                                    </div>
+                                                                    <div class="col mb-1">
+                                                                        <p class="small mb-1">Distribution Hub</p>
+                                                                        <p>Distribution Hub</p>
+                                                                    </div>
+                                                                    <div class="col mb-1">
+                                                                        <p class="small mb-1">Date</p>
+                                                                        <p>01/01/2023</p>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="col mb-1">
-                                                                    <p class="small mb-1">Distribution Hub</p>
-                                                                    <p>Distribution Hub</p>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <label class="small mb-1" for="order-status">Status:</label>
+                                                                        <select class="custom-select my-1 mr-sm-2" id="order-status">
+                                                                            <option value="1" selected>Active</option>
+                                                                            <option value="2">Delivered</option>
+                                                                            <option value="3">Canceled</option>
+                                                                          </select>
+                                                                    </div>
+                                                                    
                                                                 </div>
-                                                                <div class="col mb-1">
-                                                                    <p class="small mb-1">Date</p>
-                                                                    <p>01/01/2023</p>
+                                                                <hr>
+                                                                <p class="small mb-1">Item list</p>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>BEATS Solo 3 Wireless Headphones</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <p>x1</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <p>£299.99</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>BEATS Solo 3 Wireless Headphones</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <p>x1</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <p>£299.99</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p>BEATS Solo 3 Wireless Headphones</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <p>x1</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <p>£299.99</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="fs-5 text mb-1">Total Price:</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <p class="fs-5 text mb-1">£599.97</p>
+                                                                    </div>
+                                                                </div>
+                                                                <hr>
+                                                                <div class="row">
+                                                                    <div class="col mb-1">
+                                                                        <p class="small mb-1">Receiver</p>
+                                                                        <p>Tran Manh Cuong</p>
+                                                                    </div>
+                                                                    <div class="col mb-1">
+                                                                        <p class="small mb-1">Address</p>
+                                                                        <p>33 Nguyen Huu Tho</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col mb-1">
+                                                                        <p class="small mb-1">Phone Number</p>
+                                                                        <p>0901727436</p>
+                                                                    </div>
+                                                                    <div class="col mb-1">
+                                                                        <p class="small mb-1">Payment Method</p>
+                                                                        <p>Cash on Delivery (COD)</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <label class="small mb-1" for="order-status">Status:</label>
-                                                                    <select class="custom-select my-1 mr-sm-2" id="order-status">
-                                                                        <option value="1" selected>Active</option>
-                                                                        <option value="2">Delivered</option>
-                                                                        <option value="3">Canceled</option>
-                                                                      </select>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <hr>
-                                                            <p class="small mb-1">Item list</p>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <p>BEATS Solo 3 Wireless Headphones</p>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <p>x1</p>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <p>£299.99</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <p>BEATS Solo 3 Wireless Headphones</p>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <p>x1</p>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <p>£299.99</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <p>BEATS Solo 3 Wireless Headphones</p>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <p>x1</p>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <p>£299.99</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <p class="fs-5 text mb-1">Total Price:</p>
-                                                                </div>
-                                                                <div class="col">
-                                                                </div>
-                                                                <div class="col">
-                                                                    <p class="fs-5 text mb-1">£599.97</p>
-                                                                </div>
-                                                            </div>
-                                                            <hr>
-                                                            <div class="row">
-                                                                <div class="col mb-1">
-                                                                    <p class="small mb-1">Receiver</p>
-                                                                    <p>Tran Manh Cuong</p>
-                                                                </div>
-                                                                <div class="col mb-1">
-                                                                    <p class="small mb-1">Address</p>
-                                                                    <p>33 Nguyen Huu Tho</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col mb-1">
-                                                                    <p class="small mb-1">Phone Number</p>
-                                                                    <p>0901727436</p>
-                                                                </div>
-                                                                <div class="col mb-1">
-                                                                    <p class="small mb-1">Payment Method</p>
-                                                                    <p>Cash on Delivery (COD)</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            class="modal-footer"
-                                                        >
-                                                            <button
-                                                                type="button"
-                                                                class="btn btn-secondary"
-                                                                data-bs-dismiss="modal"
+                                                            <div
+                                                                class="modal-footer"
                                                             >
-                                                                Close
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                class="btn save-button"
-                                                                data-bs-dismiss="modal"
-                                                            >
-                                                                Save changes
-                                                            </button>
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal"
+                                                                >
+                                                                    Close
+                                                                </button>
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn save-button"
+                                                                    data-bs-dismiss="modal"
+                                                                >
+                                                                    Save changes
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0001</td>
-                                        <td>Cuong Tran</td>
-                                        <td>Cuong Tran</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href="#"
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0001</td>
-                                        <td>Cuong Tran</td>
-                                        <td>Cuong Tran</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href="#"
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0002</td>
-                                        <td>Loc Truong</td>
-                                        <td>Loc Truong</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0002</td>
-                                        <td>Loc Truong</td>
-                                        <td>Loc Truong</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0002</td>
-                                        <td>Loc Truong</td>
-                                        <td>Loc Truong</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        <td>INV-0003</td>
-                                        <td>Khai Nguyen</td>
-                                        <td>Khai Nguyen</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0003</td>
-                                        <td>Khai Nguyen</td>
-                                        <td>Khai Nguyen</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0003</td>
-                                        <td>Khai Nguyen</td>
-                                        <td>Khai Nguyen</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0004</td>
-                                        <td>Hao Truong</td>
-                                        <td>Hao Truong</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0004</td>
-                                        <td>Hao Truong</td>
-                                        <td>Hao Truong</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0004</td>
-                                        <td>Hao Truong</td>
-                                        <td>Hao Truong</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0005</td>
-                                        <td>Minh Huynh</td>
-                                        <td>Minh Huynh</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0005</td>
-                                        <td>Minh Huynh</td>
-                                        <td>Minh Huynh</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>INV-0005</td>
-                                        <td>Minh Huynh</td>
-                                        <td>Minh Huynh</td>
-                                        <td>$123</td>
-                                        <td>01/01/2023</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a
-                                                class="btn btn-sm btn-primary"
-                                                href=""
-                                                >Details</a
-                                            >
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    <% }); %>
                                 </tbody>
                             </table>
                         </div>
