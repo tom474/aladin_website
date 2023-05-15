@@ -58,6 +58,21 @@ app.get("/customer/homepage", (req, res) => {
       });  
 });
 
+// Route for category page
+app.get("/customer/category-page", (req, res) => {
+    res.render("category-page");
+});
+
+// Route for product detail page
+app.get("/customer/product-detail-page", (req, res) => {
+    res.render("product-detail-page");
+});
+
+// Route for shopping cart page
+app.get("/customer/shopping-cart-page", (req, res) => {
+    res.render("shopping-cart-page");
+});
+
 // Route for Shipper homepage
 app.get("/shipper/homepage", (req, res) => {
     res.render("homepage-shipper");

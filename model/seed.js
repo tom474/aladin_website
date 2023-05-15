@@ -146,5 +146,3 @@ const Product = schema.Product;
 Product.insertMany(products)
     .then(() => console.log("many products are inserted"))
     .catch((error) => console.log(error));
-
-
