@@ -60,12 +60,36 @@ app.post("/vendor/products/add", (req, res) => {
 // khai end
 
 // Route for Customer homepage
-app.get("/customer/homepage/:id", (req, res) => {
-    Product.find()
-        .then((products) => {
-            res.render("homepage-customer", { products: products });
-        })
-        .catch((error) => console.log(error.message));
+app.get("/customer/homepage", (req, res) => {
+    const products = Product.find();
+
+    // Retrieve all categories from the database
+    const categories = Product.distinct('category');
+  
+    // Wait for both promises to resolve before rendering the homepage
+    Promise.all([products, categories])
+      .then(([products, categories]) => {
+        res.render('homepage-customer', { products, categories });
+      })
+      .catch((error) => {
+        console.log(error.message);
+        res.status(500).send('Internal Server Error');
+      });  
+});
+
+// Route for category page
+app.get("/customer/category-page", (req, res) => {
+    res.render("category-page");
+});
+
+// Route for product detail page
+app.get("/customer/product-detail-page", (req, res) => {
+    res.render("product-detail-page");
+});
+
+// Route for shopping cart page
+app.get("/customer/shopping-cart-page", (req, res) => {
+    res.render("shopping-cart-page");
 });
 
 // Route for Shipper homepage

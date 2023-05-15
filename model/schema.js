@@ -208,5 +208,3 @@ module.exports = {
     Product,
     Order,
 };
-
-
