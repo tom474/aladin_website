@@ -35,10 +35,18 @@ app.get("/shipper/register", (req, res) => {
     res.render("register-shipper");
 });
 
-// Route for Vendor homepage
+// Route for Vendor homepage 
 app.get("/vendor/homepage", (req, res) => {
-    res.render("homepage-vendor");
+    Product.find({})
+    .then(products => res.render('homepage-vendor', { products }))
+    .catch(error => res.send(error));
 });
+// done
+
+// Route for adding new products
+app.post("vendor/products/add", (req, res) => {
+    
+})
 
 // Route for Customer homepage
 app.get("/customer/homepage", (req, res) => {
