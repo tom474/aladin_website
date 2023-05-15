@@ -213,9 +213,9 @@ const schema = require("./schema");
 const Product = schema.Product;
 const Order = schema.Order;
 
-// Product.insertMany(products)
-//     .then(() => console.log("many products are inserted"))
-//     .catch((error) => console.log(error));
+Product.insertMany(products)
+    .then(() => console.log("many products are inserted"))
+    .catch((error) => console.log(error));
 
 Order.insertMany(orders)
     .then(() => console.log("many orders are inserted"))
