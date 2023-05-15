@@ -122,7 +122,7 @@
                     <div>
                         <span class="text-secondary">Hello,</span>
                         <br>
-                        <strong class="fs-5">User Name</strong>
+                        <strong class="fs-5" name="vendorUsername"><%= user.businessName %></strong>
                     </div>
                     </a>
                     <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
@@ -132,7 +132,7 @@
                 <div class="earning">
                     <span class="text-secondary">Earning</span>
                     <br>
-                    <span class="fs-2"><strong>$12,560.55</strong></span>
+                    <span class="fs-2"><strong>$0</strong></span>
                 </div>
                 <br>
                 <hr>
@@ -400,15 +400,15 @@
                 </nav>
                 <br>
                 <div class="container d-flex justify-content-between form-container">
-                    <img src="./assets/images/form-banner.png" alt="">
-                    <form action="" class="d-flex flex-column">
+                    <img src="/images/customer/clothes.png" alt="">
+                    <form action="/vendor/products/add" method='post' class="d-flex flex-column">
                         <h2 class="text-secondary">Fill in the product information</h2>
                         <br>
                         <label class="fs-4 mb-2" for="name">Name</label>
-                        <input  class = "form-input" type="text" name='Name' id="name" required>
+                        <input  class = "form-input" type="text" name='name' id="name" required>
                         <br>
                         <label class="fs-4 mb-2" for="price">Price</label>
-                        <input  class = "form-input" type="number" name='Price' id="price" required>
+                        <input  class = "form-input" type="number" name='price' id="price" required>
                         <br>
                         <label class="fs-4 mb-2" for="category">Select Category</label>
                         <select class="form-input" name="category" id="category" required>
@@ -421,16 +421,18 @@
                         </select>
                         <br>
                         <label class="fs-4 mb-2" for="description">Description</label>
-                        <input  class = "form-input" type="text" name="Description" id="description" required>
+                        <input  class = "form-input" type="text" name="description" id="description" required>
                         <br> 
                         <label class="fs-4 mb-2" for="amount">Amount</label>
-                        <input  class = "form-input" type="number" name="Amount" id="amount" required>
+                        <input  class = "form-input" type="number" name="amount" id="amount" required>
                         <br>
                         <label class="fs-4 mb-2" for="image">Upload Your Product's Image</label>
-                        <input accept=".jpg, .jpeg, .png, .gif, .pdf" type="file" name="Image" id="image" required>
+                        <input accept=".jpg, .jpeg, .png, .gif, .pdf" type="file" name="image" id="image" required>
+                        <br>
+                        <input class="d-none" type="text" name="vendorUsername" id="vendorUsername" value="<%= user.businessName %>">
                         <br>
                         <div class="d-flex justify-content-between">
-                            <button class="form-btn" type="submit"><a href="#product-page" class="text-decoration-none">Submit</a></button>
+                            <button class="form-btn" type="submit"><a href="#" class="text-decoration-none">Submit</a></button>
                             <button class="reset-form-btn" type="reset">Reset</button>
                         </div>
                         <a href="#product-page" class="nav-link text-black fs-6">
@@ -513,69 +515,28 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="text-secondary "><strong>ID</strong></th>
-                                        <th scope="col" class="text-secondary "><strong>Date</strong></th>
                                         <th scope="col" class="text-secondary "><strong>Products</strong></th>
                                         <th scope="col" class="text-secondary "><strong>Payment</strong></th>
-                                        <th scope="col" class="text-secondary "><strong>Fulfilment</strong></th>
                                         <th scope="col" class="text-secondary "><strong>Total</strong></th>
-                                        <th scope="col" class="text-secondary "><strong></strong></th>
+                                        <th scope="col" class="text-secondary "><strong>Receiver</strong></th>
+                                        <th scope="col" class="text-secondary "><strong>Address</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th class="order-id "scope="row">#A580</th>
-                                        <td>DD/MM/YYYY</td>
-                                        <td>Clothe</td>
-                                        <td><span class="paid">Paid</span></td>
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
-                                        <td><strong>$99.99</strong></td>
-                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="order-id"scope="row">#B260</th>
-                                        <td>DD/MM/YYYY</td>
-                                        <td>Clothe</td>
-                                        <td><span class="paid">Paid</span></td>
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
-                                        <td><strong>$99.99</strong></td>
-                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="order-id"scope="row">#A583</th>
-                                        <td>DD/MM/YYYY</td>
-                                        <td>Clothe</td>
-                                        <td><span class="unpaid">Unpaid</span></td>
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>In Progress</td>
-                                        <td><strong>$99.99</strong></td>
-                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="order-id"scope="row">#A584</th>
-                                        <td>DD/MM/YYYY</td>
-                                        <td>Clothe</td>
-                                        <td><span class="paid">Paid</span></td>
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
-                                        <td><strong>$99.99</strong></td>
-                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="order-id"scope="row">#A076</th>
-                                        <td>DD/MM/YYYY</td>
-                                        <td>Clothe</td>
-                                        <td><span class="unpaid">Unpaid</span></td>
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-danger"></i>Cancel</td>
-                                        <td><strong>$99.99</strong></td>
-                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="order-id"scope="row">#A581</th>
-                                        <td>DD/MM/YYYY</td>
-                                        <td>Clothe</td>
-                                        <td><span class="paid">Paid</span></td>
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Delivered</td>
-                                        <td><strong>$99.99</strong></td>
-                                        <td><a href="#" class="bi bi-three-dots text-secondary"></a></td>
-                                    </tr>
+                                    <% orders.forEach(order => { %>
+                                        <tr>
+                                            <th class="order-id "scope="row"><%= order.id %></th>
+                                            <td>
+                                                <% order.products.forEach(product => { %>
+                                                    <%= product %><br>
+                                                <% }) %>                                          
+                                            </td>
+                                            <td><span class="cod"><%= order.payment %></span></td>
+                                            <td><strong>$<%= order.total %></strong></td>
+                                            <td><strong><%= order.receiver %></strong></td>
+                                            <td><strong><%= order.address %></strong></td>
+                                        </tr>
+                                    <% }) %>
                                 </tbody>
                             </table>
                         </div>

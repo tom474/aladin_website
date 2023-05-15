@@ -422,24 +422,10 @@ tr:hover .order-id {
 td {
     vertical-align: middle;
 }
-.paid {
+.cod {
     display: block;
-    color: #83ab47;
-    background-color: #f4fde5;
-    width: 50px;
-    height: 25px;
-    text-align: center;
-    border-radius: 15px;
 }
-.unpaid {
-    display: block;
-    color: #999999;
-    background-color: #e8e8e8;
-    width: 70px;
-    height: 25px;
-    text-align: center;
-    border-radius: 15px;
-}
+
 /* Side Menu */
 .sidebar {
     height: 100vh;

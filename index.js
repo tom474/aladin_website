@@ -36,16 +36,27 @@ app.get("/shipper/register", (req, res) => {
     res.render("register-shipper");
 });
 
-// Route for Vendor homepage
-app.get("/vendor/homepage", (req, res) => {
-    Product.find({})
-        .then((products) => res.render("homepage-vendor", { products }))
-        .catch((error) => res.send(error));
+// Route for Vendor homepage 
+app.get("/vendor/homepage/:id", (req, res) => {
+    const products = Product.find();
+    const orders = Order.find();
+    const user = User.findById(req.params.id);  
+    Promise.all([products, user, orders])
+    .then(([products, user, orders]) => res.render('homepage-vendor', {products, orders, user}))
+    .catch(error => res.send(error));
 });
-// done
 
+// khai start
+//Route for Product form
 // Route for adding new products
-app.post("vendor/products/add", (req, res) => {});
+
+app.post("/vendor/products/add", (req, res) => {
+    const product = new Product(req.body);
+    product.save()
+        .then(() => console.log('adding successfully'))
+        .catch((error) => res.send(error));
+})
+// khai end
 
 // Route for Customer homepage
 app.get("/customer/homepage", (req, res) => {
@@ -81,7 +92,7 @@ app.get("/customer/shopping-cart-page", (req, res) => {
 });
 
 // Route for Shipper homepage
-app.get("/shipper/homepage", (req, res) => {
+app.get("/shipper/homepage/:id", (req, res) => {
     Order.find()
     .then((orders) => {
         res.render('homepage-shipper', {orders: orders});
@@ -148,7 +159,8 @@ app.post("/vendor/register", async (req, res) => {
         await newVendor.save();
 
         // Redirect to Vendor homepage
-        res.redirect("/vendor/homepage");
+        const id = newVendor._id;
+        res.redirect(`/vendor/homepage/${id}`);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
@@ -194,7 +206,8 @@ app.post("/customer/register", async (req, res) => {
         await newCustomer.save();
 
         // Redirect to Customer homepage
-        res.redirect("/customer/homepage");
+        const id = newCustomer._id;
+        res.redirect(`/customer/homepage/${id}`);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
@@ -240,7 +253,8 @@ app.post("/shipper/register", async (req, res) => {
         await newShipper.save();
 
         // Redirect to Shipper homepage
-        res.redirect("/shipper/homepage"); // replace with your Shipper homepage URL
+        const id = newShipper._id;
+        res.redirect(`/shipper/homepage/${id}`); // replace with your Shipper homepage URL
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
@@ -273,11 +287,14 @@ app.post("/", async (req, res) => {
 
         // If login successful, redirect to the user's respective homepage
         if (user.__t === "Vendor") {
-            res.redirect("/vendor/homepage");
+            const id = user._id;
+            res.redirect(`/vendor/homepage/${id}`);
         } else if (user.__t === "Customer") {
-            res.redirect("/customer/homepage");
+            const id = user._id;
+            res.redirect(`/customer/homepage/${id}`);
         } else if (user.__t === "Shipper") {
-            res.redirect("/shipper/homepage");
+            const id = user._id;
+            res.redirect(`/shipper/homepage/${id}`);
         } else {
             res.status(500).json({ error: "Invalid user role" });
         }
