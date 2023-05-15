@@ -8,6 +8,7 @@ const Customer = schema.Customer;
 const Vendor = schema.Vendor;
 const Shipper = schema.Shipper;
 const Product = schema.Product;
+const Order = schema.Order;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -37,30 +38,55 @@ app.get("/shipper/register", (req, res) => {
 
 // Route for Vendor homepage
 app.get("/vendor/homepage", (req, res) => {
-    res.render("homepage-vendor");
+    Product.find({})
+        .then((products) => res.render("homepage-vendor", { products }))
+        .catch((error) => res.send(error));
 });
+// done
+
+// Route for adding new products
+app.post("vendor/products/add", (req, res) => {});
 
 // Route for Customer homepage
 app.get("/customer/homepage", (req, res) => {
     const products = Product.find();
 
     // Retrieve all categories from the database
-    const categories = Product.distinct('category');
-  
+    const categories = Product.distinct("category");
+
     // Wait for both promises to resolve before rendering the homepage
     Promise.all([products, categories])
-      .then(([products, categories]) => {
-        res.render('homepage-customer', { products, categories });
-      })
-      .catch((error) => {
-        console.log(error.message);
-        res.status(500).send('Internal Server Error');
-      });  
+        .then(([products, categories]) => {
+            res.render("homepage-customer", { products, categories });
+        })
+        .catch((error) => {
+            console.log(error.message);
+            res.status(500).send("Internal Server Error");
+        });
+});
+
+// Route for category page
+app.get("/customer/category-page", (req, res) => {
+    res.render("category-page");
+});
+
+// Route for product detail page
+app.get("/customer/product-detail-page", (req, res) => {
+    res.render("product-detail-page");
+});
+
+// Route for shopping cart page
+app.get("/customer/shopping-cart-page", (req, res) => {
+    res.render("shopping-cart-page");
 });
 
 // Route for Shipper homepage
 app.get("/shipper/homepage", (req, res) => {
-    res.render("homepage-shipper");
+    Order.find()
+    .then((orders) => {
+        res.render('homepage-shipper', {orders: orders});
+    })
+    .catch((error) => console.log(error.message));
 });
 
 // Route for handling Vendor registration form submission

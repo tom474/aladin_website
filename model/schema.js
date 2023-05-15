@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 mongoose
     .connect(
-        // "mongodb+srv://cuongtran:emsignouc@cluster0.mmq8m4z.mongodb.net/Aladin?retryWrites=true&w=majority"
-        "mongodb+srv://s3965528:mypassword@cluster0.yeddgxx.mongodb.net/Aladin?retryWrites=true&w=majority"
+        "mongodb+srv://cuongtran:emsignouc@cluster0.mmq8m4z.mongodb.net/Aladin?retryWrites=true&w=majority" // Put your database link here
     )
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((error) => console.log(error.message));
@@ -138,12 +137,64 @@ const productSchema = new mongoose.Schema({
     }
 });
 
+// Define Order schema
+const orderSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    products: {
+        type: [String],
+        required: true,
+    },
+    payment: {
+        type: String,
+        enum: ['Cash on Delivery (COD)', 'Internet Banking'],
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['Active','Canceled', 'Delivered'],
+        required: true
+    },
+    total: {
+        type: Number,
+        min: 0,
+        required: true
+    },
+    distributionHub: {
+        type: String,
+        required: true,
+        enum: [
+            "Tan Son Nhat Cargo Terminal",
+            "Cat Lai Terminal",
+            "Saigon Newport Corporation",
+            "Long Binh Logistics Center",
+        ],
+    },
+    receiver: {
+        type: String,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+});
 
 // Create user model with sub-models
 const User = mongoose.model("User", userSchema);
 const Vendor = User.discriminator("Vendor", vendorSchema);
 const Customer = User.discriminator("Customer", customerSchema);
 const Shipper = User.discriminator("Shipper", shipperSchema);
+
+// Create order model 
+const Order = mongoose.model('Order', orderSchema);
 
 // Create product model 
 const Product = mongoose.model("Product",productSchema);
@@ -155,6 +206,5 @@ module.exports = {
     Customer,
     Shipper,
     Product,
+    Order,
 };
-
-

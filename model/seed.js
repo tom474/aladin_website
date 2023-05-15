@@ -140,11 +140,83 @@ const products = [
     },
 ];
 
+const orders = [
+    {
+        id: '#INV-0001',
+        date: '2023-09-28',
+        products: ["Fitness Tracker", "Non-Scratch Sponges", "Wine Fridge"],
+        payment: 'Internet Banking',
+        status: 'Delivered',
+        total: 99.99,
+        distributionHub: "Tan Son Nhat Cargo Terminal",
+        receiver: 'Tran Manh Cuong',
+        address: '123 Nguyen Van Linh'
+    },
+    {
+        id: '#INV-0002',
+        date: '2023-09-28',
+        products: ["Flannel Shirt", "Hooded Sweatshirt"],
+        payment: 'Internet Banking',
+        status: 'Delivered',
+        total: 99.99,
+        distributionHub: "Tan Son Nhat Cargo Terminal",
+        receiver: 'Truong Quang Bao Loc',
+        address: '456 Nguyen Van Linh'
+    },
+    {
+        id: '#INV-0003',
+        date: '2023-09-28',
+        products: ["Womens Sleeve Shirts"],
+        payment: 'Cash on Delivery (COD)',
+        status: 'Active',
+        total: 99.99,
+        distributionHub: "Cat Lai Terminal",
+        receiver: 'Nguyen Van Khai',
+        address: '789 Nguyen Van Linh'
+    },
+    {
+        id: '#INV-0004',
+        date: '2023-9-28',
+        products: ["Men's Dress Shirt", "Apple AirPods Pro","48-Pack AA Batteries"],
+        payment: 'Internet Banking',
+        status: 'Delivered',
+        total: 99.99,
+        distributionHub: "Cat Lai Terminal",
+        receiver: 'Truong Tuong Hao',
+        address: '1011 Nguyen Van Linh'
+    },
+    {
+        id: '#INV-0005',
+        date: '2023-9-28',
+        products: ["Men's Dress Shirt", "Cookware Set"],
+        payment: 'Cash on Delivery (COD)',
+        status: 'Canceled',
+        total: 99.99,
+        distributionHub: "Saigon Newport Corporation",
+        receiver: 'Nguyen Thien Minh',
+        address: '1112 Nguyen Van Linh'
+    },
+    {
+        id: '#INV-0006',
+        date: '2023-9-28',
+        products: ["CeraVe Cream"],
+        payment: 'Internet Banking',
+        status: 'Delivered',
+        total: 99.99,
+        distributionHub: "Saigon Newport Corporation",
+        receiver: 'Tran Manh Cuong',
+        address: '123 Nguyen Van Linh'
+    },
+]
+
 const schema = require("./schema");
 const Product = schema.Product;
+const Order = schema.Order;
 
-Product.insertMany(products)
-    .then(() => console.log("many products are inserted"))
+// Product.insertMany(products)
+//     .then(() => console.log("Many products are inserted"))
+//     .catch((error) => console.log(error));
+
+Order.insertMany(orders)
+    .then(() => console.log("Many orders are inserted"))
     .catch((error) => console.log(error));
-
-
