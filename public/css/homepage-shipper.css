@@ -159,6 +159,10 @@
     transform: rotate(-180deg);
 }
 
+.content .order-list {
+    min-height: 70vh;
+}
+
 .content .order {
     background: var(--primary);
     border-radius: 20px;

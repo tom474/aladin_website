@@ -38,15 +38,16 @@ app.get("/shipper/register", (req, res) => {
     res.render("register-shipper");
 });
 
-// Route for Vendor homepage 
-
+// Route for Vendor homepage
 app.get("/vendor/homepage/:id", (req, res) => {
     const products = Product.find();
     const orders = Order.find();
     const user = User.findById(req.params.id);
     Promise.all([products, user, orders])
-    .then(([products, user, orders]) => res.render('homepage-vendor', {products, orders, user}))
-    .catch(error => res.send(error));
+        .then(([products, user, orders]) =>
+            res.render("homepage-vendor", { products, orders, user })
+        )
+        .catch((error) => res.send(error));
 });
 
 // Route for To-do list
@@ -66,7 +67,7 @@ app.post("/vendor/products/add", (req, res) => {
             res.redirect(`/vendor/homepage/${vendorId}`);
         })
         .catch((error) => res.send(error));
-})
+});
 // khai end
 
 // Route for Customer homepage
@@ -104,11 +105,27 @@ app.get("/customer/shopping-cart-page", (req, res) => {
 
 // Route for Shipper homepage
 app.get("/shipper/homepage/:id", (req, res) => {
-    Order.find()
-    .then((orders) => {
-        res.render('homepage-shipper', {orders: orders});
-    })
-    .catch((error) => console.log(error.message));
+    const products = Product.find();
+    const orders = Order.find();
+    const user = User.findById(req.params.id);
+    Promise.all([products, user, orders])
+        .then(([products, user, orders]) =>
+            res.render("homepage-shipper", { products, orders, user })
+        )
+        .catch((error) => res.send(error));
+});
+
+app.post("/shipper/homepage/update/", (req, res) => {
+    Order.findOneAndUpdate(
+        { _id: req.body.oid },
+        { status: req.body.status },
+        { new: true }
+      )
+      .then(() => {
+        console.log('The order is updated');
+        res.redirect(`/shipper/homepage/${req.body.uid}`);
+      })
+      .catch((error) => console.log(error.message));
 });
 
 // Route for handling Vendor registration form submission
@@ -255,7 +272,10 @@ app.post("/shipper/register", async (req, res) => {
         const newShipper = new Shipper({
             username,
             password: hashedPassword,
-            profilePicture,
+            profilePicture: {
+                data: req.files.profilePicture.data,
+                mimeType: req.files.profilePicture.mimetype
+            },
             name,
             email,
             terms,
@@ -315,26 +335,25 @@ app.post("/", async (req, res) => {
     }
 });
 
-// route to categorypage
+// Route to category page
 app.get("/customer/category/:category", async (req, res) => {
     const category = req.params.category;
     try {
         const products = await Product.find({ category: category });
-        res.render('category-page', { category: category, products: products });
+        res.render("category-page", { category: category, products: products });
     } catch (err) {
         console.error(err);
         res.sendStatus(500);
     }
-  });
-// route to detail product page
-app.get("/customer/products/:id", async (req, res) => { 
-    Product.findById(req.params.id)
-    .then((product) => {
-        if(!product) {
-            return res.send("Can't find that ID")
-        } 
-        res.render('product-detail-page',{product:product})
-     })            
+});
+// Route to detail product page
+app.get("/customer/products/:id", async (req, res) => {
+    Product.findById(req.params.id).then((product) => {
+        if (!product) {
+            return res.send("Can't find that ID");
+        }
+        res.render("product-detail-page", { product: product });
+    });
 });
 
 app.listen(port, () => {

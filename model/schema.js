@@ -25,7 +25,8 @@ const userSchema = new Schema(
             match: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).*$/,
         },
         profilePicture: {
-            type: Buffer,
+            data: Buffer,
+            mimeType: String,
             default: Buffer.from('RGVmYXVsdF9wZnAuc3Zn')
         },
         email: {
@@ -132,17 +133,12 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
         minLength: 8,
-        maxLength: 15,
+        maxLength: 15
     }
 });
 
 // Define Order schema
 const orderSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true,
-        unique: true
-    },
     date: {
         type: Date,
         required: true
