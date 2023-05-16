@@ -3,7 +3,6 @@ const app = express();
 const port = 3000;
 const bcrypt = require("bcryptjs");
 const fileUpload = require('express-fileupload');
-app.use(fileUpload());
 const schema = require("./model/schema");
 const User = schema.User;
 const Customer = schema.Customer;
@@ -14,6 +13,7 @@ const Order = schema.Order;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(fileUpload());
 
 // Use the `express.urlencoded` middleware to parse incoming form data
 app.use(express.urlencoded({ extended: true }));
@@ -50,15 +50,22 @@ app.get("/vendor/homepage/:id", (req, res) => {
         .catch((error) => res.send(error));
 });
 
+// Route for To-do list
+
+
+
 // khai start
 //Route for Product form
 // Route for adding new products
 
 app.post("/vendor/products/add", (req, res) => {
+    const vendorId = req.body.vendorId;
+    delete req.body.vendorId;
     const product = new Product(req.body);
-    product
-        .save()
-        .then(() => console.log("adding successfully"))
+    product.save()
+        .then(() => {
+            res.redirect(`/vendor/homepage/${vendorId}`);
+        })
         .catch((error) => res.send(error));
 });
 // khai end
