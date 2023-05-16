@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const bcrypt = require("bcryptjs");
+const fileUpload = require('express-fileupload');
 const schema = require("./model/schema");
 const User = schema.User;
 const Customer = schema.Customer;
@@ -12,6 +13,7 @@ const Order = schema.Order;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(fileUpload());
 
 // Use the `express.urlencoded` middleware to parse incoming form data
 app.use(express.urlencoded({ extended: true }));
@@ -37,23 +39,32 @@ app.get("/shipper/register", (req, res) => {
 });
 
 // Route for Vendor homepage 
+
 app.get("/vendor/homepage/:id", (req, res) => {
     const products = Product.find();
     const orders = Order.find();
-    const user = User.findById(req.params.id);  
+    const user = User.findById(req.params.id);
     Promise.all([products, user, orders])
     .then(([products, user, orders]) => res.render('homepage-vendor', {products, orders, user}))
     .catch(error => res.send(error));
 });
+
+// Route for To-do list
+
+
 
 // khai start
 //Route for Product form
 // Route for adding new products
 
 app.post("/vendor/products/add", (req, res) => {
+    const vendorId = req.body.vendorId;
+    delete req.body.vendorId;
     const product = new Product(req.body);
     product.save()
-        .then(() => console.log('adding successfully'))
+        .then(() => {
+            res.redirect(`/vendor/homepage/${vendorId}`);
+        })
         .catch((error) => res.send(error));
 })
 // khai end
