@@ -108,15 +108,17 @@ app.get("/shipper/homepage/:id", (req, res) => {
         .catch((error) => res.send(error));
 });
 
-app.post("/shipper/homepage/:id/update", (req, res) => {
-    const products = Product.find();
-    const orders = Order.find();
-    const user = User.findById(req.params.id);
-    Promise.all([products, user, orders])
-        .then(([products, user, orders]) =>
-            res.render("homepage-shipper", { products, orders, user })
-        )
-        .catch((error) => res.send(error));
+app.post("/shipper/homepage/update/", (req, res) => {
+    Order.findOneAndUpdate(
+        { _id: req.body.oid },
+        { status: req.body.status },
+        { new: true }
+      )
+      .then(() => {
+        console.log('The order is updated');
+        res.redirect(`/shipper/homepage/${req.body.uid}`);
+      })
+      .catch((error) => console.log(error.message));
 });
 
 // Route for handling Vendor registration form submission
@@ -326,7 +328,7 @@ app.post("/", async (req, res) => {
     }
 });
 
-// route to category page
+// Route to category page
 app.get("/customer/category/:category", async (req, res) => {
     const category = req.params.category;
     try {
@@ -337,7 +339,7 @@ app.get("/customer/category/:category", async (req, res) => {
         res.sendStatus(500);
     }
 });
-// route to detail product page
+// Route to detail product page
 app.get("/customer/products/:id", async (req, res) => {
     Product.findById(req.params.id).then((product) => {
         if (!product) {

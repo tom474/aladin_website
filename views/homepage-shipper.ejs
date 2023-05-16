@@ -187,7 +187,8 @@
             
                                                         <!-- Modal -->
                                                         <form
-                                                            action=""
+                                                            action="/shipper/homepage/update/"
+                                                            method="post"
                                                             class="modal fade"
                                                             id="order-detail"
                                                             tabindex="-1"
@@ -213,6 +214,8 @@
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <div class="row">
+                                                                            <input type="hidden" name="uid" value="<%= user._id %>">
+                                                                            <input type="hidden" name="oid" value="<%= order._id %>">
                                                                             <div class="col mb-1">
                                                                                 <p class="small mb-1">Order No.</p>
                                                                                 <p><%= order.id %></p>
@@ -229,7 +232,7 @@
                                                                         <div class="row">
                                                                             <div class="col">
                                                                                 <label class="small mb-1" for="status">Status:</label>
-                                                                                <select class="custom-select my-1 mr-sm-2" id="status">
+                                                                                <select class="custom-select my-1 mr-sm-2" id="status" name="status">
                                                                                     <option value="Active" selected>Active</option>
                                                                                     <option value="Delivered">Delivered</option>
                                                                                     <option value="Canceled">Canceled</option>
