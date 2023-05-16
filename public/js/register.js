@@ -23,17 +23,17 @@ togglePassword.addEventListener("click", function (e) {
 const imgDiv = document.querySelector(".profile_pic");
 const img = document.querySelector("#photo");
 const file = document.querySelector("#file");
-const uploadBtn = document.querySelector("#upload_button");
+// const uploadBtn = document.querySelector("#upload_button");
 
-// when user hover over the image, display the upload button
-imgDiv.addEventListener("mouseenter", function () {
-    uploadBtn.style.display = "block";
-});
+// // when user hover over the image, display the upload button
+// imgDiv.addEventListener("mouseenter", function () {
+//     uploadBtn.style.display = "block";
+// });
 
-// when they hover out, hide the upload button
-imgDiv.addEventListener("mouseleave", function () {
-    uploadBtn.style.display = "none";
-});
+// // when they hover out, hide the upload button
+// imgDiv.addEventListener("mouseleave", function () {
+//     uploadBtn.style.display = "none";
+// });
 
 // choose an image to upload
 file.addEventListener("change", function () {

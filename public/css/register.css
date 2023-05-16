@@ -264,7 +264,7 @@ a:hover {
     font-family: "Roboto Serif", serif;
     font-size: 15px;
     cursor: pointer;
-    display: none;
+    display: block;
 }
 /* pfp */
 

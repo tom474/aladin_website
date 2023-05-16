@@ -118,14 +118,14 @@
             <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top" style="width: 280px;">
                 <div class="d-flex justify-content-between align-items-center">
                     <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                    <img src="https://github.com/mdo.png" alt="" width="45" height="45" class="rounded-circle me-2">
-                    <div>
-                        <span class="text-secondary">Hello,</span>
-                        <br>
-                        <strong class="fs-5" name="vendorUsername"><%= user.businessName %></strong>
-                    </div>
+                        <img src="data:<%= user.profilePicture.mimeType %>;base64,<%= user.profilePicture.data.toString('base64') %>" alt="user-image" width="45" height="45" class="rounded-circle me-2">
+                        <div>
+                            <span class="text-secondary">Hello,</span>
+                            <br>
+                            <strong class="fs-5" name="vendorUsername"><%= user.businessName %></strong>
+                        </div>
                     </a>
-                    <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
+                    <a href="/" class="bi bi-box-arrow-right text-secondary fs-5"></a>
                 </div>
                 <br>
                 <br>
@@ -137,30 +137,24 @@
                 <br>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item home">
-                    <a href="#home-page" class="nav-link selected text-black fs-5">
-                        <i class="bi bi-reception-4 me-2 fs-4"></i>
-                        <strong>Dashboard</strong>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#order-page" class="nav-link text-black fs-5">
-                        <i class="bi bi-list-check me-2 fs-4"></i>
-                        <strong>Orders <span class="noti ms-2">3</span></strong>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#product-page" class="nav-link text-black fs-5">
-                        <i class="bi bi-box-seam me-2 fs-4"></i>
-                        <strong>Products</strong>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#message-page" class="nav-link text-black fs-5">
-                        <i class="bi bi-envelope me-2 fs-4"></i>
-                        <strong>Messages <span class="noti ms-2">3</span></strong>
-                    </a>
-                </li>
+                    <li class="nav-item product">
+                        <a href="#product-page" class="nav-link selected text-black fs-5">
+                            <i class="bi bi-box-seam me-2 fs-4"></i>
+                            <strong>Products</strong>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#order-page" class="nav-link text-black fs-5">
+                            <i class="bi bi-list-check me-2 fs-4"></i>
+                            <strong>Orders <span class="noti ms-2"><%= orders.length %></span></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#home-page" class="nav-link text-black fs-5">
+                            <i class="bi bi-reception-4 me-2 fs-4"></i>
+                            <strong>Dashboard</strong>
+                        </a>
+                    </li>
                 </ul>
                 <div class="logo-container ">
                     <a href="/" class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="width: 160px;">
@@ -192,62 +186,6 @@
                     </a>
                 </nav>
                 <br>
-                <div class="container-fluid pt-4 px-4">
-                    <div class="row g-4">
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="bg-secondary-subtle rounded d-flex align-items-center justify-content-between p-4">
-                                <i class="fa fa-chart-line fa-3x" style="color: #f68713;"></i>
-                                <div class="ms-3">
-                                    <p class="mb-2">Today Sale</p>
-                                    <h6 class="mb-0">$1234</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="bg-secondary-subtle rounded d-flex align-items-center justify-content-between p-4">
-                                <i class="fa fa-chart-bar fa-3x" style="color: #f68713;"></i>
-                                <div class="ms-3">
-                                    <p class="mb-2">Today Revenue</p>
-                                    <h6 class="mb-0">$1234</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="bg-secondary-subtle rounded d-flex align-items-center justify-content-between p-4">
-                                <i class="fa fa-chart-area fa-3x" style="color: #f68713;"></i>
-                                <div class="ms-3">
-                                    <p class="mb-2">Customers</p>
-                                    <h6 class="mb-0">1234</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="bg-secondary-subtle rounded d-flex align-items-center justify-content-between p-4">
-                                <i class="fa fa-chart-pie fa-3x" style="color: #f68713;"></i>
-                                <div class="ms-3">
-                                    <p class="mb-2">Orders</p>
-                                    <h6 class="mb-0">1234</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid pt-4 px-4">
-                    <div class="row g-4">
-                        <div class="col-sm-12 col-xl-6">
-                            <div class="bg-secondary-subtle rounded h-100 p-4">
-                                <h6 class="mb-4">Changes of Sales in a year</h6>
-                                <canvas id="line-chart"></canvas>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-6">
-                            <div class="bg-secondary-subtle rounded h-100 p-4">
-                                <h6 class="mb-4">Number of Customers in three big cities of Viet Nam</h6>
-                                <canvas id="worldwide-sales"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid pt-4 px-4">
                     <div class="row g-4">
                         <div class="col-sm-12 col-md-12 col-xl-12 ">
@@ -340,7 +278,6 @@
                             <table class="table table-bordered border-black table-hover">
                                 <thead>
                                     <tr>
-                                    <th scope="col" class="fs-5"><strong>#</strong></th>
                                     <th scope="col" class="fs-5"><strong>Name</strong></th>
                                     <th scope="col" class="fs-5"><strong>Image</strong></th>
                                     <th scope="col" class="fs-5"><strong>Price</strong></th>
@@ -353,13 +290,12 @@
                                 <tbody>
                                     <% products.forEach(product => { %>
                                         <tr>
-                                            <th scope="row" class="align-middle"></th>
                                             <td><%= product.name %></td>
                                             <td>
                                                 <% if (product.image.data) { %>
-                                                    <img src="data:image/<%= product.image.contentType %>;base64,<%= product.image.data.toString('base64') %>" height="200px" width="200px"/>
+                                                    <img src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>" alt="product-image" height="200px" width="200px">
                                                   <% } else { %>
-                                                    <img src="/images/customer/clothes.png" height="200px" width="200px"/>
+                                                    <img src="/images/customer/banner-category.png" height="200px" width="200px"/>
                                                   <% } %>
                                             </td>
                                             <td>$<%= product.price %></td>
@@ -400,15 +336,14 @@
                 </nav>
                 <br>
                 <div class="container d-flex justify-content-between form-container">
-                    <img src="/images/customer/clothes.png" alt="">
-                    <form action="/vendor/products/add" method='post' class="d-flex flex-column">
+                    <form action="/vendor/products/add" method='post' class="d-flex flex-column" enctype="multipart/form-data">
                         <h2 class="text-secondary">Fill in the product information</h2>
                         <br>
                         <label class="fs-4 mb-2" for="name">Name</label>
                         <input  class = "form-input" type="text" name='name' id="name" required>
                         <br>
                         <label class="fs-4 mb-2" for="price">Price</label>
-                        <input  class = "form-input" type="number" name='price' id="price" required>
+                        <input  class = "form-input" type="number" name='price' id="price" step="any" required>
                         <br>
                         <label class="fs-4 mb-2" for="category">Select Category</label>
                         <select class="form-input" name="category" id="category" required>
@@ -430,9 +365,10 @@
                         <input accept=".jpg, .jpeg, .png, .gif, .pdf" type="file" name="image" id="image" required>
                         <br>
                         <input class="d-none" type="text" name="vendorUsername" id="vendorUsername" value="<%= user.businessName %>">
+                        <input type="hidden" name="vendorId" id="vendorId" value="<%= user._id %>">
                         <br>
                         <div class="d-flex justify-content-between">
-                            <button class="form-btn" type="submit"><a href="#" class="text-decoration-none">Submit</a></button>
+                            <button class="form-btn" type="submit">Submit</button>
                             <button class="reset-form-btn" type="reset">Reset</button>
                         </div>
                         <a href="#product-page" class="nav-link text-black fs-6">
@@ -523,9 +459,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <% let i = 1; %>
                                     <% orders.forEach(order => { %>
                                         <tr>
-                                            <th class="order-id "scope="row"><%= order.id %></th>
+                                            <th class="order-id "scope="row"><%- `#INV-000${i++}` %></th>
                                             <td>
                                                 <% order.products.forEach(product => { %>
                                                     <%= product %><br>
@@ -544,68 +481,6 @@
                 </div>
             </div>
             <!-- Order page end-->
-
-            <!-- Messages page start -->
-            <div class="container-fluid rounded-page message-page-content" id="message-page">
-                <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
-                    <a class="navbar-brand"><strong class="fs-1">Messages</strong>
-                        <br>
-                        <p class="text-secondary">View customers messages here</p>
-                    </a>
-                    <form class="search-form mt-1">
-                        <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
-                        <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
-                    </form>
-                    <a href="#" class="nav-link text-black fs-6">
-                        <strong>View Your Store</strong>
-                        <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
-                    </a>
-                </nav>
-                <br>
-                <div role="main" class="container  ">
-                    <div class="my-3 p-3 bg-white rounded box-shadow" style="padding: 0 50px!important;">
-                        <div class="media text-muted pt-3 position-relative">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="mr-2 rounded" width="32" height="32">
-                            <span class="mx-2" style="background-color: #f68713; color: white; border-radius: 5px;">New!</span>
-                            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <strong class="d-block text-black fs-5">Cuong123</strong>
-                            Hi, Is there size XXL for this tee?
-                            <span class="text-black position-absolute bottom-0 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
-                            </p>
-                        </div>
-                        <div class="media text-muted pt-3 position-relative">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="mr-2 rounded" width="32" height="32">
-                            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <span class="d-block text-black fs-5">Loc456</span>
-                            I want to buy a blue big bear for my girlfriend. Do you have it?
-                            <span class="text-black position-absolute bottom-0 end-0">Today, 3:47 PM</span>
-                            </p>
-                        </div>
-                        <div class="media text-muted pt-3 position-relative">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="" class="mr-2 rounded" width="32" height="32">
-                            <span class="mx-2" style="background-color: #f68713; color: white; border-radius: 5px;">New!</span>
-                            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <strong class="d-block text-black fs-5">Hao789</strong>
-                            I see your store sells this bag. Is there black ones?
-                            <span class="text-black position-absolute bottom-0 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
-                            </p>
-                        </div>
-                        <div class="media text-muted pt-3 position-relative">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="" class="mr-2 rounded" width="32" height="32">
-                            <span class="mx-2" style="background-color: #f68713; color: white; border-radius: 5px;">New!</span>
-                            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <strong class="d-block text-black fs-5">Minhjqk</strong>
-                            Hello shop, Can I ask something?
-                            <span class="text-black position-absolute bottom-0 end-0" style="font-weight: bold;">Today, 3:47 PM</span>
-                            </p>
-                        </div>
-                        <small class="d-block text-right mt-3">
-                            <a href="#">All messages</a>
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <!-- Messages page end -->
         </div>
         <!-- JavaScript -->
         <script

@@ -50,18 +50,30 @@ app.get("/vendor/homepage/:id", (req, res) => {
         .catch((error) => res.send(error));
 });
 
-// khai start
 //Route for Product form
 // Route for adding new products
 
 app.post("/vendor/products/add", (req, res) => {
-    const product = new Product(req.body);
+    const vendorId =req.body.vendorId;
+    delete req.body.vendorId;
+    const product = new Product({
+        name: req.body.name,
+        price: req.body.price,
+        image: {
+            data: req.files.image.data,
+            mimeType: req.files.image.mimetype
+        },
+        description: req.body.description,
+        amount: req.body.amount,
+        category: req.body.category,
+        vendorUsername: req.body.vendorUsername
+    });
     product
         .save()
-        .then(() => console.log("adding successfully"))
+        .then(() => res.redirect(`/vendor/homepage/${vendorId}`))
         .catch((error) => res.send(error));
 });
-// khai end
+
 
 // Route for Customer homepage
 app.get("/customer/homepage", (req, res) => {
@@ -171,7 +183,10 @@ app.post("/vendor/register", async (req, res) => {
         const newVendor = new Vendor({
             username,
             password: hashedPassword,
-            profilePicture,
+            profilePicture: {
+                data: req.files.profilePicture.data,
+                mimeType: req.files.profilePicture.mimetype
+            },
             email,
             terms,
             businessName,
@@ -218,7 +233,10 @@ app.post("/customer/register", async (req, res) => {
         const newCustomer = new Customer({
             username,
             password: hashedPassword,
-            profilePicture,
+            profilePicture: {
+                data: req.files.profilePicture.data,
+                mimeType: req.files.profilePicture.mimetype
+            },
             email,
             terms,
             name,
@@ -348,6 +366,12 @@ app.get("/customer/products/:id", async (req, res) => {
         res.render("product-detail-page", { product: product });
     });
 });
+
+// // Route to account detail page
+// app.get("/account-detail/:id", (req, res) => {
+//     const user = User.findById(req.params.id);
+//     res.render('')
+// });
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

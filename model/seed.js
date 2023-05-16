@@ -24,7 +24,7 @@ const products = [
         price: 14.5,
         image: "product3.jpg",
         description:
-            "it will hold its shape thanks to ribbed cuffs and hem. Double-needle stitching at the neck and armhole seams further enhance quality and durability. In classic hoodie style, there's also a front kangaroo pocket. Here's a soft, warm, fleece hooded sweatshirt to wear well and with pride",
+            "It will hold its shape thanks to ribbed cuffs and hem. Double-needle stitching at the neck and armhole seams further enhance quality and durability. In classic hoodie style, there's also a front kangaroo pocket. Here's a soft, warm, fleece hooded sweatshirt to wear well and with pride",
         amount: 300,
         category: "Fashion",
         vendorUsername: "nguyenvana",

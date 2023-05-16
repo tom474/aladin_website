@@ -27,7 +27,6 @@ const userSchema = new Schema(
         profilePicture: {
             data: Buffer,
             mimeType: String,
-            default: Buffer.from('RGVmYXVsdF9wZnAuc3Zn')
         },
         email: {
             type: String,
@@ -112,8 +111,8 @@ const productSchema = new mongoose.Schema({
         min: 0
     },
     image: {
-        type: Buffer,
-        required: true
+        data: Buffer,
+        mimeType: String,
     },
     description: {
         type: String,
