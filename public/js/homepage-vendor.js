@@ -88,6 +88,11 @@ tabHome.addEventListener('click', () => {
   localStorage.removeItem('hiddenPage');
 });
 
+let backBtn = document.querySelector('.bi-arrow-left-square');
+backBtn.addEventListener('click', () => {
+  localStorage.clear()
+})
+
 let logOutBtn = document.querySelector('.bi-box-arrow-right')
 logOutBtn.addEventListener('click', () => {
   localStorage.clear();

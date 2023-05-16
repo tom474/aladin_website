@@ -45,17 +45,6 @@ table {
 tbody > tr:nth-child(odd) {
     background-color: #eeeeee;
 }
-/* CSS for Search Bar */
-.search-bar {
-    border: #fff;
-}
-.search-form {
-    border-bottom: 1px solid gray;
-    padding-bottom: 15px;
-}
-.search-bar:focus {
-    outline: none;
-}
 
 /* Delete button */
 .delete-btn {
@@ -231,13 +220,6 @@ tbody > tr:nth-child(odd) {
 }
 
 /* Moving between pages */
-/* Moving to Home Page */
-.home-page-content {
-    display: none;
-}
-.home-page-content:target {
-    display: block;
-}
 .d-none {
     display: none;
 }
@@ -284,13 +266,10 @@ tbody > tr:nth-child(odd) {
     border: 1px solid black;
     padding-left: 0;
     margin-bottom: 10px;
-    width: 85%;
-}
-.form-container img {
-    width: 50%;
+    width: 80%;
 }
 .form-container form {
-    width: 45%;
+    width: 65%;
     padding: 30px 0;
 }
 .form-input {
@@ -329,6 +308,7 @@ input[type="file"] {
     border: 2px solid var(--color);
     border-radius: 6px;
     position: relative;
+    width: 200px;
 }
 .form-btn:hover {
     color: white;
@@ -372,6 +352,7 @@ input[type="file"] {
     border: 2px solid var(--color);
     border-radius: 6px;
     position: relative;
+    width: 200px;
 }
 
 .reset-form-btn::before {

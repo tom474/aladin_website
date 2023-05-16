@@ -367,10 +367,35 @@ app.get("/customer/products/:id", async (req, res) => {
 });
 
 // // Route to account detail page
-// app.get("/account-detail/:id", (req, res) => {
-//     const user = User.findById(req.params.id);
-//     res.render('')
-// });
+app.get("/account-detail/:id", (req, res) => {
+    User.findById(req.params.id)
+    .then((user) => {
+        if (!user) {
+            return res.send('Can not find that user')
+        }
+        res.render('account-detail-page-shipper', {user});
+    })
+});
+app.post('/account-detail/:id/update', (req,res) => {
+    User.findByIdAndUpdate(
+        { id: req.params.id },
+        { profilePicture: {
+            data: req.files.profilePicture.data,
+            mimeType: req.files.profilePicture.mimetype
+            },
+            username: req.body.username,    
+            name: `${req.body.lname} ${req.body.fname}`,
+            email: req.body.email,
+            distributionHub: req.body.distributionHub
+        },
+        { new: true }
+        )
+    .then(() => {
+        console.log('user information is updated');
+        res.redirect('/account-detail/:id/');
+      })
+      .catch((error) => console.log(error.message));
+})
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
