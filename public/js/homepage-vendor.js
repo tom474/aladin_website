@@ -92,7 +92,8 @@ let logOutBtn = document.querySelector('.bi-box-arrow-right')
 logOutBtn.addEventListener('click', () => {
   localStorage.clear();
 })
-// Using jQurey for making reponsive side menu
+
+// Using jQuery for making responsive side menu
 (function ($) {
     "use strict";
 
