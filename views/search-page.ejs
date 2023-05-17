@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Aladin</title>
+        <title>Search Result</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="/css/reset.css" />
@@ -15,126 +15,53 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="/css/search.css" />
-
-        <!-- Favicon -->
-        <link
-            rel="apple-touch-icon"
-            sizes="57x57"
-            href="/favicon/apple-icon-57x57.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="60x60"
-            href="/favicon/apple-icon-60x60.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="72x72"
-            href="/favicon/apple-icon-72x72.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="/favicon/apple-icon-76x76.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="114x114"
-            href="/favicon/apple-icon-114x114.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="120x120"
-            href="/favicon/apple-icon-120x120.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="144x144"
-            href="/favicon/apple-icon-144x144.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="152x152"
-            href="/favicon/apple-icon-152x152.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/favicon/apple-icon-180x180.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="192x192"
-            href="/favicon/android-icon-192x192.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="/favicon/favicon-96x96.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/favicon/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta
-            name="msapplication-TileImage"
-            content="./assets/favicon/ms-icon-144x144.png"
-        />
-        <meta name="theme-color" content="#ffffff" />
-
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap"
-            rel="stylesheet"
-        />
-
-        <!-- Font Awesome 5 -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
+        <%- include ('partials/head') %>
     </head>
     <body>
         <%- include('partials/nav-customer')%>
-        <div class="container-fluid" style="padding:77px">
-            <h1>Result:</h1>
+        <div class="container-fluid" style="padding: 77px; min-height: 100vh;">
+            <h1>Results</h1>
             <div class="row">
                 <%results.forEach((product) => {%>
-                    <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                        <a href="/customer/products/<%=product.id%>" style="text-decoration: none; color: black">
-                            <div    class="product-card ms-2" style="position: relative">
-                                <div class="product-image border shadow">
-                                    <img src="/images/customer/<%=product.image%>" class="project-thumb" width="300px" height="302px" alt="<%=product.name%>"/>
-                                </div>
-                                <div class="overlay product-effect" style="position: absolute">
-                                    <div class="p-3 d-flex justify-content-center w-100">
-                                        ADD TO CART
-                                    </div>
-                                </div>
-                                <div class="product-info d-flex pt-3 align-items-center flex-column">
-                                    <h3><%=product.name%></h3>
-                                    <p class="mb-0"><%=product.price%>$</p>
+                <div
+                    class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col"
+                >
+                    <a
+                        href="/customer/<%= user._id %>/products/<%=product._id%>"
+                        style="text-decoration: none; color: black"
+                    >
+                        <div
+                            class="product-card ms-2"
+                            style="position: relative"
+                        >
+                            <div class="product-image border shadow">
+                                <img
+                                    src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>"
+                                    class="project-thumb"
+                                    width="300px"
+                                    height="302px"
+                                    alt="<%=product.name%>"
+                                />
+                            </div>
+                            <div
+                                class="overlay product-effect"
+                                style="position: absolute"
+                            >
+                                <div
+                                    class="p-3 d-flex justify-content-center w-100"
+                                >
+                                Click To View
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                            <div
+                                class="product-info d-flex pt-3 align-items-center flex-column"
+                            >
+                                <h3><%=product.name%></h3>
+                                <p class="mb-0"><%=product.price%>$</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
                 <%})%>
             </div>
         </div>

@@ -246,16 +246,8 @@ nav .icon {
     color: white !important;
 }
 
-.footer-container .content h3 {
-    color: rgb(255, 208, 0) !important;
-    font-family: var(--title--font);
-    font-size: 20px;
-}
-.footer-container .content a,
-.footer-container .content p {
-    text-decoration: none !important;
-    color: rgba(232, 228, 209, 0.582);
-    font-size: 18px;
+footer ul .nav-item:hover a {
+    color: white !important;
 }
 /* scroll to top */
 .to-top {

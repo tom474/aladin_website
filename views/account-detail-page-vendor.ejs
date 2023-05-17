@@ -22,7 +22,7 @@
         <section class="pt-5">
             <div class="container">
                 <h2 class="text-center pb-3 text-light">ACCOUNT DETAIL</h2>
-                <form class="bg-white shadow rounded-lg d-flex flex-column d-sm-flex" action="/shipper/account-detail/<%= user.id %>" enctype="multipart/form-data" method="post">
+                <form class="bg-white shadow rounded-lg d-flex flex-column d-sm-flex" action="/vendor/account-detail/<%= user.id %>" enctype="multipart/form-data" method="post">
                     <div class="profile-tab-nav border-right">
                         <div class="p-4">
                             <div class="img-circle text-center mb-3">
@@ -41,25 +41,20 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Full Name</label>
-                                        <input type="text" class="form-control" name="name" value="<%= user.name %>">
+                                        <label>Business Name</label>
+                                        <input type="text" class="form-control" name="businessName" value="<%= user.businessName %>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Business Address</label>
+                                        <input type="text" class="form-control" name="businessAddress" value="<%= user.businessAddress %>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email</label>
                                         <input type="text" class="form-control" name="email" value="<%= user.email %>">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Distribution Hub</label>
-                                        <select name="distributionHub" id="distributionHub" class="form-control"><%= user.distributionHub %>
-                                            <option value="Tan Son Nhat Cargo Terminal">Tan Son Nhat Cargo Terminal</option>
-                                            <option value="Cat Lai Terminal">Cat Lai Terminal</option>
-                                            <option value="Saigon Newport Corporation">Saigon Newport Corporation</option>
-                                            <option value="Long Binh Logistics Center">Long Binh Logistics Center</option>
-                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -76,5 +71,3 @@
         <script src="/js/login-account.js"></script>
     </body>
 </html>
-
- 

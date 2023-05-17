@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include ('partials/head-customer') %>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aladin Homepage</title>
+    
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="/css/homepage-customer.css" />
+        <%- include ('partials/head') %>
     <body>
         <%- include ('partials/nav-customer')%>
         <!-- banner -->
@@ -15,9 +30,7 @@
                             Clear Strap Boots
                         </h1>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Veniam, illo tempora temporibus dicta
-                            reiciendis nihil!
+                            Neon Orange Lace Up Clear Strap Boots are vibrant, attention-grabbing footwear with a bold neon orange color and transparent strap details. They offer a unique and modern look, perfect for making a fashion statement.
                         </p>
                         <div class="my-2">
                             <a href="#hot"><button class="btn">Buy Now</button></a>
@@ -44,21 +57,21 @@
                         <% categories.forEach((category) => { %>
                             <div class="col-lg-4 col-md-4 col-sm-4 card-display">
                                 <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem">
-                                    <a href="/customer/category/<%=category%>" style="text-decoration: none">
+                                    <a href="/customer/<%= user._id %>/category/<%=category%>" style="text-decoration: none">
                                         <div class="cate-img">
                                             <div class="img-border">
                                                 <% if (category === "Beauty Cosmetic") {%>
-                                                    <img class="img-fluid" src="/images/customer/category2.png" alt="<%= category%>">
+                                                    <img class="img-fluid" src="/images/customer/category2.png" alt="<%= category %>">
                                                 <% } else if (category === "Fashion") { %>
-                                                    <img class="img-fluid" src="/images/customer/category1.png" alt="<%= category%>">
+                                                    <img class="img-fluid" src="/images/customer/category1.png" alt="<%= category %>">
                                                 <% }  else if (category === "Electronics") { %>
-                                                    <img class="img-fluid" src="/images/customer/category3.png" alt="<%= category%>">
+                                                    <img class="img-fluid" src="/images/customer/category3.png" alt="<%= category %>">
                                                 <% }  else if (category === "Sports & Outdoors") { %>
-                                                    <img class="img-fluid" src="/images/customer/category4.png" alt="<%= category%>">
+                                                    <img class="img-fluid" src="/images/customer/category4.png" alt="<%= category %>">
                                                 <% }   else if (category === "Home & Kitchen") { %>
-                                                    <img class="img-fluid" src="/images/customer/category5.png" alt="<%= category%>">
+                                                    <img class="img-fluid" src="/images/customer/category5.png" alt="<%= category %>">
                                                 <% }   else { %>
-                                                    <img class="img-fluid" src="/images/customer/category6.png" alt="<%= category%>">
+                                                    <img class="img-fluid" src="/images/customer/category6.png" alt="<%= category %>">
                                                 <% } %>      
                                             </div>
                                         </div>
@@ -79,10 +92,9 @@
                 <div class="row product my-5">
                     <div class="group-by">
                         <div class="dropdown ms-2">
-                            <form action="/customer/homepage" method="GET">
-                                Price
-                                <input type="text" name="min" placeholder="enter minimum" style="padding: 5px; border-radius: 10px;">
-                                <input type="text" name="max" placeholder="enter maximum" style="padding: 5px; border-radius: 10px;">
+                            <form action="/customer/homepage/<%= user._id %>#hot" method="GET">
+                                <input type="text" name="min" placeholder="Minimum price..." style="padding: 5px; border-radius: 10px;">
+                                <input type="text" name="max" placeholder="Maximum price..." style="padding: 5px; border-radius: 10px;">
                                 <button type="submit" style=" padding: 5px; border-radius: 10px;">Find</button>
                             </form>
                         </div>
@@ -90,14 +102,14 @@
                     
                     <%products.forEach((product) => {%>
                         <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <a href="/customer/products/<%=product.id%>" style="text-decoration: none; color: black">
+                            <a href="/customer/<%= user._id %>/products/<%=product._id%>" style="text-decoration: none; color: black">
                                 <div    class="product-card ms-2" style="position: relative">
                                     <div class="product-image border shadow">
-                                        <img src="/images/customer/<%=product.image%>" class="project-thumb" width="300px" height="302px" alt="<%=product.name%>"/>
+                                        <img src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>" class="project-thumb" width="300px" height="302px" alt="<%=product.name%>"/>
                                     </div>
                                     <div class="overlay product-effect" style="position: absolute">
                                         <div class="p-3 d-flex justify-content-center w-100">
-                                            ADD TO CART
+                                            Click To View
                                         </div>
                                     </div>
                                     <div class="product-info d-flex pt-3 align-items-center flex-column">
@@ -162,6 +174,18 @@
             </div>
         </section>
         <%- include ('partials/footer-customer')%>
-        <%- include ('partials/script-homepage-customer') %>
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+            integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+            integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+            crossorigin="anonymous"
+        ></script>
+        <script src="/js/homepage-customer.js"></script>
     </body>
 </html>

@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const bcrypt = require("bcryptjs");
-const fileUpload = require('express-fileupload');
+const fileUpload = require("express-fileupload");
 const schema = require("./model/schema");
 const User = schema.User;
 const Customer = schema.Customer;
@@ -23,19 +23,47 @@ app.get("/", (req, res) => {
     res.render("login-page");
 });
 
-// Route for Vendor registration page
-app.get("/vendor/register", (req, res) => {
-    res.render("register-vendor");
-});
+app.post("/", async (req, res) => {
+    try {
+        const { username, password } = req.body;
 
-// Route for Customer registration page
-app.get("/customer/register", (req, res) => {
-    res.render("register-customer");
-});
+        // Find the user with the given username
+        const user = await User.findOne({ username });
 
-// Route for Shipper registration page
-app.get("/shipper/register", (req, res) => {
-    res.render("register-shipper");
+        // If user not found, show error message
+        if (!user) {
+            return res.render("login-page", {
+                error: "Invalid username or password",
+            });
+        }
+
+        // Compare the hashed password with the input password
+        const passwordMatch = await bcrypt.compare(password, user.password);
+
+        // If password doesn't match, show error message
+        if (!passwordMatch) {
+            return res.render("login-page", {
+                error: "Invalid username or password",
+            });
+        }
+
+        // If login successful, redirect to the user's respective homepage
+        if (user.__t === "Vendor") {
+            const id = user._id;
+            res.redirect(`/vendor/homepage/${id}#product-page`);
+        } else if (user.__t === "Customer") {
+            const id = user._id;
+            res.redirect(`/customer/homepage/${id}`);
+        } else if (user.__t === "Shipper") {
+            const id = user._id;
+            res.redirect(`/shipper/homepage/${id}`);
+        } else {
+            res.status(500).json({ error: "Invalid user role" });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
 });
 
 // Route for Vendor homepage
@@ -52,7 +80,7 @@ app.get("/vendor/homepage/:id", (req, res) => {
 
 // Route for Product form
 // Route for adding new products
-app.post("/vendor/products/add", (req, res) => {
+app.post("/vendor/products/add/", (req, res) => {
     const vendorId = req.body.vendorId;
     delete req.body.vendorId;
     const product = new Product({
@@ -60,12 +88,12 @@ app.post("/vendor/products/add", (req, res) => {
         price: req.body.price,
         image: {
             data: req.files.image.data,
-            mimeType: req.files.image.mimetype
+            mimeType: req.files.image.mimetype,
         },
         description: req.body.description,
         amount: req.body.amount,
         category: req.body.category,
-        vendorUsername: req.body.vendorUsername
+        vendorUsername: req.body.vendorUsername,
     });
     product
         .save()
@@ -74,16 +102,16 @@ app.post("/vendor/products/add", (req, res) => {
 });
 
 // Route for delete product
-app.get('/vendor/products/delete/:pid/:uid', (req,res) => {
+app.get("/vendor/products/delete/:pid/:id", (req, res) => {
     Product.findByIdAndDelete(req.params.pid)
-    .then(() => {
-        res.redirect(`/vendor/homepage/${req.params.uid}`);
-    })
-    .catch((error) => res.send(error));
-})
+        .then(() => {
+            res.redirect(`/vendor/homepage/${req.params.id}`);
+        })
+        .catch((error) => res.send(error));
+});
 
 // Route for Customer homepage
-app.get("/customer/homepage", (req, res) => {
+app.get("/customer/homepage/:id", (req, res) => {
     let minPrice = parseInt(req.query.min);
     let maxPrice = parseInt(req.query.max);
     // Validate and fallback for minPrice
@@ -94,28 +122,129 @@ app.get("/customer/homepage", (req, res) => {
     if (isNaN(maxPrice)) {
         maxPrice = Number.POSITIVE_INFINITY;
     }
+    const user = User.findById(req.params.id);
     const products = Product.find({
-        price: { $gte: minPrice, $lte: maxPrice }
+        price: { $gte: minPrice, $lte: maxPrice },
     });
     const categories = Product.distinct("category");
-    Promise.all([products, categories])
-    .then(([products, categories]) => {
-        res.render("homepage-customer", { products, categories });
-    })
-    .catch((error) => {
+    Promise.all([products, categories, user])
+        .then(([products, categories, user]) => {
+            res.render("homepage-customer", { products, categories, user });
+        })
+        .catch((error) => {
+            console.log(error.message);
+            res.status(500).send("Internal Server Error");
+        });
+});
+
+// Route to category page
+app.get("/customer/:id/category/:category", async (req, res) => {
+    const category = req.params.category;
+    const user = User.findById(req.params.id);
+    const products = await Product.find({ category: category });
+    Promise.all([products, category, user])
+        .then(([products, category, user]) => {
+            res.render("category-page", { products, category, user });
+        })
+        .catch((error) => {
+            console.log(error.message);
+            res.status(500).send("Internal Server Error");
+        });
+});
+
+// Route to detail product page
+app.get("/customer/:id/products/:pid", async (req, res) => {
+    const user = User.findById(req.params.id);
+    const product = await Product.findById(req.params.pid);
+    Promise.all([product, user])
+        .then(([product, user]) => {
+            res.render("product-detail-page", { product, user });
+        })
+        .catch((error) => {
+            console.log(error.message);
+            res.status(500).send("Internal Server Error");
+        });
+});
+
+// Route to search page
+app.get("/customer/:id/search/results", async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id).exec();
+        const query = req.query.query;
+        const results = await Product.find({ $text: { $search: query } });
+        res.render("search-page", { results, user });
+    } catch (error) {
         console.log(error.message);
         res.status(500).send("Internal Server Error");
+    }
+});
+
+// Route to shopping list page
+let cart = {
+    products: [],
+    totalPrice: 0,
+};
+
+app.get("/customer/:id/shopping-cart", (req, res) => {
+    const user = User.findById(req.params.id);
+    Promise.all([cart, user])
+        .then(([cart, user]) => {
+            res.render("shopping-cart-page", { cart, user });
+        })
+        .catch((error) => {
+            console.log(error.message);
+            res.status(500).send("Internal Server Error");
+        });
+});
+
+// Add product to shopping cart
+app.post("/customer/:id/shopping-cart/add", (req, res) => {
+    const user = User.findById(req.params.id);
+    const product = Product.findById(req.body.id);
+    Promise.all([cart, user, product])
+        .then(([cart, user, product]) => {
+            cart.products.push(product);
+            cart.totalPrice += product.price;
+            res.render("shopping-cart-page", { cart, user });
+        })
+        .catch((error) => {
+            console.log(error.message);
+            res.status(500).send("Internal Server Error");
+        });
+});
+
+app.post("/customer/:id/shopping-cart", async (req, res) => {
+    const distributionHub = req.body.distributionHub;
+    const date = req.body.date;
+    const status = req.body.status;
+    const receiver = req.body.receiver;
+    const address = req.body.address;
+    const payment = req.body.payment;
+    const total = req.body.total;
+    const products = JSON.parse(req.body.products);
+    const newOrder = new Order({
+        distributionHub,
+        date,
+        status,
+        receiver,
+        address,
+        payment,
+        products,
+        total
     });
-});
+    try {
+        // Save the new order to the database
+        await newOrder.save();
 
-// Route for category page
-app.get("/customer/category-page", (req, res) => {
-    res.render("category-page");
-});
-
-// Route for product detail page
-app.get("/customer/product-detail-page", (req, res) => {
-    res.render("product-detail-page");
+        // Clear the cart after the order is placed
+        cart.products = [];
+        cart.totalPrice = 0;
+        // Order created successfully, redirect to the customer homepage or perform any other desired actions
+        res.redirect(`/customer/homepage/${req.params.id}`);
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500); // Send error response
+    }
 });
 
 // Route for Shipper homepage
@@ -135,12 +264,17 @@ app.post("/shipper/homepage/update/", (req, res) => {
         { _id: req.body.oid },
         { status: req.body.status },
         { new: true }
-      )
-      .then(() => {
-        console.log('The order is updated');
-        res.redirect(`/shipper/homepage/${req.body.uid}`);
-      })
-      .catch((error) => console.log(error.message));
+    )
+        .then(() => {
+            console.log("The order is updated");
+            res.redirect(`/shipper/homepage/${req.body.uid}`);
+        })
+        .catch((error) => console.log(error.message));
+});
+
+// Route for Vendor registration page
+app.get("/vendor/register", (req, res) => {
+    res.render("register-vendor");
 });
 
 // Route for handling Vendor registration form submission
@@ -195,7 +329,7 @@ app.post("/vendor/register", async (req, res) => {
             password: hashedPassword,
             profilePicture: {
                 data: req.files.profilePicture.data,
-                mimeType: req.files.profilePicture.mimetype
+                mimeType: req.files.profilePicture.mimetype,
             },
             email,
             terms,
@@ -206,11 +340,16 @@ app.post("/vendor/register", async (req, res) => {
 
         // Redirect to Vendor homepage
         const id = newVendor._id;
-        res.redirect(`/vendor/homepage/${id}`);
+        res.redirect(`/vendor/homepage/${id}#product-page`);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
     }
+});
+
+// Route for Customer registration page
+app.get("/customer/register", (req, res) => {
+    res.render("register-customer");
 });
 
 // Route for handling Customer registration form submission
@@ -245,7 +384,7 @@ app.post("/customer/register", async (req, res) => {
             password: hashedPassword,
             profilePicture: {
                 data: req.files.profilePicture.data,
-                mimeType: req.files.profilePicture.mimetype
+                mimeType: req.files.profilePicture.mimetype,
             },
             email,
             terms,
@@ -261,6 +400,11 @@ app.post("/customer/register", async (req, res) => {
         console.error(error);
         res.status(500).json({ error: "Server error" });
     }
+});
+
+// Route for Shipper registration page
+app.get("/shipper/register", (req, res) => {
+    res.render("register-shipper");
 });
 
 // Route for handling Shipper registration form submission
@@ -295,7 +439,7 @@ app.post("/shipper/register", async (req, res) => {
             password: hashedPassword,
             profilePicture: {
                 data: req.files.profilePicture.data,
-                mimeType: req.files.profilePicture.mimetype
+                mimeType: req.files.profilePicture.mimetype,
             },
             name,
             email,
@@ -313,187 +457,96 @@ app.post("/shipper/register", async (req, res) => {
     }
 });
 
-app.post("/", async (req, res) => {
-    try {
-        const { username, password } = req.body;
-
-        // Find the user with the given username
-        const user = await User.findOne({ username });
-
-        // If user not found, show error message
-        if (!user) {
-            return res.render("login-page", {
-                error: "Invalid username or password",
-            });
-        }
-
-        // Compare the hashed password with the input password
-        const passwordMatch = await bcrypt.compare(password, user.password);
-
-        // If password doesn't match, show error message
-        if (!passwordMatch) {
-            return res.render("login-page", {
-                error: "Invalid username or password",
-            });
-        }
-
-        // If login successful, redirect to the user's respective homepage
-        if (user.__t === "Vendor") {
-            const id = user._id;
-            res.redirect(`/vendor/homepage/${id}`);
-        } else if (user.__t === "Customer") {
-            const id = user._id;
-            res.redirect(`/customer/homepage/${id}`);
-        } else if (user.__t === "Shipper") {
-            const id = user._id;
-            res.redirect(`/shipper/homepage/${id}`);
-        } else {
-            res.status(500).json({ error: "Invalid user role" });
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Server error" });
-    }
-});
-
-// Route to category page
-app.get("/customer/category/:category", async (req, res) => {
-    const category = req.params.category;
-    try {
-        const products = await Product.find({ category: category });
-        res.render('category-page', { category: category, products: products });
-    } catch (err) {
-        console.error(err);
-        res.sendStatus(500);
-    }
-  });
-// Route to detail product page
-app.get("/customer/products/:id", async (req, res) => { 
-    Product.findById(req.params.id)
-    .then((product) => {
-        if(!product) {
-            return res.send("Can't find that ID")
-        } 
-        res.render('product-detail-page',{product:product})
-     })            
-});
-
-// Route to search page
-app.get("/search-page", async (req, res) => {
-    try {
-      const query = req.query.query;
-      const results = await Product.find({ $text: { $search: query } });
-      res.render('search-page', { results });
-    } catch (err) {
-      console.log(err);
-      res.status(500).send('Error');
-    }
-  });
-// Route to shopping list page
-app.get("/shopping-cart", (req, res) =>  {
-    res.render('shopping-cart-page')
-});
-
-// Add product to shopping cart
-let cart = {
-    products: [],
-    totalPrice: 0
-  };
-app.post("/shopping-cart", (req, res) => {
-    Product.findById(req.body.id)
-        .then((product) => { 
-            cart.products.push(product);
-            cart.totalPrice += product.price;
-            res.render('shopping-cart-page', { cart });
-        })
-        .catch((error) => {
-            console.error(error);
-            res.sendStatus(500); // Send error response
-        });
-});
-
-// Remove item from shopping cart
-app.post('/deleteProduct', (req, res) => {
-    const productIdToRemove = req.body.id;
-  
-    // Find the index of the product in the cart.products array
-    const indexToRemove = cart.products.findIndex(
-      (product) => product.id === productIdToRemove
-    );
-  
-    if (indexToRemove !== -1) {
-      const removedProduct = cart.products.splice(indexToRemove, 1)[0];
-      cart.totalPrice -= removedProduct.price;
-  
-      res.sendStatus(200); // Send success response
-    } else {
-      // Product not found in the cart
-      res.sendStatus(404);
-    }
-});
-
-app.post("/shipper/homepage", async (req, res) => {
-    const distributionHub = req.body.distributionHub;
-    const date = req.body.date;
-    const status = req.body.status;
-    const receiver = req.body.receiver;
-    const address = req.body.address;
-    const payment = req.body.payment;
-    const products = JSON.parse(req.body.products);
-    const newOrder = new Order({
-        distributionHub,
-        date,
-        status,
-        receiver,
-        address,
-        payment,
-        products
-    });
-    try {
-        // Save the new order to the database
-        await newOrder.save();
-        
-        // Clear the cart after the order is placed
-        cart.products = [];
-        cart.totalPrice = 0;
-        // Order created successfully, redirect to the customer homepage or perform any other desired actions
-        res.redirect('/customer/homepage');
-    } catch (error) {
-        console.error(error);
-        res.sendStatus(500); // Send error response
-    }
-});
-
 // Route to account detail page
-app.get("/shipper/account-detail/:id", (req, res) => {
-    User.findById(req.params.id)
-    .then((user) => {
+app.get("/customer/account-detail/:id", (req, res) => {
+    User.findById(req.params.id).then((user) => {
         if (!user) {
-            return res.send('Can not find that user')
+            return res.send("Can not find that user");
         }
-        res.render('account-detail-page-shipper', {user});
-    })
+        res.render("account-detail-page-customer", { user });
+    });
 });
-app.post('/shipper/account-detail/:id', (req,res) => {
+app.post("/customer/account-detail/:id", (req, res) => {
     User.findByIdAndUpdate(
         { _id: req.params.id },
-        { profilePicture: {
-            data: req.files.profilePicture.data,
-            mimeType: req.files.profilePicture.mimetype
+        {
+            profilePicture: {
+                data: req.files.profilePicture.data,
+                mimeType: req.files.profilePicture.mimetype,
             },
-            username: req.body.username,    
+            username: req.body.username,
             name: req.body.name,
             email: req.body.email,
-            distributionHub: req.body.distributionHub
+            address: req.body.address,
         },
         { new: true }
-        )
-    .then(() => {
-        console.log('User information is updated');
-        res.redirect(`/shipper/homepage/${req.params.id}`);
-      })
-      .catch((error) => console.log(error.message));
-})
+    )
+        .then(() => {
+            console.log("User information is updated");
+            res.redirect(`/customer/homepage/${req.params.id}`);
+        })
+        .catch((error) => console.log(error.message));
+});
+
+app.get("/vendor/account-detail/:id", (req, res) => {
+    User.findById(req.params.id).then((user) => {
+        if (!user) {
+            return res.send("Can not find that user");
+        }
+        res.render("account-detail-page-vendor", { user });
+    });
+});
+app.post("/vendor/account-detail/:id", (req, res) => {
+    User.findByIdAndUpdate(
+        { _id: req.params.id },
+        {
+            profilePicture: {
+                data: req.files.profilePicture.data,
+                mimeType: req.files.profilePicture.mimetype,
+            },
+            username: req.body.username,
+            businessName: req.body.businessName,
+            email: req.body.email,
+            businessAddress: req.body.businessAddress,
+        },
+        { new: true }
+    )
+        .then(() => {
+            console.log("User information is updated");
+            res.redirect(`/vendor/homepage/${req.params.id}`);
+        })
+        .catch((error) => console.log(error.message));
+});
+
+app.get("/shipper/account-detail/:id", (req, res) => {
+    User.findById(req.params.id).then((user) => {
+        if (!user) {
+            return res.send("Can not find that user");
+        }
+        res.render("account-detail-page-shipper", { user });
+    });
+});
+app.post("/shipper/account-detail/:id", (req, res) => {
+    User.findByIdAndUpdate(
+        { _id: req.params.id },
+        {
+            profilePicture: {
+                data: req.files.profilePicture.data,
+                mimeType: req.files.profilePicture.mimetype,
+            },
+            username: req.body.username,
+            name: req.body.name,
+            email: req.body.email,
+            distributionHub: req.body.distributionHub,
+        },
+        { new: true }
+    )
+        .then(() => {
+            console.log("User information is updated");
+            res.redirect(`/shipper/homepage/${req.params.id}`);
+        })
+        .catch((error) => console.log(error.message));
+});
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

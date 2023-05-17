@@ -15,130 +15,37 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="/css/cart.css"/>
-
-        <!-- Favicon -->
-        <link
-            rel="apple-touch-icon"
-            sizes="57x57"
-            href="/favicon/apple-icon-57x57.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="60x60"
-            href="/favicon/apple-icon-60x60.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="72x72"
-            href="/favicon/apple-icon-72x72.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="/favicon/apple-icon-76x76.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="114x114"
-            href="/favicon/apple-icon-114x114.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="120x120"
-            href="/favicon/apple-icon-120x120.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="144x144"
-            href="/favicon/apple-icon-144x144.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="152x152"
-            href="/favicon/apple-icon-152x152.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/favicon/apple-icon-180x180.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="192x192"
-            href="/favicon/android-icon-192x192.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="/favicon/favicon-96x96.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/favicon/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta
-            name="msapplication-TileImage"
-            content="/favicon/ms-icon-144x144.png"
-        />
-        <meta name="theme-color" content="#ffffff" />
-
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap"
-            rel="stylesheet"
-        />
-
-        <!-- Font Awesome 5 -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
+        <%- include ('partials/head') %>
     </head>
     <body>
       <%- include('partials/nav-customer')%>
         <!-- main -->
-        <section class="v" style="background-color: rgb(246, 135, 19,0.5);">
+        <section class="v" style="background-color: rgb(246, 135, 19,0.5); min-height: 82.1vh;">
           <div class="container py-4">
             <div class="row d-flex justify-content-center align-items-center ">
               <div class="col">
                 <p><span class="h2">Shopping Cart </span></p>
                 <!-- order -->
-                <div class="" role="document" style="background-color: white; padding: 10px; border-radius: 10px;">
+                <div class="" role="document" style="background-color: white; padding: 10px; border-radius: 10px; margin-top: 7%;">
                   <div class="modal-content">
                     <div class="modal-header" >
                         <h5 class="modal-title" id="exampleModalLongTitle" >
-                            Order Details
+                            My Shopping Cart
                         </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- order form -->
-                  <form action="/shipper/homepage" id="form-order" method="POST">    
-                    <div class="modal-body">
+                  <% const distributionHub = ['Tan Son Nhat Cargo Terminal','Cat Lai Terminal','Saigon Newport Corporation','Long Binh Logistics Center'] %>
+                  <% let randomHub = Math.floor(Math.random() * 4) %>
+                  <form action="/customer/<%= user._id %>/shopping-cart" id="form-order" method="POST">    
+                    <div class="modal-body pt-4">
                           <div class="row">
                               <div class="col mb-1">
-                                  <p class="small mb-1">Distribution Hub</p>
-                                  <p>Tan Son Nhat Cargo Terminal</p>
-                                  <input type="hidden" id="distributionHub" name="distributionHub" value="Tan Son Nhat Cargo Terminal">
+                                  <p class="small mb-1 fw-bold">Distribution Hub</p>
+                                  <p><%= distributionHub[randomHub] %></p>
+                                  <input type="hidden" id="distributionHub" name="distributionHub" value="<%= distributionHub[randomHub] %>">
                               </div>
                               <div class="col mb-1">
-                                  <p class="small mb-1">Date</p>
+                                  <p class="small mb-1 fw-bold">Delivery Date</p>
                                   <input type="date" name="date">
                               </div>
                           </div>
@@ -157,8 +64,9 @@
                                     <p><%=product.name%></p>
                                 </div>
                                 <div class="col d-flex align-items-center justify-content-between">
-                                    <p class="mb-0 me-3"><%=product.price%> $</p>
-                                    <button type="button" onclick="event.preventDefault(); deleteProduct('<%= product.id %>')" class="btn btn-danger"><i class="fa-solid fa-x"></i></button>  
+                                    <div class="deletePrice d-flex">
+                                      <p class="mb-0 me-3"><%=product.price%> $</p>
+                                    </div>
                                 </div>
                               </div>
                             <% }); %>
@@ -170,24 +78,25 @@
                           <div class="col">
                             <p>Total Price</p>
                           </div>
-                          <div class="col ">
-                            <p><%=Math.round(cart.totalPrice)%> $</p>
+                          <div class="col totalPrice d-flex">
+                            <p><%= cart.totalPrice %> $</p>
+                            <input type="hidden" name="total" value="<%= cart.totalPrice %>">
                           </div>
                         </div>
                         <div class="row">
                             <div class="col mb-1">
                                 <p class="small mb-1">Receiver</p>
-                                <input type="text" name="receiver" placeholder="name...">
+                                <input type="text" name="receiver" placeholder="Name...">
                             </div>
                             <div class="col mb-1">
                                 <p class="small mb-1">Address</p>
-                                <input type="text" name="address" placeholder="123 Le Van Luong...">
+                                <input type="text" name="address" placeholder="Address...">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mb-1">
                                 <p class="small mb-1">Phone Number</p>
-                                <input type="text" placeholder="0901234568">
+                                <input type="text" placeholder="Phone number...">
                             </div>
                             <div class="col mb-1">
                               <label class="small mb-1" for="payment">Payment Method</label>
@@ -217,40 +126,6 @@
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"
         ></script>
-        <script>
-          function deleteProduct(productId) {
-                // Create a hidden input field for the product ID
-                const productIdInput = document.createElement('input');
-                productIdInput.type = 'hidden';
-                productIdInput.name = 'productId';
-                productIdInput.value = productId;
-
-                // Append the input field to the form
-                const form = document.querySelector('form');
-                form.appendChild(productIdInput);
-
-                // Send an AJAX request to delete the product
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', '/deleteProduct', true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function () {
-                  if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Handle the success response
-                    console.log('Product deleted successfully.');
-                    
-                    // Remove the product element from the UI
-                    const productElement = document.querySelector(`.modal-body .list-item-${productId}`);
-                    if (productElement) {
-                      productElement.parentNode.removeChild(productElement);
-                    }
-                  } else if (xhr.readyState === 4 && xhr.status !== 200) {
-                    // Handle the error response
-                    console.log('Error deleting product.');
-                  }
-                };
-                xhr.send(`id=${productId}`);
-              }
-        </script>
         <script src="/js/shopping-cart.js"></script>
     </body>
 </html>

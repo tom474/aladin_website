@@ -131,13 +131,11 @@ nav .icon {
 }
 
 .buy-option .add-cart {
-    border: #f68713 1px solid;
-    background-color: rgb(246, 135, 19, 0.3);
-    color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white !important;
 }
 .buy-option .add-cart:hover {
-    background-color: var(--primary-color);
-    color: white;
+    background-color:#f65b13 ;
 }
 .quantity-control {
     padding: 5px;
@@ -151,16 +149,8 @@ nav .icon {
     color: white !important;
 }
 
-.footer-container .content h3 {
-    color: rgb(255, 208, 0) !important;
-    font-family: var(--title--font);
-    font-size: 20px;
-}
-.footer-container .content a,
-.footer-container .content p {
-    text-decoration: none !important;
-    color: rgba(232, 228, 209, 0.582);
-    font-size: 18px;
+footer ul .nav-item:hover a {
+    color: white !important;
 }
 /* scroll to top */
 .to-top {
