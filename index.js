@@ -548,6 +548,26 @@ app.post("/shipper/account-detail/:id", (req, res) => {
         .catch((error) => console.log(error.message));
 });
 
+app.get("/about-us", (req, res) => {
+    res.render("about-us");
+});
+
+app.get("/privacy", (req, res) => {
+    res.render("privacy");
+});
+
+app.get("/refund", (req, res) => {
+    res.render("refund");
+});
+
+app.get("/terms-of-use", (req, res) => {
+    res.render("terms-of-use");
+});
+
+app.get("/support", (req, res) => {
+    res.render("support");
+});
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });

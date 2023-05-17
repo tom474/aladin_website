@@ -55,7 +55,7 @@
                               </div>    
                           </div>
                         <hr>
-                        <p class="small mb-1">Item list</p>
+                        <p class="small mb-1 fw-bold">Item list</p>
                         <input type="hidden" name="products" value="<%= JSON.stringify(cart.products.map(product => product.name)) %>">
                           <%if(cart.products.length > 0) { %>
                             <% cart.products.forEach((product) => {  %>
@@ -76,7 +76,7 @@
                         <hr>
                         <div class="row">
                           <div class="col">
-                            <p>Total Price</p>
+                            <p class="fw-bold">Total Price</p>
                           </div>
                           <div class="col totalPrice d-flex">
                             <p><%= cart.totalPrice %> $</p>
@@ -85,21 +85,21 @@
                         </div>
                         <div class="row">
                             <div class="col mb-1">
-                                <p class="small mb-1">Receiver</p>
+                                <p class="small mb-1 fw-bold">Receiver</p>
                                 <input type="text" name="receiver" placeholder="Name...">
                             </div>
                             <div class="col mb-1">
-                                <p class="small mb-1">Address</p>
+                                <p class="small mb-1 fw-bold">Address</p>
                                 <input type="text" name="address" placeholder="Address...">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mb-1">
-                                <p class="small mb-1">Phone Number</p>
+                                <p class="small mb-1 fw-bold">Phone Number</p>
                                 <input type="text" placeholder="Phone number...">
                             </div>
                             <div class="col mb-1">
-                              <label class="small mb-1" for="payment">Payment Method</label>
+                              <label class="small mb-1 fw-bold" for="payment">Payment Method</label>
                               <div></div>
                               <select class="custom-select my-1 mr-sm-2" name="payment" id="payment">
                                   <option value="Cash on Delivery (COD)" selected>Cash on Delivery (COD)</option>
