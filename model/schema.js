@@ -181,6 +181,8 @@ const orderSchema = new mongoose.Schema({
     },
 });
 
+productSchema.index({'$**':'text'})
+
 // Create user model with sub-models
 const User = mongoose.model("User", userSchema);
 const Vendor = User.discriminator("Vendor", vendorSchema);

@@ -9,6 +9,17 @@
     --word-font: "Poppins", sans-serif;
     --title--font: "Roboto Serif", serif;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #f68713;
+    --logo-font: "Dancing Script", cursive;
+    --word-font: "Poppins", sans-serif;
+    --title--font: "Roboto Serif", serif;
+}
 
 /* navbar */
 .navbar {
@@ -309,7 +320,7 @@ nav .icon {
     color: white !important;
 }
 
-footer ul .nav-item:hover a {
+footer ul li:hover a {
     color: white !important;
 }
 /* scroll to top */

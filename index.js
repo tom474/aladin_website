@@ -53,7 +53,7 @@ app.get("/vendor/homepage/:id", (req, res) => {
 // Route for Product form
 // Route for adding new products
 app.post("/vendor/products/add", (req, res) => {
-    const vendorId =req.body.vendorId;
+    const vendorId = req.body.vendorId;
     delete req.body.vendorId;
     const product = new Product({
         name: req.body.name,
@@ -73,23 +73,39 @@ app.post("/vendor/products/add", (req, res) => {
         .catch((error) => res.send(error));
 });
 
+// Route for delete product
+app.get('/vendor/products/delete/:pid/:uid', (req,res) => {
+    Product.findByIdAndDelete(req.params.pid)
+    .then(() => {
+        res.redirect(`/vendor/homepage/${req.params.uid}`);
+    })
+    .catch((error) => res.send(error));
+})
 
 // Route for Customer homepage
 app.get("/customer/homepage", (req, res) => {
-    const products = Product.find();
-
-    // Retrieve all categories from the database
+    let minPrice = parseInt(req.query.min);
+    let maxPrice = parseInt(req.query.max);
+    // Validate and fallback for minPrice
+    if (isNaN(minPrice)) {
+        minPrice = Number.NEGATIVE_INFINITY;
+    }
+    // Validate and fallback for maxPrice
+    if (isNaN(maxPrice)) {
+        maxPrice = Number.POSITIVE_INFINITY;
+    }
+    const products = Product.find({
+        price: { $gte: minPrice, $lte: maxPrice }
+    });
     const categories = Product.distinct("category");
-
-    // Wait for both promises to resolve before rendering the homepage
     Promise.all([products, categories])
-        .then(([products, categories]) => {
-            res.render("homepage-customer", { products, categories });
-        })
-        .catch((error) => {
-            console.log(error.message);
-            res.status(500).send("Internal Server Error");
-        });
+    .then(([products, categories]) => {
+        res.render("homepage-customer", { products, categories });
+    })
+    .catch((error) => {
+        console.log(error.message);
+        res.status(500).send("Internal Server Error");
+    });
 });
 
 // Route for category page
@@ -100,11 +116,6 @@ app.get("/customer/category-page", (req, res) => {
 // Route for product detail page
 app.get("/customer/product-detail-page", (req, res) => {
     res.render("product-detail-page");
-});
-
-// Route for shopping cart page
-app.get("/customer/shopping-cart-page", (req, res) => {
-    res.render("shopping-cart-page");
 });
 
 // Route for Shipper homepage
@@ -350,24 +361,111 @@ app.get("/customer/category/:category", async (req, res) => {
     const category = req.params.category;
     try {
         const products = await Product.find({ category: category });
-        res.render("category-page", { category: category, products: products });
+        res.render('category-page', { category: category, products: products });
     } catch (err) {
         console.error(err);
         res.sendStatus(500);
     }
-});
+  });
 // Route to detail product page
-app.get("/customer/products/:id", async (req, res) => {
-    Product.findById(req.params.id).then((product) => {
-        if (!product) {
-            return res.send("Can't find that ID");
-        }
-        res.render("product-detail-page", { product: product });
-    });
+app.get("/customer/products/:id", async (req, res) => { 
+    Product.findById(req.params.id)
+    .then((product) => {
+        if(!product) {
+            return res.send("Can't find that ID")
+        } 
+        res.render('product-detail-page',{product:product})
+     })            
 });
 
-// // Route to account detail page
-app.get("/account-detail/:id", (req, res) => {
+// Route to search page
+app.get("/search-page", async (req, res) => {
+    try {
+      const query = req.query.query;
+      const results = await Product.find({ $text: { $search: query } });
+      res.render('search-page', { results });
+    } catch (err) {
+      console.log(err);
+      res.status(500).send('Error');
+    }
+  });
+// Route to shopping list page
+app.get("/shopping-cart", (req, res) =>  {
+    res.render('shopping-cart-page')
+});
+
+// Add product to shopping cart
+let cart = {
+    products: [],
+    totalPrice: 0
+  };
+app.post("/shopping-cart", (req, res) => {
+    Product.findById(req.body.id)
+        .then((product) => { 
+            cart.products.push(product);
+            cart.totalPrice += product.price;
+            res.render('shopping-cart-page', { cart });
+        })
+        .catch((error) => {
+            console.error(error);
+            res.sendStatus(500); // Send error response
+        });
+});
+
+// Remove item from shopping cart
+app.post('/deleteProduct', (req, res) => {
+    const productIdToRemove = req.body.id;
+  
+    // Find the index of the product in the cart.products array
+    const indexToRemove = cart.products.findIndex(
+      (product) => product.id === productIdToRemove
+    );
+  
+    if (indexToRemove !== -1) {
+      const removedProduct = cart.products.splice(indexToRemove, 1)[0];
+      cart.totalPrice -= removedProduct.price;
+  
+      res.sendStatus(200); // Send success response
+    } else {
+      // Product not found in the cart
+      res.sendStatus(404);
+    }
+});
+
+app.post("/shipper/homepage", async (req, res) => {
+    const distributionHub = req.body.distributionHub;
+    const date = req.body.date;
+    const status = req.body.status;
+    const receiver = req.body.receiver;
+    const address = req.body.address;
+    const payment = req.body.payment;
+    const products = JSON.parse(req.body.products);
+    const newOrder = new Order({
+        distributionHub,
+        date,
+        status,
+        receiver,
+        address,
+        payment,
+        products
+    });
+    try {
+        // Save the new order to the database
+        await newOrder.save();
+        
+        // Clear the cart after the order is placed
+        cart.products = [];
+        cart.totalPrice = 0;
+        // Order created successfully, redirect to the customer homepage or perform any other desired actions
+        res.redirect('/customer/homepage');
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500); // Send error response
+    }
+});
+
+// Route to account detail page
+app.get("/shipper/account-detail/:id", (req, res) => {
     User.findById(req.params.id)
     .then((user) => {
         if (!user) {
@@ -376,23 +474,23 @@ app.get("/account-detail/:id", (req, res) => {
         res.render('account-detail-page-shipper', {user});
     })
 });
-app.post('/account-detail/:id/update', (req,res) => {
+app.post('/shipper/account-detail/:id', (req,res) => {
     User.findByIdAndUpdate(
-        { id: req.params.id },
+        { _id: req.params.id },
         { profilePicture: {
             data: req.files.profilePicture.data,
             mimeType: req.files.profilePicture.mimetype
             },
             username: req.body.username,    
-            name: `${req.body.lname} ${req.body.fname}`,
+            name: req.body.name,
             email: req.body.email,
             distributionHub: req.body.distributionHub
         },
         { new: true }
         )
     .then(() => {
-        console.log('user information is updated');
-        res.redirect('/account-detail/:id/');
+        console.log('User information is updated');
+        res.redirect(`/shipper/homepage/${req.params.id}`);
       })
       .catch((error) => console.log(error.message));
 })

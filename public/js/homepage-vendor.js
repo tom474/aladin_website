@@ -47,6 +47,7 @@ activeElement.forEach((element) => {
         // Remove 'selected' class from all elements
         activeElement.forEach((e) => {
             e.classList.remove('selected');
+            localStorage.removeItem('activeTab');
         });
         // Add 'selected' class to the clicked element
         element.classList.add('selected');
@@ -88,21 +89,19 @@ tabHome.addEventListener('click', () => {
   localStorage.removeItem('hiddenPage');
 });
 
-let backBtn = document.querySelector('.bi-arrow-left-square');
+let backBtn = document.querySelector('.back-btn')
 backBtn.addEventListener('click', () => {
-  localStorage.clear()
-})
-
+  homePage.classList.remove('d-none');
+  localStorage.removeItem('hiddenPage');
+});
 let logOutBtn = document.querySelector('.bi-box-arrow-right')
 logOutBtn.addEventListener('click', () => {
   localStorage.clear();
-})
+});
 
-// Using jQuery for making responsive side menu
+// Using jQurey for making reponsive side menu
 (function ($) {
     "use strict";
-
-    // Sidebar Toggler
     $(".sidebar-toggler").click(function () {
         $(".sidebar").toggleClass("open");
         return false;

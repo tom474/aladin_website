@@ -46,7 +46,7 @@ body.account-page {
     width: 500px;
 }
 
-form {
+.login-form {
     width: 360px;
 }
 
@@ -198,7 +198,7 @@ a:hover {
 }
 
 @media screen and (max-width: 1023px) {
-    form {
+    .login-form {
         width: 300px;
     }
 
