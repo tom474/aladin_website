@@ -122,7 +122,7 @@ nav .icon {
     justify-content: center;
 }
 .card:hover {
-    scale: 1.1;
+    transform: scale(1.1);
     transition: all ease-in-out 0.3s;
 }
 .categories .card-display {
@@ -228,8 +228,8 @@ nav .icon {
 }
 
 .product-effect:hover + div {
-    scale: 1.1;
-    transition: all ease-in-out 0.2s;
+    transform: scale(1.1);
+    transition: all ease-in-out 0.3s;
 }
 /* breadcrumb */
 .breadcrumb li {
