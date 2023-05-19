@@ -1,3 +1,14 @@
+<!--   RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,25 +35,14 @@
                 <nav class="navbar navbar-dark">
                     <a href="#" class="navbar-brand mx-4 mb-3">
                         <h1 class="text-light">
-                            <img
-                                src="/images/shipper/logo-1(backup).png"
-                                alt="logo"
-                                style="width: 60px; height: 60px"
-                            />
+                            <img src="/images/shipper/logo-1(backup).png" alt="logo"/>
                             Aladin
                         </h1>
                     </a>
                     <div class="d-flex align-items-center ms-4 mb-4">
                         <div class="position-relative">
-                            <img
-                                class="rounded-circle"
-                                src="data:<%= user.profilePicture.mimeType %>;base64,<%= user.profilePicture.data.toString('base64') %>"
-                                alt="user-image"
-                                style="width: 40px; height: 40px"
-                            />
-                            <div
-                                class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"
-                            ></div>
+                            <img class="rounded-circle" src="data:<%= user.profilePicture.mimeType %>;base64,<%= user.profilePicture.data.toString('base64') %>" alt="user-image"/>
+                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                         </div>
                         <div class="ms-3 text-white">
                             <h6 class="mb-0"><%= user.name %></h6>
@@ -69,11 +69,7 @@
                 >
                     <a href="#!" class="navbar-brand d-flex d-lg-none me-4">
                         <h2 class="text-primary mb-0">
-                            <img
-                                src="/images/shipper/logo-1(backup).png"
-                                alt="logo"
-                                style="width: 60px; height: 60px"
-                            />
+                            <img src="/images/shipper/logo-1(backup).png" alt="logo"/>
                         </h2>
                     </a>
                     <a
@@ -125,8 +121,7 @@
                                 <img
                                     class="rounded-circle me-lg-2"
                                     src="data:<%= user.profilePicture.mimeType %>;base64,<%= user.profilePicture.data.toString('base64') %>"
-                                    alt=""
-                                    style="width: 40px; height: 40px"
+                                    alt="avatar"
                                 />
                                 <span class="d-none d-lg-inline-flex"
                                     ><%= user.username %></span
@@ -201,22 +196,13 @@
                                                             class="modal fade"
                                                             id="order-detail"
                                                             tabindex="-1"
-                                                            role="dialog"
-                                                            aria-labelledby="exampleModalCenterTitle"
-                                                            aria-hidden="true"
-                                                        >
+                                                            aria-hidden="true">
                                                             <div
                                                                 class="modal-dialog modal-dialog-centered"
-                                                                role="document"
-                                                            >
+                                                                role="document">
                                                                 <div class="modal-content">
-                                                                    <div
-                                                                        class="modal-header"
-                                                                    >
-                                                                        <h5
-                                                                            class="modal-title"
-                                                                            id="exampleModalLongTitle"
-                                                                        >
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">
                                                                             Invoice Details
                                                                         </h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -309,7 +295,7 @@
                                                                             Close
                                                                         </button>
                                                                         <button
-                                                                            type="button submit"
+                                                                            type="submit"
                                                                             class="btn save-button"
                                                                             data-bs-dismiss="modal"
                                                                         >

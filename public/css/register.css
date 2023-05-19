@@ -1,3 +1,15 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 2
+    Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)   
+*/
 h1 {
     font-family: "Dancing Script", cursive;
 }
@@ -26,6 +38,11 @@ label {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+#main_index .password i {
+    margin-left: -30px;
+    cursor: pointer;
 }
 
 #vendor_index {

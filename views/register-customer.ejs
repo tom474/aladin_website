@@ -1,3 +1,14 @@
+<!--   RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,22 +39,21 @@
                 <div class="images">
                     <div class="logo">
                         <a href="#"
-                            ><img src="/images/register/aladin_logo.PNG"
-                        /></a>
+                            ><img src="/images/register/aladin_logo.PNG" alt="background"/></a>
                         <h3 class="category">
-                            <a href="/customer/register" id="customer" href="#"
+                            <a href="/customer/register" id="customer"
                                 ><span>Customer</span></a
                             >
                             |
-                            <a href="/vendor/register" id="vendor" href="#">Vendor</a>
+                            <a href="/vendor/register" id="vendor">Vendor</a>
                             |
-                            <a href="/shipper/register" id="shipper" href="#"
+                            <a href="/shipper/register" id="shipper"
                                 >Shipper</a
                             >
                         </h3>
                     </div>
                     <div>
-                        <img id="corp_img" src="/images/register/4486335.svg" />
+                        <img id="corp_img" src="/images/register/4486335.svg" alt="banner"/>
                     </div>
                 </div>
 
@@ -128,7 +138,7 @@
 
                         <div class="input_box input password">
                             <label>Set password </label>
-                            <div>
+                            <div class="password">
                                 <input
                                     id="password"
                                     type="password"
@@ -137,11 +147,7 @@
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,20}"
                                     title="Must contain at least one number, uppercase, lowercase letter, one special charater (!@#$%^&*), and length from 8 to 20 charaters"
                                     required
-                                /><i
-                                    class="fa fa-eye-slash"
-                                    id="togglePassword"
-                                    style="margin-left: -30px; cursor: pointer"
-                                ></i>
+                                /><i class="fa fa-eye-slash" id="togglePassword"></i>
                             </div>
                         </div>
 

@@ -1,3 +1,15 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 2
+    Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)   
+*/
 .selected {
     position: relative;
     color: #f68713 !important;
@@ -123,7 +135,7 @@ tbody > tr:nth-child(odd) {
 /* Add Product button */
 .add-button {
     position: relative;
-    width: 180px;
+    width: 174px;
     height: 40px;
     cursor: pointer;
     display: flex;
@@ -230,6 +242,11 @@ tbody > tr:nth-child(odd) {
     }
 }
 
+.order-page-content .navbar,
+.product-page-content .navbar {
+    padding: 2.5% 5% 0;
+}
+
 /* Moving between pages */
 .d-none {
     display: none;
@@ -258,6 +275,11 @@ tbody > tr:nth-child(odd) {
 }
 .edit-form-page-content:target {
     display: block;
+}
+
+.product-page-content table img {
+    width: 200px;
+    height: 200px;
 }
 
 /* Modal */
@@ -410,6 +432,27 @@ td {
     height: 100vh;
     overflow-y: auto;
     transition: 0.5s;
+    width: 280px;
+}
+
+.sidebar .logo-container a {
+    width: 160px;
+}
+.sidebar .logo-container span {
+    font-family: "Dancing Script";
+}
+
+/* Footer */
+#footer {
+    margin-left: 250px;
+}
+
+#footer ul li h5 {
+    font-size: 16px;
+}
+#footer ul li:hover h5 {
+    color: #f68713;
+    transition: all ease-in-out 0.4s; 
 }
 /* Responsive */
 

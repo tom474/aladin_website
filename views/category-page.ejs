@@ -1,3 +1,14 @@
+<!--   RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,7 +33,7 @@
         <!-- banner -->
         <section id="banner">
             <div class="banner container-lg">
-                <div class="row " style="position: relative;">
+                <div class="row position-relative">
                     <div>
                         <% if (category === "Beauty Cosmetic") {%>
                             <img class="img-fluid" src="/images/customer/banner-category2.png" alt="<%= category%>">
@@ -38,7 +49,7 @@
                             <img class="img-fluid" src="/images/customer/banner-category6.png" alt="<%= category%>">
                         <% } %>  
                     </div>
-                    <div class="title d-flex justify-content-center" style="position: absolute ">
+                    <div class="title d-flex justify-content-center position-absolute">
                         <h2><%=category%></h2>
                     </div>
                 </div>
@@ -48,7 +59,7 @@
         <div class="container">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a style="text-decoration: none;" href="/customer/homepage/<%= user._id %>">Home</a></li>
+              <li class="breadcrumb-item"><a class="text-decoration-none" href="/customer/homepage/<%= user._id %>">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page"><%=category%></li>
             </ol>
           </nav>
@@ -62,11 +73,11 @@
                 <div class="row product my-5">
                     <%products.forEach((product) => {%>
                         <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col" >
-                            <a href="/customer/<%= user._id %>/products/<%=product._id%>" style="text-decoration: none; color: black">
-                                <div class="product-card ms-2" style="position: relative" >
+                            <a href="/customer/<%= user._id %>/products/<%=product._id%>" class="text-decoration-none text-dark" >
+                                <div class="product-card ms-2 position-relative" >
                                     <div class="product-image border shadow">
-                                        <img src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>" class="project-thumb" width="300px" height="302px" alt="<%=product.name%>"   />   
-                                        <div class="overlay product-effect" style="position: absolute">
+                                        <img src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>" class="project-thumb" alt="<%=product.name%>"   />   
+                                        <div class="overlay product-effect position-absolute" >
                                             <div class="p-3 d-flex justify-content-center w-100" >
                                                 Click To View
                                             </div>      

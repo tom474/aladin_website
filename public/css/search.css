@@ -1,3 +1,15 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 2
+    Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)   
+*/
 * {
     margin: 0;
     padding: 0;
@@ -97,91 +109,16 @@ nav .icon {
     transition: all 0.15s linear;
 }
 
-/* banner */
-#banner {
-    margin-top: 76px;
-    background-color: rgb(239, 233, 226);
-}
-.banner .row h1 {
-    color: var(--primary-color);
-}
-.banner .row button {
-    display: inline-block;
-    transition: all 0.2s ease-in;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    color: #090909;
-    padding: 0.7em 1.7em;
-    font-size: 18px;
-    border-radius: 0.5em;
-    background: #b4b3b3;
-    border: 1px solid #e8e8e8;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-}
-.banner .row button:after {
-    content: "";
-    position: absolute;
-    left: 55%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.45);
-    top: 180%;
-    width: 160%;
-    height: 190%;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: block;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    z-index: -1;
-}
-
-.banner .row button:hover {
-    color: #ffffff;
-    border: 1px solid var(--primary-color);
-}
-
-.banner .row button:hover:before {
-    top: -35%;
-    background-color: var(--primary-color);
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-}
-
-.banner .row button:hover:after {
-    top: -45%;
-    background-color: var(--primary-color);
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-}
 /* main */
-/* category */
-.categories {
-    font-family: var(--title--font);
-    color: var(--primary-color);
-}
-
-.categories .cate-img {
-    display: flex;
-    justify-content: center;
-}
-.categories .cate-img .img-border {
-    margin-top: 5px;
-    border-radius: 50%;
-}
-.categories .card-body {
-    display: flex;
-    justify-content: center;
-}
-.card:hover {
-    scale: 1.1;
-    transition: all ease-in-out 0.3s;
-}
-.categories .card-display {
-    display: flex;
-    justify-content: center;
-}
-.categories .card a {
-    text-decoration: none;
-    color: black;
-}
 /* recommendation */
+.container-fluid {
+    padding: 77px;
+    min-height: 100vh;
+}
+.container-fluid .product-image img {
+    width: 300px;
+    height: 302px;
+}
 .relative {
     position: relative;
 }
@@ -223,26 +160,6 @@ nav .icon {
     font-size: 18px;
 }
 
-.pre-btn,
-.nxt-btn {
-    border: none;
-    width: 10vw;
-    height: 10vh;
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 30px;
-    z-index: 9;
-    margin-top: 25%;
-}
-.nxt-btn {
-    right: 0;
-}
-
 .overlay {
     top: 0;
     left: 0;
@@ -278,27 +195,8 @@ nav .icon {
 }
 
 .product-effect:hover + div {
-    scale: 1.1;
+    transform: scale(1.1);
     transition: all ease-in-out 0.2s;
-}
-/* service */
-.service-container {
-    flex-direction: column;
-    align-items: center;
-}
-.service-container h3 {
-    font-family: var(--word--font);
-}
-.service-container h4 {
-    font-family: var(--word--font);
-    font-weight: 300;
-}
-.service-container .service-detail {
-    display: flex;
-}
-.service-container .option {
-    display: flex;
-    justify-content: center;
 }
 .banner .button-banner {
     bottom: 0;
@@ -320,9 +218,16 @@ nav .icon {
     color: white !important;
 }
 
-footer ul .nav-item:hover a {
+footer ul .nav-item:hover a h5 {
     color: white !important;
 }
+
+footer ul .nav-item h5 {
+    font-weight: normal;
+    color: black ;
+    font-size: 16px;
+}
+
 /* scroll to top */
 .to-top {
     display: flex;

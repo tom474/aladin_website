@@ -1,3 +1,15 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 2
+    Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)   
+*/
 * {
     margin: 0;
     padding: 0;
@@ -82,20 +94,12 @@ nav .icon {
     width: 1rem;
     height: 1rem;
 }
-/* breadcrumb */
-.breadcrumb {
-    padding-top: 100px;
-}
-.breadcrumb li {
-    padding: 5px;
-    border-radius: 10px;
-    font-size: 20px;
-}
-.breadcrumb li a {
-    color: var(--primary-color) !important;
-}
+
 
 /* product  */
+#product-detail {
+    background-color: rgba(253, 202, 108, 0.498);
+}
 .product-container {
     display: flex;
     overflow-x: auto !important;
@@ -112,6 +116,10 @@ nav .icon {
 
 .products-container .item .title {
     font-family: var(--word-font);
+}
+
+#product-detail .item img {
+    width: 70%;
 }
 
 .buy-option .price {
@@ -149,9 +157,16 @@ nav .icon {
     color: white !important;
 }
 
-footer ul .nav-item:hover a {
+footer ul .nav-item:hover a h5 {
     color: white !important;
 }
+
+footer ul .nav-item h5 {
+    font-weight: normal;
+    color: black ;
+    font-size: 16px;
+}
+
 /* scroll to top */
 .to-top {
     display: flex;
@@ -183,14 +198,6 @@ footer ul .nav-item:hover a {
     }
 }
 
-@media (min-width: 767px) and (max-width: 995px) {
-    #recommendation .row h5 {
-        font-size: 20px !important;
-    }
-    #recommendation .absolute a {
-        font-size: 13px !important;
-    }
-}
 
 @media (max-width: 767px) {
     #banner .row .col-lg-5 img {
@@ -243,11 +250,7 @@ footer ul .nav-item:hover a {
     }
 }
 
-@media (max-width: 1200px) {
-    #recommendation .category-banner {
-        width: 100%;
-    }
-}
+
 
 @media (min-width: 992px) and (max-width: 1200px) {
     #hot .product-card .product-image {
@@ -258,12 +261,6 @@ footer ul .nav-item:hover a {
     }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-    #service .row > div {
-        padding-left: 35% !important;
-    }
-    #service .row > div > div {
-        margin-left: 40px !important;
-    }
     .banner .button-banner {
         margin-left: 8% !important;
         margin-bottom: 8% !important;

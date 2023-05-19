@@ -1,3 +1,14 @@
+<!--   RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,7 +30,7 @@
     </head>
     <body>
         <%- include('partials/nav-customer')%>
-        <div class="container-fluid" style="padding: 77px; min-height: 100vh;">
+        <div class="container-fluid">
             <h1>Results</h1>
             <div class="row">
                 <%results.forEach((product) => {%>
@@ -28,24 +39,20 @@
                 >
                     <a
                         href="/customer/<%= user._id %>/products/<%=product._id%>"
-                        style="text-decoration: none; color: black"
+                        class="text-decoration-none text-dark"
                     >
                         <div
-                            class="product-card ms-2"
-                            style="position: relative"
+                            class="product-card ms-2 position-relative"
                         >
                             <div class="product-image border shadow">
                                 <img
                                     src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>"
                                     class="project-thumb"
-                                    width="300px"
-                                    height="302px"
                                     alt="<%=product.name%>"
                                 />
                             </div>
                             <div
-                                class="overlay product-effect"
-                                style="position: absolute"
+                                class="overlay product-effect position-absolute"
                             >
                                 <div
                                     class="p-3 d-flex justify-content-center w-100"

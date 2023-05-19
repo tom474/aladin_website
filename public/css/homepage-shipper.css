@@ -1,3 +1,15 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 2
+    Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)   
+*/
 /* ========== Root ========== */
 :root {
     --primary: #F68713;
@@ -65,6 +77,15 @@
     color: #FFFFFF;
     white-space: nowrap;
 }
+.sidebar .navbar-brand img {
+    width: 60px;
+    height: 60px;
+} 
+
+.sidebar .d-flex img {
+    width: 40px;
+    height: 40px;
+}
 
 .sidebar .navbar .navbar-nav .nav-link {
     padding: 7px 20px;
@@ -109,11 +130,21 @@
     background: var(--primary);
 }
 
+.content .navbar img {
+    width: 60px;
+    height: 60px;
+}
+
 .content .navbar .navbar-nav .nav-link {
     margin-left: 25px;
     padding: 12px 0;
     color: var(--secondary);
     outline: none;
+}
+
+.content .dropdown img {
+    width: 40px;
+    height: 40px;
 }
 
 .content .navbar .navbar-nav .nav-link:hover,

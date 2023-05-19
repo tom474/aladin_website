@@ -1,3 +1,14 @@
+<!--   RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,14 +32,14 @@
     <body>
         <div class="d-flex main-vp">
             <!-- Side menu start-->
-            <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top" style="width: 280px;">
+            <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top">
                 <div class="d-flex justify-content-between align-items-center">
                     <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                    <img src="data:image/<%= user.profilePicture.contentType %>;base64,<%= user.profilePicture.data.toString('base64') %>" alt="" width="45" height="45" class="rounded-circle me-2">
+                    <img src="data:image/<%= user.profilePicture.contentType %>;base64,<%= user.profilePicture.data.toString('base64') %>" alt="avatar" width="45" height="45" class="rounded-circle me-2">
                     <div>
                         <span class="text-secondary">Hello,</span>
                         <br>
-                        <strong class="fs-5" name="vendorUsername"><%= user.businessName %></strong>
+                        <strong class="fs-5"><%= user.businessName %></strong>
                     </div>
                     </a>
                     <a href="/" class="bi bi-box-arrow-right text-secondary fs-5"></a>
@@ -57,9 +68,9 @@
                     </li>
                 </ul>
                 <div class="logo-container ">
-                    <a href="/" class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="width: 160px;">
+                    <a href="/" class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                         <img src="/favicon/android-icon-48x48.png" alt="brand-logo">
-                        <span class="fs-1" style="font-family: Dancing Script;">Aladin</span>
+                        <span class="fs-1" >Aladin</span>
                     </a>
                 </div>
             </div>
@@ -70,25 +81,21 @@
 
             <!-- Product Page start-->
             <div class="container-fluid rounded-page product-page-content" id="product-page">
-                <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
+                <nav class="navbar d-flex justify-content-between align-items-center">
                     <a class="navbar-brand"><strong class="fs-1">Products</strong>
                         <br>
                         <p class="text-secondary">Manage your products here</p>
                     </a>
-                    <form class="search-form mt-1 d-none">
-                        <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
-                        <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
-                    </form>
                     <a href="/vendor/account-detail/<%= user._id %>" class="nav-link text-black fs-6">
                         <strong>View Your Account</strong>
                         <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
                     </a>
                 </nav>
                 <br>
-                <a href="#form-page" class="text-decoration-none"><button type="button" class="add-button">
+                <a href="#form-page" class="text-decoration-none add-button">
                     <span class="add-button__text">Add Product</span>
                     <span class="add-button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
-                </button></a>
+                </a>
                 <br>
                 <div class="container-fluid">
                     <div class="rounded h-100 p-4">
@@ -112,9 +119,9 @@
                                                 <td><%= product.name %></td>
                                                 <td>
                                                     <% if (product.image.data) { %>
-                                                        <img src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>" height="200px" width="200px"/>
+                                                        <img src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>" alt="<%=product.name%>"/>
                                                     <% } else { %>
-                                                        <img src="/images/customer/clothes.png" height="200px" width="200px"/>
+                                                        <img src="/images/customer/clothes.png"/>
                                                     <% } %>
                                                 </td>
                                                 <td>$<%= product.price %></td>
@@ -137,15 +144,11 @@
 
             <!-- Form to add product start-->
             <div class="container-fluid rounded-page form-page-content" id="form-page">
-                <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
+                <nav class="d-flex justify-content-between align-items-center">
                     <a class="navbar-brand"><strong class="fs-1">Product Form</strong>
                         <br>
                         <p class="text-secondary">Add your products here</p>
                     </a>
-                    <form class="search-form mt-1 d-none">
-                        <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
-                        <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
-                    </form>
                     <a href="#" class="nav-link text-black fs-6">
                         <strong>View Your Account</strong>
                         <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
@@ -164,7 +167,7 @@
                         <br>
                         <label class="fs-4 mb-2" for="category">Select Category</label>
                         <select class="form-input" name="category" id="category" required>
-                            <option value="Fashion">Fashion</option>
+                            <option value="Fashion" selected>Fashion</option>
                             <option value="Electronics">Electronics</option>
                             <option value="Beauty Cosmetic">Beauty Cosmetic</option>
                             <option value="Sports & Outdoors">Sports & Outdoors</option>
@@ -199,15 +202,11 @@
 
             <!-- Order page start-->
             <div class="container-fluid rounded-page order-page-content" id="order-page">
-                <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
+                <nav class="navbar d-flex justify-content-between align-items-center">
                     <a class="navbar-brand"><strong class="fs-1">Orders</strong>
                         <br>
                         <p class="text-secondary">View your orders here</p>
                     </a>
-                    <form class="search-form mt-1 d-none">
-                        <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
-                        <input class="search-bar" type="search" placeholder="Search anything..." aria-label="Search">
-                    </form>
                     <a href="#" class="nav-link text-black fs-6">
                         <strong>View Your Account</strong>
                         <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
@@ -232,7 +231,7 @@
                                     <% let i = 1; %>
                                     <% orders.forEach(order => { %>
                                         <tr>
-                                            <th class="order-id "scope="row"><%- `#INV-000${i++}` %></th>
+                                            <th class="order-id" scope="row"><%- `#INV-000${i++}` %></th>
                                             <td>
                                                 <% order.products.forEach(product => { %>
                                                     <%= product %><br>
@@ -252,15 +251,15 @@
             </div>
             <!-- Order page end-->
         </div>
-        <section id="footer" class="bg-light" style="margin-left: 250px;">
+        <section id="footer" class="bg-light">
             <div class="container">
                 <footer class="py-3">
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a href="/about-us" class="nav-link px-2 text-muted">About Us</a></li>
-                    <li class="nav-item"><a href="/privacy" class="nav-link px-2 text-muted">Privacy</a></li>
-                    <li class="nav-item"><a href="/refund" class="nav-link px-2 text-muted">Refund</a></li>
-                    <li class="nav-item"><a href="/terms-of-use" class="nav-link px-2 text-muted">Terms</a></li>
-                    <li class="nav-item"><a href="/support" class="nav-link px-2 text-muted">Support</a></li>
+                    <li class="nav-item"><a href="/about-us" class="nav-link px-2 text-muted"> <h5>About Us</h5></a></li>
+                    <li class="nav-item"><a href="/privacy" class="nav-link px-2 text-muted"> <h5> Privacy</h5></a></li>
+                    <li class="nav-item"><a href="/refund" class="nav-link px-2 text-muted"> <h5>Refund</h5></a></li>
+                    <li class="nav-item"><a href="/terms-of-use" class="nav-link px-2 text-muted"><h5>Terms </h5></a></li>
+                    <li class="nav-item"><a href="/support" class="nav-link px-2 text-muted"> <h5>Support</h5></a></li>
                 </ul>
                 <p class="text-center text-muted">Copyright © Aladin, Inc</p>
                 </footer>

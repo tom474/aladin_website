@@ -1,3 +1,14 @@
+<!--   RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author:
+    1. Tran Manh Cuong (s3974735)
+    2. Truong Quang Bao Loc (s3965528)
+    3. Nguyen Van Khai (s3979259)
+    4. Truong Tuong Hao (s3979259)
+    5. Huynh Nguyen Thien Minh (s3978742)
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,42 +33,36 @@
         <section id="banner">
             <div class="banner container-lg">
                 <div class="row">
-                    <div
-                        class="col-lg-7 col-md-5 col-sm-4 d-flex flex-column justify-content-center"
-                    >
+                    <div class="col-lg-7 col-md-5 col-sm-4 d-flex flex-column justify-content-center">
                         <h1>
-                            Neon Orange Lace Up <br />
+                            Neon Orange Lace Up <br/>
                             Clear Strap Boots
                         </h1>
                         <p>
                             Neon Orange Lace Up Clear Strap Boots are vibrant, attention-grabbing footwear with a bold neon orange color and transparent strap details. They offer a unique and modern look, perfect for making a fashion statement.
                         </p>
                         <div class="my-2">
-                            <a href="#hot"><button class="btn">Buy Now</button></a>
+                            <button class="btn">
+                                Buy Now
+                            </button>
                         </div>
                     </div>
-                    <div
-                        class="col-lg-5 col-md-7 col-sm-8 d-flex justify-content-end"
-                    >
-                        <img
-                            class="img-fluid"
-                            src="/images/customer/banner3.png"
-                            alt=""
-                        />
+                    <div class="col-lg-5 col-md-7 col-sm-8 d-flex justify-content-end">
+                        <img class="img-fluid" src="/images/customer/banner3.png" alt="banner image">
                     </div>
                 </div>
             </div>
         </section>
         <!-- main -->
         <section id="categories">
-            <div class="container-lg categories my-4" style="padding-top:77px;">
+            <div class="container-lg categories my-4">
                 <h1>Category</h1>
                 <div class="content-box mt-5">
                     <div class="row w-100">
-                        <% categories.forEach((category) => { %>
+                        <% categories.forEach((category) => {  %>
                             <div class="col-lg-4 col-md-4 col-sm-4 card-display">
-                                <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem">
-                                    <a href="/customer/<%= user._id %>/category/<%=category%>" style="text-decoration: none">
+                                <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" >
+                                    <a href="/customer/<%= user._id %>/category/<%=category%>">
                                         <div class="cate-img">
                                             <div class="img-border">
                                                 <% if (category === "Beauty Cosmetic") {%>
@@ -72,42 +77,43 @@
                                                     <img class="img-fluid" src="/images/customer/category5.png" alt="<%= category %>">
                                                 <% }   else { %>
                                                     <img class="img-fluid" src="/images/customer/category6.png" alt="<%= category %>">
-                                                <% } %>      
+                                                <% } %>  
                                             </div>
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title" style="font-family: 'Poppins', sans-serif !important;"><%=category%></h5>
+                                            <h5 class="card-title"><%=category%></h5>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                          <% }); %>
+                        <% }); %>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- HOT -->
         <section id="hot">
-            <div class="container-lg rec-box py-1 my-4" style="padding-top: 77px !important;"> 
+            <div class="container-lg rec-box py-1 my-4"> 
                 <h1>Hot Deal</h1>
                 <div class="row product my-5">
                     <div class="group-by">
                         <div class="dropdown ms-2">
                             <form action="/customer/homepage/<%= user._id %>#hot" method="GET">
-                                <input type="text" name="min" placeholder="Minimum price..." style="padding: 5px; border-radius: 10px;">
-                                <input type="text" name="max" placeholder="Maximum price..." style="padding: 5px; border-radius: 10px;">
-                                <button type="submit" style=" padding: 5px; border-radius: 10px;">Find</button>
+                                <input type="text" name="min" placeholder="Minimum price..." class="p-1 rounded">
+                                <input type="text" name="max" placeholder="Maximum price..." class="p-1 rounded">
+                                <button type="submit" class="p-1 rounded">Find</button>
                             </form>
                         </div>
                     </div>
                     
                     <%products.forEach((product) => {%>
                         <div class="col-lg-4 col-md-6 col-ms-12 my-3 d-flex product-col">
-                            <a href="/customer/<%= user._id %>/products/<%=product._id%>" style="text-decoration: none; color: black">
-                                <div    class="product-card ms-2" style="position: relative">
+                            <a href="/customer/<%= user._id %>/products/<%=product._id%>" >
+                                <div class="product-card ms-2 position-relative">
                                     <div class="product-image border shadow">
-                                        <img src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>" class="project-thumb" width="300px" height="302px" alt="<%=product.name%>"/>
+                                        <img src="data:<%= product.image.mimeType %>;base64,<%= product.image.data.toString('base64') %>" class="project-thumb" alt="<%=product.name%>"/>
                                     </div>
-                                    <div class="overlay product-effect" style="position: absolute">
+                                    <div class="overlay product-effect position-absolute">
                                         <div class="p-3 d-flex justify-content-center w-100">
                                             Click To View
                                         </div>
@@ -133,9 +139,8 @@
                         class="col-lg-4 border d-flex flex-row p-4 align-items-center"
                     >
                         <img
-                            style="width: 45px; height: 45px"
                             src="/images/customer/icon-1.png"
-                            alt=""
+                            alt="freeship"
                         />
                         <div class="d-flex flex-column ms-3">
                             <h5>FREESHIP</h5>
@@ -146,9 +151,8 @@
                         class="col-lg-4 border d-flex flex-row p-4 align-items-center"
                     >
                         <img
-                            style="width: 45px; height: 45px"
                             src="/images/customer/icon-2.png"
-                            alt=""
+                            alt="on time"
                         />
                         <div class="d-flex flex-column ms-3">
                             <h5>ON TIME</h5>
@@ -159,9 +163,8 @@
                         class="col-lg-4 border d-flex flex-row p-4 align-items-center"
                     >
                         <img
-                            style="width: 45px; height: 45px"
                             src="/images/customer/icon-1.png"
-                            alt=""
+                            alt="protective"
                         />
                         <div class="d-flex flex-column ms-3">
                             <h5>PROTECTIVE</h5>
