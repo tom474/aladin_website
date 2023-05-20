@@ -9,35 +9,6 @@
 //     4. Truong Tuong Hao (s3979259)
 //     5. Huynh Nguyen Thien Minh (s3978742)
 
-// let activeElement = document.querySelectorAll(".nav-item a");
-// activeElement.forEach((element) => {
-//     element.addEventListener("click", () => {
-//         // Remove 'selected' class from all elements
-//         activeElement.forEach((e) => {
-//             e.classList.remove("selected");
-//         });
-//         // Add 'selected' class to the clicked element
-//         element.classList.add("selected");
-//     });
-// });
-
-// let tabsNotHome = document.querySelectorAll(".nav-item:not(.product)");
-// let homePage = document.querySelector("#product-page");
-// tabsNotHome.forEach((tab) => {
-//     tab.addEventListener("click", () => {
-//         homePage.classList.add("d-none");
-//     });
-// });
-// let addBtn = document.querySelector('.add-button');
-// addBtn.addEventListener('click', () => {
-//     homePage.classList.add("d-none");
-// });
-
-// let tabHome = document.querySelector(".product");
-// tabHome.addEventListener("click", () => {
-//     homePage.classList.remove("d-none");
-// });
-
 // Get the active tab from local storage
 let activeTab = localStorage.getItem('activeTab');
 if (activeTab) {
