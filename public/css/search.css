@@ -1,31 +1,9 @@
-/* 
-    RMIT University Vietnam
-    Course: COSC2430 Web Programming
-    Semester: 2023A
-    Assessment: Assignment 2
-    Author:
-    1. Tran Manh Cuong (s3974735)
-    2. Truong Quang Bao Loc (s3965528)
-    3. Nguyen Van Khai (s3979259)
-    4. Truong Tuong Hao (s3979259)
-    5. Huynh Nguyen Thien Minh (s3978742)   
-*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-:root {
-    --primary-color: #f68713;
-    --logo-font: "Dancing Script", cursive;
-    --word-font: "Poppins", sans-serif;
-    --title--font: "Roboto Serif", serif;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 :root {
     --primary-color: #f68713;
     --logo-font: "Dancing Script", cursive;
@@ -33,16 +11,32 @@
     --title--font: "Roboto Serif", serif;
 }
 
-/* navbar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #f68713;
+    --logo-font: "Dancing Script", cursive;
+    --word-font: "Poppins", sans-serif;
+    --title--font: "Roboto Serif", serif;
+}
+
+/* Navbar */
 .navbar {
     background-color: white;
 }
+
 .navbar .container-lg .hamburger-bar {
     display: none !important;
 }
+
 .nav-content {
     width: 100%;
 }
+
 .left,
 .left .content {
     display: flex;
@@ -104,24 +98,27 @@ nav .icon {
     color: var(--primary-color) !important;
     transition: all 0.15s linear;
 }
+
 .nav-item .option:hover a {
     color: var(--primary-color) !important;
     transition: all 0.15s linear;
 }
 
-/* main */
-/* recommendation */
+/* Recommendation */
 .container-fluid {
     padding: 77px;
     min-height: 100vh;
 }
+
 .container-fluid .product-image img {
     width: 300px;
     height: 302px;
 }
+
 .relative {
     position: relative;
 }
+
 .absolute {
     position: absolute;
     width: 100%;
@@ -129,9 +126,11 @@ nav .icon {
     top: 0;
     left: 0;
 }
+
 #recommendation .absolute a {
     color: black;
 }
+
 .product-container {
     display: flex;
     overflow-x: auto !important;
@@ -146,14 +145,17 @@ nav .icon {
     flex: 0 0 auto;
     margin-right: 40px;
 }
+
 .product-image {
     position: relative;
     overflow: hidden;
 }
+
 .product-info h3 {
     font-family: var(--word-font);
     font-size: 20px;
 }
+
 .product-info p {
     color: var(--primary-color);
     font-weight: 600;
@@ -169,17 +171,19 @@ nav .icon {
     align-items: flex-end;
     cursor: pointer;
 }
+
 .overlay > div {
     background-color: var(--primary-color);
     font-family: var(--word-font);
     font-size: 18px;
     display: none !important;
 }
+
 .overlay:hover > div {
     display: flex !important;
 }
 
-/* hot */
+/* Hot */
 .group-by {
     display: flex;
     align-items: center;
@@ -198,12 +202,14 @@ nav .icon {
     transform: scale(1.1);
     transition: all ease-in-out 0.2s;
 }
+
 .banner .button-banner {
     bottom: 0;
     left: 0;
     margin-left: 12% !important;
     margin-bottom: 10% !important;
 }
+
 .banner .button-banner a button {
     padding: 10px;
     background-color: var(--primary-color);
@@ -212,7 +218,8 @@ nav .icon {
 .banner .button-banner a {
     color: white !important;
 }
-/* footer */
+
+/* Footer */
 .background-color {
     background-color: var(--primary-color);
     color: white !important;
@@ -228,7 +235,7 @@ footer ul .nav-item h5 {
     font-size: 16px;
 }
 
-/* scroll to top */
+/* Scroll to top */
 .to-top {
     display: flex;
     justify-content: center;
@@ -249,10 +256,12 @@ footer ul .nav-item h5 {
     color: white;
     opacity: 0.7;
 }
+
 @media (max-width: 1023px) {
     .banner .row .col-lg-7 h1 {
         font-size: 1.5em;
     }
+
     .banner .row .col-lg-7 p {
         font-size: 15px;
     }
@@ -262,6 +271,7 @@ footer ul .nav-item h5 {
     #recommendation .row h5 {
         font-size: 20px !important;
     }
+
     #recommendation .absolute a {
         font-size: 13px !important;
     }
@@ -271,44 +281,54 @@ footer ul .nav-item h5 {
     #banner .row .col-lg-5 img {
         width: 80%;
     }
+
     .banner .row .col-lg-7 h1 {
         font-size: 1.05em;
     }
+
     .banner .row .col-lg-7 p {
         font-size: 0.65em;
     }
+
     .banner .row button {
         padding: 5px;
         font-size: 15px;
     }
-    /* category */
+    
     .categories .card-display .card {
         width: 12rem !important;
     }
+
     #recommendation .row h5 {
         font-size: 20px !important;
     }
+
     #recommendation .absolute a {
         font-size: 13px !important;
     }
+
     .banner .button-banner {
         margin-left: 5% !important;
         margin-bottom: 5% !important;
     }
-    /* hamburger bar */
+    
     .navbar .container-lg .navbar-brand,
     .navbar .container-lg .hamburger ul li {
         margin-left: 10px !important;
     }
+
     .navbar .container-lg {
         padding: 0;
     }
+
     .navbar .container-lg .hamburger-bar {
         display: block !important;
     }
+
     .navbar .container-lg .hamburger {
         display: none !important;
     }
+
     .navbar .container-lg .hamburger.dropdown-nav {
         display: block !important;
         position: absolute;
@@ -328,6 +348,7 @@ footer ul .nav-item h5 {
     #hot .product-card .product-image {
         width: 95%;
     }
+
     #hot .overlay {
         width: 95% !important;
     }
@@ -336,22 +357,26 @@ footer ul .nav-item h5 {
     #service .row > div {
         padding-left: 35% !important;
     }
+
     #service .row > div > div {
         margin-left: 40px !important;
     }
+
     .banner .button-banner {
         margin-left: 8% !important;
         margin-bottom: 8% !important;
     }
 }
-/* 992 -> 1200px */
+
 @media (max-width: 576px) {
     #recommendation .row.mt-5 {
         flex-direction: column-reverse;
     }
+
     #recommendation .row .category-banner {
         background-color: #b4b3b3;
     }
+    
     #recommendation .row .category-banner img {
         width: 50%;
     }
