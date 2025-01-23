@@ -1,279 +1,269 @@
-/* 
-    RMIT University Vietnam
-    Course: COSC2430 Web Programming
-    Semester: 2023A
-    Assessment: Assignment 2
-    Author:
-    1. Tran Manh Cuong (s3974735)
-    2. Truong Quang Bao Loc (s3965528)
-    3. Nguyen Van Khai (s3979259)
-    4. Truong Tuong Hao (s3979259)
-    5. Huynh Nguyen Thien Minh (s3978742)   
-*/
 /* ========== Root ========== */
 :root {
-    --primary: #F68713;
-    --secondary: #FFFFFF;
-    --light: #6C7293;
-    --dark: #f65b13;
+  --primary: #f68713;
+  --secondary: #ffffff;
+  --light: #6c7293;
+  --dark: #f65b13;
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 /* ========== Button ========== */
 .btn {
-    transition: .5s;
+  transition: 0.5s;
 }
 
 .btn-square {
-    width: 38px;
-    height: 38px;
+  width: 38px;
+  height: 38px;
 }
 
 .btn-sm-square {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .btn-lg-square {
-    width: 48px;
-    height: 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .btn-square,
 .btn-sm-square,
 .btn-lg-square {
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: normal;
-    border-radius: 50px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  border-radius: 50px;
 }
 
 /* ========== Sidebar ========== */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 250px;
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--primary);
-    transition: 0.5s;
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--primary);
+  transition: 0.5s;
+  z-index: 999;
 }
 
 .sidebar h1 {
-    font-family: "Dancing Script", cursive;
-    font-size: 35px;
-    color: #FFFFFF;
-    white-space: nowrap;
+  font-family: "Dancing Script", cursive;
+  font-size: 35px;
+  color: #ffffff;
+  white-space: nowrap;
 }
 .sidebar .navbar-brand img {
-    width: 60px;
-    height: 60px;
-} 
+  width: 60px;
+  height: 60px;
+}
 
 .sidebar .d-flex img {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .sidebar .navbar .navbar-nav .nav-link {
-    padding: 7px 20px;
-    color: var(--secondary);
-    font-weight: 500;
-    border-left: 3px solid var(--secondary);
-    border-radius: 0 30px 30px 0;
-    outline: none;
+  padding: 7px 20px;
+  color: var(--secondary);
+  font-weight: 500;
+  border-left: 3px solid var(--secondary);
+  border-radius: 0 30px 30px 0;
+  outline: none;
 }
 
 .sidebar .navbar .navbar-nav .nav-link:hover,
 .sidebar .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
-    background: var(--secondary);
-    border-color: var(--primary);
+  color: var(--primary);
+  background: var(--secondary);
+  border-color: var(--primary);
 }
 
 .sidebar .navbar .navbar-nav .nav-link i {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--dark);
-    border-radius: 40px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  border-radius: 40px;
 }
 
 .sidebar .navbar .navbar-nav .nav-link:hover i,
 .sidebar .navbar .navbar-nav .nav-link.active i {
-    background: var(--light);
+  background: var(--light);
 }
 
 /* ========== Content ========== */
 .content {
-    margin-left: 250px;
-    min-height: 100vh;
-    background: var(--secondary);
-    transition: 0.5s;
+  margin-left: 250px;
+  min-height: 100vh;
+  background: var(--secondary);
+  transition: 0.5s;
 }
 
 .content .navbar {
-    background: var(--primary);
+  background: var(--primary);
 }
 
 .content .navbar img {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 
 .content .navbar .navbar-nav .nav-link {
-    margin-left: 25px;
-    padding: 12px 0;
-    color: var(--secondary);
-    outline: none;
+  margin-left: 25px;
+  padding: 12px 0;
+  color: var(--secondary);
+  outline: none;
 }
 
 .content .dropdown img {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .content .navbar .navbar-nav .nav-link:hover,
 .content .navbar .navbar-nav .nav-link.active {
-    color: var(--light);
+  color: var(--light);
 }
 
 .content .navbar .sidebar-toggler,
 .content .navbar .navbar-nav .nav-link i {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--dark);
-    border-radius: 40px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  border-radius: 40px;
 }
 
 .content .navbar .dropdown-item {
-    color: var(--secondary);
+  color: var(--secondary);
 }
 
 .content .navbar .dropdown-item:hover,
 .content .navbar .dropdown-item.active {
-    background: var(--primary);
+  background: var(--primary);
 }
 
 .content .dropdown-menu {
-    background: var(--light);
+  background: var(--light);
 }
 
 .content .navbar .dropdown-toggle::after {
-    margin-left: 6px;
-    vertical-align: middle;
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    transition: .5s;
+  margin-left: 6px;
+  vertical-align: middle;
+  border: none;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  transition: 0.5s;
 }
 
-.content .navbar .dropdown-toggle[aria-expanded=true]::after {
-    transform: rotate(-180deg);
+.content .navbar .dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(-180deg);
 }
 
 .content .order-list {
-    min-height: 80vh;
+  min-height: 80vh;
 }
 
 .content .order {
-    background: var(--primary);
-    border-radius: 20px;
+  background: var(--primary);
+  border-radius: 20px;
 }
 
 .content .order .table-responsive {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .content .modal-dialog {
-    max-width: 1000px;
+  max-width: 1000px;
 }
 
 .content .modal-dialog .modal-header {
-    background: var(--primary);
-    color: var(--secondary);
+  background: var(--primary);
+  color: var(--secondary);
 }
 
-.content .modal-dialog .small, .content .modal-dialog .fs-5 {
-    color: var(--primary);
-    font-weight: 700;
+.content .modal-dialog .small,
+.content .modal-dialog .fs-5 {
+  color: var(--primary);
+  font-weight: 700;
 }
 
 .content .modal-dialog .save-button {
-    background: var(--primary);
-    color: var(--secondary);
+  background: var(--primary);
+  color: var(--secondary);
 }
 
 .content .modal-dialog .save-button:hover {
-    background: var(--dark);
+  background: var(--dark);
 }
 
 .footer {
-    background: var(--primary);
+  background: var(--primary);
 }
 
-.footer a, .footer p {
-    color: var(--secondary);
+.footer a,
+.footer p {
+  color: var(--secondary);
 }
 
 @media (min-width: 1080px) {
-    .sidebar {
-        margin-left: 0;
-    }
+  .sidebar {
+    margin-left: 0;
+  }
 
-    .sidebar.open {
-        margin-left: -250px;
-    }
+  .sidebar.open {
+    margin-left: -250px;
+  }
 
-    .content {
-        width: calc(100% - 250px);
-    }
+  .content {
+    width: calc(100% - 250px);
+  }
 
-    .content.open {
-        width: 100%;
-        margin-left: 0;
-    }
+  .content.open {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 1079px) {
-    .sidebar {
-        margin-left: -250px;
-    }
+  .sidebar {
+    margin-left: -250px;
+  }
 
-    .sidebar.open {
-        margin-left: 0;
-    }
+  .sidebar.open {
+    margin-left: 0;
+  }
 
-    .content {
-        width: 100%;
-        margin-left: 0;
-    }
+  .content {
+    width: 100%;
+    margin-left: 0;
+  }
 
-    .content .modal-dialog {
-        margin: 0 50px;
-    }
+  .content .modal-dialog {
+    margin: 0 50px;
+  }
 }
 
 @media (max-width: 575.98px) {
-    .content .navbar .navbar-nav .nav-link {
-        margin-left: 15px;
-    }
+  .content .navbar .navbar-nav .nav-link {
+    margin-left: 15px;
+  }
 }

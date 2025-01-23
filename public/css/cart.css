@@ -1,100 +1,96 @@
-/* 
-    RMIT University Vietnam
-    Course: COSC2430 Web Programming
-    Semester: 2023A
-    Assessment: Assignment 2
-    Author:
-    1. Tran Manh Cuong (s3974735)
-    2. Truong Quang Bao Loc (s3965528)
-    3. Nguyen Van Khai (s3979259)
-    4. Truong Tuong Hao (s3979259)
-    5. Huynh Nguyen Thien Minh (s3978742)   
-*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 :root {
-    --primary-color: #f68713;
-    --logo-font: "Dancing Script", cursive;
-    --word-font: "Poppins", sans-serif;
-    --title--font: "Roboto Serif", serif;
+  --primary-color: #f68713;
+  --logo-font: "Dancing Script", cursive;
+  --word-font: "Poppins", sans-serif;
+  --title--font: "Roboto Serif", serif;
 }
 
-/* navbar */
+/* Navbar */
 #bar {
-    background-color: var(--primary-color);
-}
-.hamburger .nav-item:hover a {
-    color: var(--primary-color);
-}
-.navbar-brand h1 {
-    font-family: var(--logo-font);
-}
-.navbar-brand p {
-    font-family: var(--word--font);
-    margin-bottom: 0;
-}
-.in-cart-container {
-    background-color: rgba(246, 135, 19, 0.3);
-}
-#in-cart .container-lg {
-    background-color: white;
-}
-.quantity-control .box {
-    padding: 4px;
-    border: 1px solid var(--primary-color);
-    height: 35px;
-}
-.v {
-    background-color: rgb(246, 135, 19,0.5);
-    min-height: 82.1vh;
-}
-/* footer */
-.background-color {
-    background-color: var(--primary-color);
-    color: white !important;
+  background-color: var(--primary-color);
 }
 
+.hamburger .nav-item:hover a {
+  color: var(--primary-color);
+}
+
+.navbar-brand h1 {
+  font-family: var(--logo-font);
+}
+
+.navbar-brand p {
+  font-family: var(--word--font);
+  margin-bottom: 0;
+}
+
+.in-cart-container {
+  background-color: rgba(246, 135, 19, 0.3);
+}
+
+#in-cart .container-lg {
+  background-color: white;
+}
+
+.quantity-control .box {
+  padding: 4px;
+  border: 1px solid var(--primary-color);
+  height: 35px;
+}
+
+.v {
+  background-color: rgb(246, 135, 19, 0.5);
+  min-height: 82.1vh;
+}
+
+/* Footer */
+.background-color {
+  background-color: var(--primary-color);
+  color: white !important;
+}
 
 footer ul .nav-item:hover a h5 {
-    color: white !important;
+  color: white !important;
 }
 
 footer ul .nav-item h5 {
-    font-weight: normal;
-    color: black ;
-    font-size: 16px;
+  font-weight: normal;
+  color: black;
+  font-size: 16px;
 }
 
-/* scroll to top */
+/* Scroll to top */
 .to-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 238, 0, 0.829) !important;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 238, 0, 0.829) !important;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  color: black;
 }
 
 .to-top:hover {
-    color: white;
-    opacity: 0.7;
+  color: white;
+  opacity: 0.7;
 }
 .modal-footer button {
-    border-radius: 10px;
-    background-color: red;
-    color: white;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
 }
 
 .modal-footer button:hover {
-    background-color: rgba(255, 0, 0, 0.521);
+  background-color: rgba(255, 0, 0, 0.521);
 }
