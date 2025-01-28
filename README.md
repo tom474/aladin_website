@@ -16,8 +16,8 @@ Aladin is a full-stack e-commerce platform that facilitates seamless interaction
 ## Features
 
 - **User Authentication**: Supports customer, vendor, and shipper registration and login.  
-- **Customer Dashboard**: Allows customers to browse categories, search for products, view product details, and manage their shopping cart.  
-- **Vendor Dashboard**: Enables vendors to add, edit, and remove products, as well as manage customer orders.  
-- **Shipper Dashboard**: Provides shippers with access to orders from their assigned distribution hub, view order details, and update order status.  
 - **Account Management**: Displays user account details with modification options.  
+- **Customer Pages**: Allows customers to browse categories, search for products, view product details, and manage their shopping cart.  
+- **Vendor Pages**: Enables vendors to add, edit, and remove products, as well as manage customer orders.  
+- **Shipper Pages**: Provides shippers with access to orders from their assigned distribution hub, view order details, and update order status.  
 - **Static Information Pages**: Includes About Us, Privacy Policy, Terms of Use, Refund Policy, and Support pages.  
