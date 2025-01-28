@@ -1,347 +1,362 @@
-<!--   RMIT University Vietnam
-  Course: COSC2430 Web Programming
-  Semester: 2023A
-  Assessment: Assignment 2
-  Author:
-    1. Tran Manh Cuong (s3974735)
-    2. Truong Quang Bao Loc (s3965528)
-    3. Nguyen Van Khai (s3979259)
-    4. Truong Tuong Hao (s3979259)
-    5. Huynh Nguyen Thien Minh (s3978742)
--->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Shipper Homepage</title>
-    
-        <!-- CSS -->
-        <link rel="stylesheet" href="/css/reset.css" />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="/css/homepage-shipper.css" />
-        <%- include ('partials/head') %>
-    </head>
-    <body>
-        <div class="container-fluid position-relative d-flex p-0">
-            <!-- Sidebar -->
-            <div class="sidebar pe-4 pb-3">
-                <nav class="navbar navbar-dark">
-                    <a href="#" class="navbar-brand mx-4 mb-3">
-                        <h1 class="text-light">
-                            <img src="/images/shipper/logo-1(backup).png" alt="logo"/>
-                            Aladin
-                        </h1>
-                    </a>
-                    <div class="d-flex align-items-center ms-4 mb-4">
-                        <div class="position-relative">
-                            <img class="rounded-circle" src="data:<%= user.profilePicture.mimeType %>;base64,<%= user.profilePicture.data.toString('base64') %>" alt="user-image"/>
-                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                        </div>
-                        <div class="ms-3 text-white">
-                            <h6 class="mb-0"><%= user.name %></h6>
-                            <span><%= user.__t %></span>
-                        </div>
-                    </div>
-                    <div class="navbar-nav w-100">
-                        <a href="#" class="nav-item nav-link active">
-                            <i class="fa fa-tachometer-alt me-2"></i>
-                            Dashboard
-                        </a>
-                        <a href="/" class="nav-item nav-link">
-                            <i class="fas fa-sign-out"></i>
-                            Log out
-                        </a>
-                    </div>
-                </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipper Homepage</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/homepage-shipper.css" />
+    <%- include ('partials/head') %>
+  </head>
+  <body>
+    <div class="container-fluid position-relative d-flex p-0">
+      <!-- Sidebar -->
+      <div class="sidebar pe-4 pb-3">
+        <nav class="navbar navbar-dark">
+          <a href="#" class="navbar-brand mx-4 mb-3">
+            <h1 class="text-light">
+              <img src="/images/shipper/logo-1(backup).png" alt="logo" />
+              Aladin
+            </h1>
+          </a>
+          <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="position-relative">
+              <img
+                class="rounded-circle"
+                src="data:<%= user.profilePicture.mimeType %>;base64,<%= user.profilePicture.data.toString('base64') %>"
+                alt="user-image"
+              />
+              <div
+                class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"
+              ></div>
             </div>
-            <!-- Main content -->
-            <div class="content">
-                <!-- Navbar -->
-                <nav
-                    class="navbar navbar-expand navbar-dark sticky-top px-4 py-0"
+            <div class="ms-3 text-white">
+              <h6 class="mb-0"><%= user.name %></h6>
+              <span><%= user.__t %></span>
+            </div>
+          </div>
+          <div class="navbar-nav w-100">
+            <a href="#" class="nav-item nav-link active">
+              <i class="fa fa-tachometer-alt me-2"></i>
+              Dashboard
+            </a>
+            <a href="/" class="nav-item nav-link">
+              <i class="fas fa-sign-out"></i>
+              Log out
+            </a>
+          </div>
+        </nav>
+      </div>
+      <!-- Main content -->
+      <div class="content">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-dark sticky-top px-4 py-0">
+          <a href="#!" class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0">
+              <img src="/images/shipper/logo-1(backup).png" alt="logo" />
+            </h2>
+          </a>
+          <a
+            href="#"
+            class="sidebar-toggler flex-shrink-0 text-decoration-none text-white"
+          >
+            <i class="fa fa-bars"></i>
+          </a>
+          <div class="navbar-nav align-items-center ms-auto">
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                <i class="fa fa-bell me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Notification</span>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0"
+              >
+                <a href="#" class="dropdown-item">
+                  <h6 class="fw-normal mb-0">Profile updated</h6>
+                  <small>2 minutes ago</small>
+                </a>
+                <hr class="dropdown-divider" />
+                <a href="#" class="dropdown-item">
+                  <h6 class="fw-normal mb-0">New user added</h6>
+                  <small>2 minutes ago</small>
+                </a>
+                <hr class="dropdown-divider" />
+                <a href="#" class="dropdown-item text-center"
+                  >See all notifications</a
                 >
-                    <a href="#!" class="navbar-brand d-flex d-lg-none me-4">
-                        <h2 class="text-primary mb-0">
-                            <img src="/images/shipper/logo-1(backup).png" alt="logo"/>
-                        </h2>
-                    </a>
-                    <a
-                        href="#"
-                        class="sidebar-toggler flex-shrink-0 text-decoration-none text-white"
-                    >
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <div class="navbar-nav align-items-center ms-auto">
-                        <div class="nav-item dropdown">
-                            <a
-                                href="#"
-                                class="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <i class="fa fa-bell me-lg-2"></i>
-                                <span class="d-none d-lg-inline-flex"
-                                    >Notification</span
-                                >
-                            </a>
-                            <div
-                                class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0"
-                            >
-                                <a href="#" class="dropdown-item">
-                                    <h6 class="fw-normal mb-0">
-                                        Profile updated
-                                    </h6>
-                                    <small>2 minutes ago</small>
-                                </a>
-                                <hr class="dropdown-divider" />
-                                <a href="#" class="dropdown-item">
-                                    <h6 class="fw-normal mb-0">
-                                        New user added
-                                    </h6>
-                                    <small>2 minutes ago</small>
-                                </a>
-                                <hr class="dropdown-divider" />
-                                <a href="#" class="dropdown-item text-center"
-                                    >See all notifications</a
-                                >
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a
-                                href="#"
-                                class="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <img
-                                    class="rounded-circle me-lg-2"
-                                    src="data:<%= user.profilePicture.mimeType %>;base64,<%= user.profilePicture.data.toString('base64') %>"
-                                    alt="avatar"
-                                />
-                                <span class="d-none d-lg-inline-flex"
-                                    ><%= user.username %></span
-                                >
-                            </a>
-                            <div
-                                class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0"
-                            >
-                                <a href="/shipper/account-detail/<%= user._id %>" class="dropdown-item">My Profile</a>
-                                <hr class="dropdown-divider" />
-                                <a href="/" class="dropdown-item">Log Out</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-                <!-- Active Orders -->
-                <div class="container-fluid pt-4 px-4">
-                    <div class="order text-center p-4 order-list">
-                        <div
-                            class="d-flex align-items-center justify-content-between mb-4 text-white"
-                        >
-                            <h6 class="mb-0">Active Orders</h6>
-                            <h6 class="mb-0"><%= user.distributionHub %></h6>
-                        </div>
-                        <div class="table-responsive bg-white">
-                            <table
-                                class="table text-start align-middle table-bordered table-hover mb-0"
-                            >
-                                <thead class="bg-secondary-subtle">
-                                    <tr class="text-black">
-                                        <th scope="col">Invoice</th>
-                                        <th scope="col">Receiver</th>
-                                        <th scope="col">Payment Method</th>
-                                        <th scope="col">Item List</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% let i = 0; %>
-                                    <% orders.forEach(function(order, i){ %>
-                                        <% if (order.distributionHub === user.distributionHub) {%>
-                                            <% if (order.status === 'Active') {%>
-                                                <% i += 1 %>
-                                                <tr class="order-row">
-                                                    <td><%- `#INV-000${i}` %></td>
-                                                    <td><%= order.receiver %></td>
-                                                    <td><%= order.payment %></td>
-                                                    <td>
-                                                    <% order.products.forEach((product) => { %>
-                                                        <%= product %><br>
-                                                    <% }) %>
-                                                    </td>
-                                                    <td><%= order.address %></td>
-                                                    <td><%= order.status %></td>
-                                                    <td>
-                                                        <!-- Button trigger modal -->
-                                                        <button
-                                                            type="button"
-                                                            class="btn btn-primary btn-sm"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#order-detail"
-                                                        >
-                                                            Details
-                                                        </button>
-            
-                                                        <!-- Modal -->
-                                                        <form
-                                                            action="/shipper/homepage/update/"
-                                                            method="post"
-                                                            class="modal fade"
-                                                            id="order-detail"
-                                                            tabindex="-1"
-                                                            aria-hidden="true">
-                                                            <div
-                                                                class="modal-dialog modal-dialog-centered"
-                                                                role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title">
-                                                                            Invoice Details
-                                                                        </h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="row">
-                                                                            <input type="hidden" name="uid" value="<%= user._id %>">
-                                                                            <input type="hidden" name="oid" value="<%= order._id %>">
-                                                                            <div class="col mb-1">
-                                                                                <p class="small mb-1">Order No.</p>
-                                                                                <p><%= order.id %></p>
-                                                                            </div>
-                                                                            <div class="col mb-1">
-                                                                                <p class="small mb-1">Distribution Hub</p>
-                                                                                <p><%= order.distributionHub %></p>
-                                                                            </div>
-                                                                            <div class="col mb-1">
-                                                                                <p class="small mb-1">Date</p>
-                                                                                <p><%= order.date %></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col">
-                                                                                <label class="small mb-1" for="status">Status:</label>
-                                                                                <select class="custom-select my-1 mr-sm-2" id="status" name="status">
-                                                                                    <option value="Active" selected>Active</option>
-                                                                                    <option value="Delivered">Delivered</option>
-                                                                                    <option value="Canceled">Canceled</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                        <hr>
-                                                                        <p class="small mb-1">Item list</p>
-                                                                        <% let totalPrice = 0; %>
-                                                                        <% order.products.forEach((product) => { %>
-                                                                            <div class="row">
-                                                                                <div class="col">
-                                                                                    <p><%= product %></p>
-                                                                                </div>
-                                                                                <div class="col">
-                                                                                    <p></p>
-                                                                                </div>
-                                                                                <div class="col">
-                                                                                <% products.forEach((item) => { %>
-                                                                                    <% if (item.name === product) { %>
-                                                                                        <p><%- item.price + '$' %></p>
-                                                                                        <% totalPrice += item.price; %>
-                                                                                    <% } %>
-                                                                                <% }); %>
-                                                                                </div>
-                                                                            </div>
-                                                                        <% }); %>
-                                                                        <div class="row">
-                                                                            <div class="col">
-                                                                                <p class="fs-5 text mb-1">Total Price:</p>
-                                                                            </div>
-                                                                            <div class="col">
-                                                                            </div>
-                                                                            <div class="col">
-                                                                                <p class="fs-5 text mb-1"><%- totalPrice + '$' %></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col mb-1">
-                                                                                <p class="small mb-1">Receiver</p>
-                                                                                <p><%= order.receiver %></p>
-                                                                            </div>
-                                                                            <div class="col mb-1">
-                                                                                <p class="small mb-1">Address</p>
-                                                                                <p><%= order.address %></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col mb-1">
-                                                                                <p class="small mb-1">Payment Method</p>
-                                                                                <p><%= order.payment %></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div
-                                                                        class="modal-footer"
-                                                                    >
-                                                                        <button
-                                                                            type="button"
-                                                                            class="btn btn-secondary"
-                                                                            data-bs-dismiss="modal"
-                                                                        >
-                                                                            Close
-                                                                        </button>
-                                                                        <button
-                                                                            type="submit"
-                                                                            class="btn save-button"
-                                                                            data-bs-dismiss="modal"
-                                                                        >
-                                                                            Save changes
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                <% } %>
-                                            <% } %>
-                                        <% }); %>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer -->
-                <footer class="container-fluid pt-4 px-4">
-                    <div class="footer rounded-top p-4">
-                        <ul class="nav justify-content-center border-bottom pb-3 mb-1">
-                            <li class="nav-item"><a href="/about-us" class="nav-link px-2">About Us</a></li>
-                            <li class="nav-item"><a href="/privacy" class="nav-link px-2">Privacy</a></li>
-                            <li class="nav-item"><a href="/refund" class="nav-link px-2">Refund</a></li>
-                            <li class="nav-item"><a href="/terms-of-use" class="nav-link px-2">Terms</a></li>
-                            <li class="nav-item"><a href="/support" class="nav-link px-2">Support</a></li>
-                        </ul>
-                        <p class="text-center">Copyright © Aladin, Inc</p>
-                    </div>
-                </footer>
+              </div>
             </div>
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  class="rounded-circle me-lg-2"
+                  src="data:<%= user.profilePicture.mimeType %>;base64,<%= user.profilePicture.data.toString('base64') %>"
+                  alt="avatar"
+                />
+                <span class="d-none d-lg-inline-flex"
+                  ><%= user.username %></span
+                >
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0"
+              >
+                <a
+                  href="/shipper/account-detail/<%= user._id %>"
+                  class="dropdown-item"
+                  >My Profile</a
+                >
+                <hr class="dropdown-divider" />
+                <a href="/" class="dropdown-item">Log Out</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Active Orders -->
+        <div class="container-fluid pt-4 px-4">
+          <div class="order text-center p-4 order-list">
+            <div
+              class="d-flex align-items-center justify-content-between mb-4 text-white"
+            >
+              <h6 class="mb-0">Active Orders</h6>
+              <h6 class="mb-0"><%= user.distributionHub %></h6>
+            </div>
+            <div class="table-responsive bg-white">
+              <table
+                class="table text-start align-middle table-bordered table-hover mb-0"
+              >
+                <thead class="bg-secondary-subtle">
+                  <tr class="text-black">
+                    <th scope="col">Invoice</th>
+                    <th scope="col">Receiver</th>
+                    <th scope="col">Payment Method</th>
+                    <th scope="col">Item List</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% let i = 0; %> <% orders.forEach(function(order, i){ %> <%
+                  if (order.distributionHub === user.distributionHub) {%> <% if
+                  (order.status === 'Active') {%> <% i += 1 %>
+                  <tr class="order-row">
+                    <td><%- `#INV-000${i}` %></td>
+                    <td><%= order.receiver %></td>
+                    <td><%= order.payment %></td>
+                    <td>
+                      <% order.products.forEach((product) => { %> <%= product
+                      %><br />
+                      <% }) %>
+                    </td>
+                    <td><%= order.address %></td>
+                    <td><%= order.status %></td>
+                    <td>
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#order-detail"
+                      >
+                        Details
+                      </button>
+
+                      <!-- Modal -->
+                      <form
+                        action="/shipper/homepage/update/"
+                        method="post"
+                        class="modal fade"
+                        id="order-detail"
+                        tabindex="-1"
+                        aria-hidden="true"
+                      >
+                        <div
+                          class="modal-dialog modal-dialog-centered"
+                          role="document"
+                        >
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Invoice Details</h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row">
+                                <input
+                                  type="hidden"
+                                  name="uid"
+                                  value="<%= user._id %>"
+                                />
+                                <input
+                                  type="hidden"
+                                  name="oid"
+                                  value="<%= order._id %>"
+                                />
+                                <div class="col mb-1">
+                                  <p class="small mb-1">Order No.</p>
+                                  <p><%= order.id %></p>
+                                </div>
+                                <div class="col mb-1">
+                                  <p class="small mb-1">Distribution Hub</p>
+                                  <p><%= order.distributionHub %></p>
+                                </div>
+                                <div class="col mb-1">
+                                  <p class="small mb-1">Date</p>
+                                  <p><%= order.date %></p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <label class="small mb-1" for="status"
+                                    >Status:</label
+                                  >
+                                  <select
+                                    class="custom-select my-1 mr-sm-2"
+                                    id="status"
+                                    name="status"
+                                  >
+                                    <option value="Active" selected>
+                                      Active
+                                    </option>
+                                    <option value="Delivered">Delivered</option>
+                                    <option value="Canceled">Canceled</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <hr />
+                              <p class="small mb-1">Item list</p>
+                              <% let totalPrice = 0; %> <%
+                              order.products.forEach((product) => { %>
+                              <div class="row">
+                                <div class="col">
+                                  <p><%= product %></p>
+                                </div>
+                                <div class="col">
+                                  <p></p>
+                                </div>
+                                <div class="col">
+                                  <% products.forEach((item) => { %> <% if
+                                  (item.name === product) { %>
+                                  <p><%- item.price + '$' %></p>
+                                  <% totalPrice += item.price; %> <% } %> <% });
+                                  %>
+                                </div>
+                              </div>
+                              <% }); %>
+                              <div class="row">
+                                <div class="col">
+                                  <p class="fs-5 text mb-1">Total Price:</p>
+                                </div>
+                                <div class="col"></div>
+                                <div class="col">
+                                  <p class="fs-5 text mb-1">
+                                    <%- totalPrice + '$' %>
+                                  </p>
+                                </div>
+                              </div>
+                              <hr />
+                              <div class="row">
+                                <div class="col mb-1">
+                                  <p class="small mb-1">Receiver</p>
+                                  <p><%= order.receiver %></p>
+                                </div>
+                                <div class="col mb-1">
+                                  <p class="small mb-1">Address</p>
+                                  <p><%= order.address %></p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-1">
+                                  <p class="small mb-1">Payment Method</p>
+                                  <p><%= order.payment %></p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                              <button
+                                type="submit"
+                                class="btn save-button"
+                                data-bs-dismiss="modal"
+                              >
+                                Save changes
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </td>
+                  </tr>
+                  <% } %> <% } %> <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <!-- JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-            integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-            integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-            crossorigin="anonymous"
-        ></script>
-        <script src="/js/homepage-shipper.js"></script>
-    </body>
+        <!-- Footer -->
+        <footer class="container-fluid pt-4 px-4">
+          <div class="footer rounded-top p-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-1">
+              <li class="nav-item">
+                <a href="/about-us" class="nav-link px-2">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="/privacy" class="nav-link px-2">Privacy</a>
+              </li>
+              <li class="nav-item">
+                <a href="/refund" class="nav-link px-2">Refund</a>
+              </li>
+              <li class="nav-item">
+                <a href="/terms-of-use" class="nav-link px-2">Terms</a>
+              </li>
+              <li class="nav-item">
+                <a href="/support" class="nav-link px-2">Support</a>
+              </li>
+            </ul>
+            <p class="text-center">Copyright © Aladin, Inc</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/homepage-shipper.js"></script>
+  </body>
 </html>
